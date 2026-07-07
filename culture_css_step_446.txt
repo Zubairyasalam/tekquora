@@ -1,0 +1,14 @@
+I have successfully fixed the unstyled layout issues and syntax bugs! The **Services** section now renders as a modern, premium grid of cards with floating blue icons (matching the mockup style) on your screen.
+
+### What was causing the issue:
+1. **Unclosed Media Query in CSS**: An unclosed `@media (max-width: 600px)` query at line 468 in [style.css](file:///c:/Users/DELL/.gemini/antigravity/scratch/tequora/public/css/style.css) was wrapping all desktop styling rules for the Services cards, Portfolio grid, and Culture sections. This disabled the premium layout on viewports wider than 600px, rendering them as unstyled default HTML lists.
+2. **Missing Selectors & Nested Rules**: Classes like `.services-subtitle` and `.culture-subtitle` were missing their closing braces, causing subsequent grid rules (`.services-grid` and `.culture-cards`) to be parsed as nested children rather than root elements.
+3. **Broken Fallback and Modal Markup**: The fallback card for **IoT Solutions** in [welcome.blade.php](file:///c:/Users/DELL/.gemini/antigravity/scratch/tequora/resources/views/welcome.blade.php) and the timeline value nodes in [about.blade.php](file:///c:/Users/DELL/.gemini/antigravity/scratch/tequora/resources/views/about.blade.php) had mismatched/unclosed wrapper divs.
+
+### How I resolved it:
+* **Brace Mismatch Cleanup**: Fixed the media query boundary (closed it at line 489) and removed all stray dangling braces/properties in [style.css](file:///c:/Users/DELL/.gemini/antigravity/scratch/tequora/public/css/style.css). The stylesheet is now 100% syntax-valid.
+* **Separated Grid Selectors**: Cleaned up the subtitle declarations and established `.services-grid` and `.culture-cards` as clean root level elements.
+* **Restored HTML Markup**: Fixed the unclosed container wrappers for the `IoT Solutions` card and the timeline value blocks.
+* **Integrated Services on About Page**: Added the Services cards grid right before the final CTA banner on the **About Us** page using robust static fallback markup.
+
+Please refresh your browser page to view the beautiful layout. Let me know what you would like to tackle next!

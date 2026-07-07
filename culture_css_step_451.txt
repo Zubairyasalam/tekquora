@@ -1,0 +1,69 @@
+Created At: 2026-07-07T10:59:59Z
+Completed At: 2026-07-07T10:59:59Z
+File Path: `file:///c:/Users/DELL/.gemini/antigravity/scratch/tequora/public/css/style.css`
+Total Lines: 2526
+Total Bytes: 52278
+Showing lines 590 to 650
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+590:     margin-bottom: 1.5rem;
+591:   }
+592: 
+593:   .culture-subtitle {
+594:     color: var(--text-sub);
+595:     font-size: 1.15rem;
+596:     max-width: 700px;
+597:     margin: 0 auto;
+598:     text-align: center;
+599:   }
+600: 
+601:   .culture-cards {
+602:       display: flex;
+603:       overflow-x: auto;
+604:       scroll-snap-type: x mandatory;
+605:       scroll-behavior: smooth;
+606:       gap: 2rem;
+607:       flex: 1;
+608:       padding: 1.5rem 1.5rem 2.5rem 1.5rem;
+609:       /* Added padding to prevent active scaled card borders from getting cut off */
+610:       -ms-overflow-style: none;
+611:       scrollbar-width: none;
+612:     }
+613: 
+614:     .culture-cards::-webkit-scrollbar {
+615:       display: none;
+616:       /* Chrome, Safari and Opera */
+617:     }
+618: 
+619:     .culture-card {
+620:       flex: 0 0 calc(33.333% - 1.33rem);
+621:       /* Show 3 cards at a time */
+622:       scroll-snap-align: start;
+623:       background: #ffffff;
+624:       border-radius: 1rem;
+625:       border: 1px solid #f1f5f9;
+626:       overflow: hidden;
+627:       transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+628:       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+629:       will-change: transform, box-shadow;
+630:       backface-visibility: hidden;
+631: 
+632:       /* --- [Unused theme styles lines 621 to 1019] --- */
+633: 
+634:     }
+635: 
+636:     .glimpse-slide.next {
+637:       transform: translateX(120px) scale(0.8);
+638:       opacity: 0;
+639:     }
+640: 
+641:   /* Scroll Animation */
+642:   .animate-zoom-in {
+643:     opacity: 0;
+644:     transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+645:   }
+646: 
+647:   .animate-zoom-in.is-visible {
+648:     opacity: 1;
+649:   }
+650: 
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

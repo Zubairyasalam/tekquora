@@ -1,0 +1,308 @@
+Created At: 2026-07-07T10:03:23Z
+Completed At: 2026-07-07T10:03:23Z
+File Path: `file:///c:/Users/DELL/.gemini/antigravity/scratch/tequora/public/css/style.css`
+Total Lines: 2280
+Total Bytes: 51843
+Showing lines 301 to 600
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+301:   /* Larger, smoother border radius */
+302:   padding: 2.5rem 1.5rem;
+303:   /* Balanced compact padding */
+304:   text-align: center;
+305:   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+306:   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+307:   border: 1px solid #e2e8f0;
+308:   display: flex;
+309:   flex-direction: column;
+310:   align-items: center;
+311:   justify-content: flex-start;
+312:   min-height: 230px;
+313:   /* Shorter card height */
+314: }
+315: 
+316: .join-card:hover {
+317:   transform: translateY(-8px);
+318:   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+319:   border-color: var(--primary-light);
+320: }
+321: 
+322: .join-icon {
+323:   width: 64px;
+324:   height: 64px;
+325:   background: var(--primary-light);
+326:   /* Tequora Theme */
+327:   color: var(--primary);
+328:   /* Tequora Theme */
+329:   border-radius: 50%;
+330:   display: flex;
+331:   align-items: center;
+332:   justify-content: center;
+333:   margin: 0 auto 1rem auto;
+334:   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+335: }
+336: 
+337: .join-icon svg {
+338:   width: 28px !important;
+339:   height: 28px !important;
+340:   transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+341: }
+342: 
+343: .join-card:hover .join-icon {
+344:   transform: scale(1.1) translateY(-5px);
+345:   background-color: var(--primary);
+346:   color: #ffffff;
+347:   box-shadow: 0 12px 20px -8px rgba(74, 85, 232, 0.6);
+348:   /* Tequora primary color shadow */
+349: }
+350: 
+351: .join-card:hover .join-icon svg {
+352:   transform: scale(1.2) rotate(8deg);
+353: }
+354: 
+355: .join-card h3 {
+356:   font-family: var(--font-heading);
+357:   font-size: 1.2rem;
+358:   font-weight: 700;
+359:   color: #1e293b;
+360:   margin-bottom: 0.5rem;
+361: }
+362: 
+363: .join-card p {
+364:   color: #64748b;
+365:   line-height: 1.5;
+366:   font-size: 0.9rem;
+367: }
+368: 
+369: /* Our Work Culture Section */
+370: .culture-section {
+371:   padding: 2rem 2rem 1.5rem 2rem;
+372:   /* Restored slight bottom padding for card shadows */
+373:   background-color: #ffffff;
+374: 
+375: /* --- [Unused theme styles lines 551 to 564] --- */
+376: 
+377:   font-family: var(--font-heading);
+378:   font-size: 5rem;
+379:   /* Significantly increased */
+380:   font-weight: 800;
+381:   background: var(--gradient);
+382:   -webkit-background-clip: text;
+383:   -webkit-text-fill-color: transparent;
+384:   margin-bottom: 1.5rem;
+385: }
+386: 
+387: .culture-subtitle {
+388: 
+389: /* --- [Unused theme styles lines 576 to 589] --- */
+390: 
+391: 
+392: .culture-cards {
+393:   display: flex;
+394:   overflow-x: auto;
+395:   scroll-snap-type: x mandatory;
+396:   scroll-behavior: smooth;
+397:   gap: 2rem;
+398:   flex: 1;
+399:   padding: 1.5rem 1.5rem 2.5rem 1.5rem;
+400:   /* Added padding to prevent active scaled card borders from getting cut off */
+401:   -ms-overflow-style: none;
+402:   scrollbar-width: none;
+403: }
+404: 
+405: .culture-cards::-webkit-scrollbar {
+406:   display: none;
+407:   /* Chrome, Safari and Opera */
+408: }
+409: 
+410: .culture-card {
+411:   flex: 0 0 calc(33.333% - 1.33rem);
+412:   /* Show 3 cards at a time */
+413:   scroll-snap-align: start;
+414:   background: #ffffff;
+415:   border-radius: 1rem;
+416:   border: 1px solid #f1f5f9;
+417:   overflow: hidden;
+418:   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+419:   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+420:   will-change: transform, box-shadow;
+421:   backface-visibility: hidden;
+422: 
+423: /* --- [Unused theme styles lines 621 to 1019] --- */
+424: 
+425:   }
+426: 
+427:   .glimpse-slide.next {
+428:     transform: translateX(120px) scale(0.8);
+429:     opacity: 0;
+430:   }
+431: }
+432: 
+433: /* Scroll Animation */
+434: .animate-zoom-in {
+435:   opacity: 0;
+436:   transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+437: }
+438: 
+439: .animate-zoom-in.is-visible {
+440:   opacity: 1;
+441: }
+442: 
+443: /* ===================== Testimonial Section ===================== */
+444: .testimonial-section.dark-theme {
+445:   padding: 6rem 2rem;
+446:   background-color: #0f172a;
+447:   color: #ffffff;
+448:   position: relative;
+449: }
+450: 
+451: .testimonial-section.dark-theme .testimonial-title {
+452:   color: #ffffff;
+453: }
+454: 
+455: .testimonial-section.dark-theme .testimonial-subtitle {
+456: 
+457: /* --- [Unused theme styles lines 1051 to 1599] --- */
+458: 
+459:   gap: 0.4rem;
+460:   margin-top: 0.4rem;
+461: }
+462: 
+463: .portfolio-tech span {
+464:   font-size: 0.75rem;
+465:   padding: 0.2rem 0.65rem;
+466:   background: #f1f5f9;
+467:   color: #475569;
+468:   border-radius: 2rem;
+469:   font-weight: 500;
+470: }
+471: 
+472: /* Responsive */
+473: @media (max-width: 1200px) {
+474:   .portfolio-grid {
+475:     grid-template-columns: repeat(3, 1fr);
+476:   }
+477: }
+478: 
+479: @media (max-width: 900px) {
+480:   .portfolio-grid {
+481:     grid-template-columns: repeat(2, 1fr);
+482:   }
+483: }
+484: 
+485: @media (max-width: 560px) {
+486:   .portfolio-grid {
+487:     grid-template-columns: 1fr;
+488:   }
+489: 
+490:   .portfolio-title {
+491:     font-size: 2.5rem;
+492:   }
+493: }
+494: 
+495: /* =============================================
+496:    PROFESSIONAL OVERRIDES
+497:    ============================================= */
+498: 
+499: .hero-eyebrow {
+500:   font-size: 0.88rem;
+501:   font-weight: 500;
+502:   color: rgba(255, 255, 255, 0.5);
+503:   letter-spacing: 0.5px;
+504:   margin-bottom: 1.25rem;
+505: }
+506: 
+507: .hero-full-title {
+508:   font-size: 4.5rem;
+509:   letter-spacing: -1.5px;
+510:   margin-bottom: 1.25rem;
+511: }
+512: 
+513: .btn-hero-primary {
+514:   padding: 0.85rem 2rem;
+515:   font-size: 0.95rem;
+516:   font-weight: 600;
+517:   letter-spacing: 0.2px;
+518: }
+519: 
+520: .btn-hero-outline {
+521:   padding: 0.85rem 2rem;
+522:   font-size: 0.95rem;
+523:   font-weight: 500;
+524:   border-color: rgba(255, 255, 255, 0.25);
+525: }
+526: 
+527: .hero-stats {
+528:   display: flex;
+529:   align-items: center;
+530:   justify-content: center;
+531:   margin-top: 3.5rem;
+532:   border-top: 1px solid rgba(255, 255, 255, 0.1);
+533:   padding-top: 2rem;
+534:   flex-wrap: wrap;
+535: }
+536: 
+537: .hstat {
+538:   display: flex;
+539:   flex-direction: column;
+540:   align-items: center;
+541:   padding: 0 2.5rem;
+542: }
+543: 
+544: .hstat strong {
+545:   font-family: var(--font-heading);
+546:   font-size: 2rem;
+547:   font-weight: 800;
+548:   color: #fff;
+549:   line-height: 1;
+550: }
+551: 
+552: .hstat span {
+553:   font-size: 0.75rem;
+554:   color: rgba(255, 255, 255, 0.45);
+555:   font-weight: 500;
+556:   margin-top: 0.3rem;
+557:   text-transform: uppercase;
+558:   letter-spacing: 0.8px;
+559: }
+560: 
+561: .hstat-sep {
+562:   width: 1px;
+563:   height: 38px;
+564:   height: 38px;
+565:   background: rgba(255, 255, 255, 0.1);
+566: }
+567: 
+568: /* Service Icon Wrappers - Clean and Floating concentric circles */
+569: .service-icon-wrap {
+570:   position: absolute;
+571:   top: 0;
+572:   left: 50%;
+573:   transform: translate(-50%, -50%);
+574:   width: 72px;
+575:   height: 72px;
+576:   border-radius: 50%;
+577:   background: var(--primary);
+578:   color: #ffffff;
+579:   border: none;
+580:   display: flex;
+581:   align-items: center;
+582:   justify-content: center;
+583:   margin-bottom: 0;
+584:   box-shadow: 0 0 0 8px rgba(74, 85, 232, 0.15), 0 8px 20px rgba(74, 85, 232, 0.15);
+585:   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+586:   z-index: 5;
+587: }
+588: 
+589: .service-icon-wrap svg {
+590:   width: 28px;
+591:   height: 28px;
+592:   stroke-width: 1.5;
+593:   stroke: currentColor;
+594:   transition: transform 0.4s ease;
+595: }
+596: 
+597: .service-card:hover .service-icon-wrap {
+598:   background: var(--primary-dark);
+599:   color: #ffffff;
+600:   transform: translate(-50%, -50%) scale(1.1) rotate(4deg);
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

@@ -1,0 +1,109 @@
+Created At: 2026-07-07T10:44:56Z
+Completed At: 2026-07-07T10:44:57Z
+File Path: `file:///c:/Users/DELL/.gemini/antigravity/scratch/tequora/public/css/style.css`
+Total Lines: 2540
+Total Bytes: 52507
+Showing lines 550 to 650
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+550:     background-color: var(--primary);
+551:     color: #ffffff;
+552:     box-shadow: 0 12px 20px -8px rgba(74, 85, 232, 0.6);
+553:     /* Tequora primary color shadow */
+554:   }
+555: 
+556:   .join-card:hover .join-icon svg {
+557:     transform: scale(1.2) rotate(8deg);
+558:   }
+559: 
+560:   .join-card h3 {
+561:     font-family: var(--font-heading);
+562:     font-size: 1.2rem;
+563:     font-weight: 700;
+564:     color: #1e293b;
+565:     margin-bottom: 0.5rem;
+566:   }
+567: 
+568:   .join-card p {
+569:     color: #64748b;
+570:     line-height: 1.5;
+571:     font-size: 0.9rem;
+572:   }
+573: 
+574:   /* Our Work Culture Section */
+575:   .culture-section {
+576:     padding: 2rem 2rem 1.5rem 2rem;
+577:     /* Restored slight bottom padding for card shadows */
+578:     background-color: #ffffff;
+579: 
+580:     /* --- [Unused theme styles lines 551 to 564] --- */
+581: 
+582:     font-family: var(--font-heading);
+583:     font-size: 5rem;
+584:     /* Significantly increased */
+585:     font-weight: 800;
+586:     background: var(--gradient);
+587:     -webkit-background-clip: text;
+588:     -webkit-text-fill-color: transparent;
+589:     margin-bottom: 1.5rem;
+590:   }
+591: 
+592:   .culture-subtitle {
+593: 
+594:     /* --- [Unused theme styles lines 576 to 589] --- */
+595: 
+596: 
+597:     .culture-cards {
+598:       display: flex;
+599:       overflow-x: auto;
+600:       scroll-snap-type: x mandatory;
+601:       scroll-behavior: smooth;
+602:       gap: 2rem;
+603:       flex: 1;
+604:       padding: 1.5rem 1.5rem 2.5rem 1.5rem;
+605:       /* Added padding to prevent active scaled card borders from getting cut off */
+606:       -ms-overflow-style: none;
+607:       scrollbar-width: none;
+608:     }
+609: 
+610:     .culture-cards::-webkit-scrollbar {
+611:       display: none;
+612:       /* Chrome, Safari and Opera */
+613:     }
+614: 
+615:     .culture-card {
+616:       flex: 0 0 calc(33.333% - 1.33rem);
+617:       /* Show 3 cards at a time */
+618:       scroll-snap-align: start;
+619:       background: #ffffff;
+620:       border-radius: 1rem;
+621:       border: 1px solid #f1f5f9;
+622:       overflow: hidden;
+623:       transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+624:       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+625:       will-change: transform, box-shadow;
+626:       backface-visibility: hidden;
+627: 
+628:       /* --- [Unused theme styles lines 621 to 1019] --- */
+629: 
+630:     }
+631: 
+632:     .glimpse-slide.next {
+633:       transform: translateX(120px) scale(0.8);
+634:       opacity: 0;
+635:     }
+636:   }
+637: 
+638:   /* Scroll Animation */
+639:   .animate-zoom-in {
+640:     opacity: 0;
+641:     transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+642:   }
+643: 
+644:   .animate-zoom-in.is-visible {
+645:     opacity: 1;
+646:   }
+647: 
+648:   /* ===================== Testimonial Section ===================== */
+649:   .testimonial-section.dark-theme {
+650:     padding: 6rem 2rem;
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

@@ -1,0 +1,99 @@
+Created At: 2026-07-07T10:21:24Z
+Completed At: 2026-07-07T10:21:24Z
+File Path: `file:///c:/Users/DELL/.gemini/antigravity/scratch/tequora/public/css/style.css`
+Total Lines: 2484
+Total Bytes: 49859
+Showing lines 560 to 650
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+560:   font-family: var(--font-heading);
+561:   font-size: 1.2rem;
+562:   font-weight: 700;
+563:   color: #1e293b;
+564:   margin-bottom: 0.5rem;
+565: }
+566: 
+567: .join-card p {
+568:   color: #64748b;
+569:   line-height: 1.5;
+570:   font-size: 0.9rem;
+571: }
+572: 
+573: /* Our Work Culture Section */
+574: .culture-section {
+575:   padding: 2rem 2rem 1.5rem 2rem;
+576:   /* Restored slight bottom padding for card shadows */
+577:   background-color: #ffffff;
+578: 
+579: /* --- [Unused theme styles lines 551 to 564] --- */
+580: 
+581:   font-family: var(--font-heading);
+582:   font-size: 5rem;
+583:   /* Significantly increased */
+584:   font-weight: 800;
+585:   background: var(--gradient);
+586:   -webkit-background-clip: text;
+587:   -webkit-text-fill-color: transparent;
+588:   margin-bottom: 1.5rem;
+589: }
+590: 
+591: .culture-subtitle {
+592: 
+593: /* --- [Unused theme styles lines 576 to 589] --- */
+594: 
+595: 
+596: .culture-cards {
+597:   display: flex;
+598:   overflow-x: auto;
+599:   scroll-snap-type: x mandatory;
+600:   scroll-behavior: smooth;
+601:   gap: 2rem;
+602:   flex: 1;
+603:   padding: 1.5rem 1.5rem 2.5rem 1.5rem;
+604:   /* Added padding to prevent active scaled card borders from getting cut off */
+605:   -ms-overflow-style: none;
+606:   scrollbar-width: none;
+607: }
+608: 
+609: .culture-cards::-webkit-scrollbar {
+610:   display: none;
+611:   /* Chrome, Safari and Opera */
+612: }
+613: 
+614: .culture-card {
+615:   flex: 0 0 calc(33.333% - 1.33rem);
+616:   /* Show 3 cards at a time */
+617:   scroll-snap-align: start;
+618:   background: #ffffff;
+619:   border-radius: 1rem;
+620:   border: 1px solid #f1f5f9;
+621:   overflow: hidden;
+622:   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+623:   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+624:   will-change: transform, box-shadow;
+625:   backface-visibility: hidden;
+626: 
+627: /* --- [Unused theme styles lines 621 to 1019] --- */
+628: 
+629:   }
+630: 
+631:   .glimpse-slide.next {
+632:     transform: translateX(120px) scale(0.8);
+633:     opacity: 0;
+634:   }
+635: }
+636: 
+637: /* Scroll Animation */
+638: .animate-zoom-in {
+639:   opacity: 0;
+640:   transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+641: }
+642: 
+643: .animate-zoom-in.is-visible {
+644:   opacity: 1;
+645: }
+646: 
+647: /* ===================== Testimonial Section ===================== */
+648: .testimonial-section.dark-theme {
+649:   padding: 6rem 2rem;
+650:   background-color: #0f172a;
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.
