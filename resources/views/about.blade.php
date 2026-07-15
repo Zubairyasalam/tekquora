@@ -142,7 +142,7 @@
             margin: 0 auto;
             padding-top: 0;
             padding-bottom: 0;
-            height: 370px;
+            height: 400px;
         }
         
         /* Wave is centered at top: 160px with height: 120px */
@@ -151,7 +151,7 @@
             top: 160px;
             left: 0;
             right: 0;
-            z-index: 1;
+            z-index: 3;
         }
         .timeline-line svg {
             width: 100%;
@@ -180,14 +180,14 @@
             z-index: 2;
         }
         
-        /* Valleys are at bottom of wave (160 + 120 = 280 center). Icon is ~60px, so top: 250px */
+        /* Valleys are at bottom of wave (160 + 120 = 280 center). Icon sits below, so top: 280px */
         .valley-icon {
-            top: 250px;
+            top: 280px;
         }
         
-        /* Peaks are at top of wave (160 center). Icon top: 130px */
+        /* Peaks are at top of wave (160 center). Icon sits below, so top: 160px */
         .peak-icon {
-            top: 130px;
+            top: 160px;
         }
         
         .service-icon-wrap {
@@ -207,18 +207,18 @@
             text-align: center;
         }
         
-        /* Text for valley icons sits above the wave (bottom: 260px) */
+        /* Text for valley icons sits above the wave */
         .step-text-top {
-            bottom: 250px;
+            bottom: 280px;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             padding-bottom: 20px;
         }
         
-        /* Text for peak icons sits below the wave (top: 230px) */
+        /* Text for peak icons sits below the wave */
         .step-text-bottom {
-            top: 220px;
+            top: 250px;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;

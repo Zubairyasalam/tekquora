@@ -42,32 +42,13 @@
         </a>
         
         <ul class="nav-links">
-            @if(isset($headerSettings['navigation_links']) && is_array($headerSettings['navigation_links']) && count($headerSettings['navigation_links']) > 0)
-                @foreach($headerSettings['navigation_links'] as $link)
-                    @php
-                        $isActive = false;
-                        if ($link['url'] === '/' && Request::is('/')) {
-                            $isActive = true;
-                        } elseif ($link['url'] !== '/' && !str_contains($link['url'], '#')) {
-                            $urlPath = parse_url($link['url'], PHP_URL_PATH);
-                            if ($urlPath && $urlPath !== '/' && Request::is(trim($urlPath, '/').'*')) {
-                                $isActive = true;
-                            }
-                        }
-                    @endphp
-                    <li>
-                        <a href="{{ $link['url'] }}" class="{{ isset($link['is_button']) && $link['is_button'] ? 'btn-nav-contact' : '' }} {{ $isActive ? 'active' : '' }}">
-                            {{ $link['label'] }}
-                        </a>
-                    </li>
-                @endforeach
-            @else
-                <li><a href="/" class="{{ Request::is('/') ? 'active' : '' }}">Home</a></li>
-                <li><a href="/about" class="{{ Request::is('about*') ? 'active' : '' }}">About</a></li>
-                <li><a href="/#projects" class="{{ Request::is('portfolio*') ? 'active' : '' }}">Projects</a></li>
-                <li><a href="/team" class="{{ Request::is('team*') ? 'active' : '' }}">Our Team</a></li>
-                <li><a href="/contact" class="btn-nav-contact {{ Request::is('contact*') ? 'active' : '' }}">Contact</a></li>
-            @endif
+            <li><a href="/" class="{{ Request::is('/') ? 'active' : '' }}">Home</a></li>
+            <li><a href="/about" class="{{ Request::is('about*') ? 'active' : '' }}">About</a></li>
+            <li><a href="/team" class="{{ Request::is('team*') ? 'active' : '' }}">Our Team</a></li>
+            <li><a href="/#culture">Work Culture</a></li>
+            <li><a href="/#careers">Careers</a></li>
+            <li><a href="/#gallery">Gallery</a></li>
+            <li><a href="/contact" class="btn-nav-contact {{ Request::is('contact*') ? 'active' : '' }}">Contact</a></li>
         </ul>
     </nav>
 
@@ -77,6 +58,7 @@
     </main>
 
     <!-- Footer -->
+    @if(!Request::is('team'))
     <footer class="footer">
         <div class="footer-container">
             <!-- Brand Column -->
@@ -168,6 +150,7 @@
             <p>{{ $footerSettings['copyright'] ?? '© ' . date('Y') . ' TekQuora. All rights reserved.' }}</p>
         </div>
     </footer>
+    @endif
 
     <script src="{{ asset('js/script.js') }}"></script>
 </body>
