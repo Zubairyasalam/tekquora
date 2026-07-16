@@ -4,46 +4,37 @@
 
 @section('content')
 <section class="hero-full">
-    <div class="hero-full-bg" style="background-image: url('{{ asset($heroSettings['background_image'] ?? 'assets/hero-bg.jpg') }}');"></div>
+    <div class="hero-full-bg" style="background-image: url('{{ asset('assets/hero-bg-custom.png') }}');"></div>
     <div class="hero-overlay"></div>
     
     <div class="hero-full-content">
-        <h1 class="hero-full-title">{!! $heroSettings['title'] ?? 'Future-Ready<br>Technology Solutions' !!}</h1>
+        <h1 class="hero-full-title">{!! str_replace('Technology', '<span class="hero-title-theme">Technology</span>', $heroSettings['title'] ?? 'Future-Ready<br>Technology Solutions') !!}</h1>
         @if(isset($heroSettings['subtitle']) && $heroSettings['subtitle'])
             <p class="hero-full-subtitle">
                 {{ $heroSettings['subtitle'] }}
             </p>
         @endif
-        <div class="hero-action-bar">
-            @if(isset($heroSettings['secondary_btn_text']) && $heroSettings['secondary_btn_text'])
-                <a href="{{ $heroSettings['secondary_btn_url'] ?? '#' }}" class="btn-action-glass">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
-                    {{ $heroSettings['secondary_btn_text'] }}
-                </a>
-            @endif
-            @if(isset($heroSettings['primary_btn_text']) && $heroSettings['primary_btn_text'])
-                <a href="{{ $heroSettings['primary_btn_url'] ?? '#' }}" class="btn-action-yellow">{{ $heroSettings['primary_btn_text'] }}</a>
-            @endif
-        </div>
+
     </div>
 </section>
 
-<!-- About TekQuora Section (Redesigned to match image) -->
-<section class="about-section animate-zoom-in" id="about">
+<!-- About TekQuora Section (Premium Redesign) -->
+<section class="about-section" id="about">
+    <!-- Blurred Background Glow Circles for SaaS depth -->
+    <div class="about-bg-glow-1"></div>
+    <div class="about-bg-glow-2"></div>
+    
     <div class="about-container">
         <div class="about-content new-about-layout">
-            <!-- Left Column: Image Blob -->
-            <div class="about-image-column">
-                <div class="about-blob-container">
-                    <div class="about-image-wrapper">
-                        <img src="{{ asset($aboutSettings['image'] ?? 'assets/logo.png') }}" alt="{{ $aboutSettings['eyebrow'] ?? 'TekQuora' }} Image" class="about-blob-img">
-                    </div>
-                    <div class="about-swoosh"></div>
+            <!-- Left Column: Illustration Placeholder (new design to be added) -->
+            <div class="about-image-column reveal-left">
+                <div class="about-illustration-placeholder">
+                    {{-- New illustration will be placed here --}}
                 </div>
             </div>
             
             <!-- Right Column: Content -->
-            <div class="about-text-column">
+            <div class="about-text-column reveal-right">
                 <span class="about-eyebrow">{{ $aboutSettings['eyebrow'] ?? 'ABOUT TEKQUORA' }}</span>
                 <div class="about-description">
                     @if(isset($aboutSettings['description_1']) && $aboutSettings['description_1'])
@@ -97,7 +88,7 @@
                 <!-- Bottom: Actions -->
                 @if(isset($aboutSettings['btn_text']) && $aboutSettings['btn_text'])
                     <div class="about-actions">
-                        <a href="{{ $aboutSettings['btn_url'] ?? '#' }}" class="btn-solid-primary about-explore-btn">{{ $aboutSettings['btn_text'] }} &rarr;</a>
+                        <a href="{{ $aboutSettings['btn_url'] ?? '/about' }}" class="btn-solid-primary about-explore-btn">{{ $aboutSettings['btn_text'] }} &rarr;</a>
                     </div>
                 @endif
             </div>
@@ -292,7 +283,14 @@
                         <div class="join-icon">
                             @switch($item['icon'] ?? 'popper')
                                 @case('popper')
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-party-popper"><path d="M5.8 11.3 2 22l10.7-3.79Z"/><path d="M4 3h.01"/><path d="M22 8h.01"/><path d="M15 2h.01"/><path d="M22 20h.01"/><path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12v0c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10"/><path d="m22 13-.82-.33c-.86-.39-1.87.15-2.15 1.07v0a1.96 1.96 0 0 1-2.56 1.14l-.83-.34"/><path d="m11 16 .33.82c.39.86-.15 1.87-1.07 2.15v0a1.96 1.96 0 0 1-1.14-2.56l.34-.83"/><path d="m5 11 4.67-4.67c.7-.7 1.84-.7 2.54 0v0c.7.7.7 1.84 0 2.54L7.5 13.5"/></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                                        <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                                        <path d="M4 22h16"/>
+                                        <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                                        <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                                        <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+                                    </svg>
                                     @break
                                 @case('clock')
                                     <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l3 3"/></svg>

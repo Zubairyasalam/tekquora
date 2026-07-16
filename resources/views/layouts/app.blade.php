@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'TekQuora')</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +15,12 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}?v={{ time() }}">
+    <style>
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden !important;
+        }
+    </style>
     @if(isset($systemConfig))
     <style>
         :root {
@@ -47,7 +56,7 @@
             <li><a href="/team" class="{{ Request::is('team*') ? 'active' : '' }}">Our Team</a></li>
             <li><a href="/#culture">Work Culture</a></li>
             <li><a href="/#careers">Careers</a></li>
-            <li><a href="/#gallery">Gallery</a></li>
+            <li><a href="/portfolio" class="{{ Request::is('portfolio*') ? 'active' : '' }}">Projects</a></li>
             <li><a href="/contact" class="btn-nav-contact {{ Request::is('contact*') ? 'active' : '' }}">Contact</a></li>
         </ul>
     </nav>
@@ -71,20 +80,26 @@
                 
                 <div class="footer-contact-info">
                     @if(isset($contactSettings['email']))
-                        <div class="footer-contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                            <a href="mailto:{{ $contactSettings['email'] }}">{{ $contactSettings['email'] }}</a>
-                        </div>
+                        <a href="mailto:{{ $contactSettings['email'] }}" class="footer-contact-item">
+                            <div class="footer-contact-icon-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
+                            <span>{{ $contactSettings['email'] }}</span>
+                        </a>
                     @endif
                     @if(isset($contactSettings['phone']))
-                        <div class="footer-contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                            <a href="tel:{{ $contactSettings['phone'] }}">{{ $contactSettings['phone'] }}</a>
-                        </div>
+                        <a href="tel:{{ $contactSettings['phone'] }}" class="footer-contact-item">
+                            <div class="footer-contact-icon-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            <span>{{ $contactSettings['phone'] }}</span>
+                        </a>
                     @endif
                     @if(isset($contactSettings['location']))
                         <div class="footer-contact-item">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <div class="footer-contact-icon-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
                             <span>{{ $contactSettings['location'] }}</span>
                         </div>
                     @endif
@@ -146,12 +161,17 @@
             </div>
         </div>
 
-        <div class="footer-bottom" style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 13px; color: #94a3b8;">
+        <div class="footer-bottom">
             <p>{{ $footerSettings['copyright'] ?? '© ' . date('Y') . ' TekQuora. All rights reserved.' }}</p>
         </div>
     </footer>
     @endif
 
     <script src="{{ asset('js/script.js') }}"></script>
+
+    <!-- Floating Back to Top Button -->
+    <button id="scrollToTopBtn" class="scroll-to-top-btn" aria-label="Scroll to top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
 </body>
 </html>
