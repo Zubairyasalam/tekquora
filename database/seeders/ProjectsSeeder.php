@@ -12,6 +12,7 @@ class ProjectsSeeder extends Seeder
      */
     public function run(): void
     {
+        Project::query()->delete();
         $projects = [
             [
                 'title' => 'TVK Tiruchengodu Digital Portal',
@@ -25,7 +26,7 @@ class ProjectsSeeder extends Seeder
             [
                 'title' => 'MCC IGH',
                 'category' => 'web',
-                'description' => 'Integrated healthcare management system designed to streamline patient records, appointments, and administrative workflows.',
+                'description' => 'Integrated healthcare management system designed to streamline patient medical records, automated appointment scheduling, and administrative office workflows.',
                 'tech_tags' => ['Laravel', 'SQLite', 'Bootstrap'],
                 'image_1' => '/assets/projects/project-3.jpg',
                 'image_2' => '/assets/projects/project-5.jpg',
@@ -43,7 +44,7 @@ class ProjectsSeeder extends Seeder
             [
                 'title' => 'MCC AI - Language Platform',
                 'category' => 'ai',
-                'description' => 'An AI-powered language platform for real-time voice transcription, audio analysis, translation, and workspace management.',
+                'description' => 'An AI-powered language processing platform for real-time voice transcription, audio sentiment analysis, multi-language translation, and team workspace management.',
                 'tech_tags' => ['React', 'Python Flask', 'SQLite'],
                 'image_1' => '/assets/projects/project-6.jpg',
                 'image_2' => '/assets/projects/project-2.jpg',
@@ -70,7 +71,7 @@ class ProjectsSeeder extends Seeder
             [
                 'title' => 'Enterprise CRM Platform',
                 'category' => 'web',
-                'description' => 'A full-featured customer relationship management system with real-time analytics and workflow automation.',
+                'description' => 'A full-featured customer relationship management system with real-time analytics, automated pipeline tracking, and customer engagement workflow automation. Designed to streamline sales, marketing, and customer support operations through a unified, data-driven platform.',
                 'tech_tags' => ['Laravel', 'Vue.js', 'MySQL'],
                 'image_1' => '/assets/projects/project-1.jpg',
                 'image_2' => '/assets/projects/project-3.jpg',
@@ -79,7 +80,7 @@ class ProjectsSeeder extends Seeder
             [
                 'title' => 'Internship Management & Monitoring System (IMMS) - MCC',
                 'category' => 'web',
-                'description' => 'A web platform to monitor intern attendance, tasks, and daily progress. Features geofenced check-ins and automated email updates.',
+                'description' => 'A web platform to monitor intern attendance, tasks, and daily progress. Features geofenced check-ins and automated email updates. Provides real-time performance tracking, centralized internship management.',
                 'tech_tags' => ['React', 'FastAPI', 'PostgreSQL/SQLite', 'HTML & CSS'],
                 'image_1' => '/assets/projects/project-4.jpg',
                 'image_2' => '/assets/projects/project-1.jpg',
@@ -88,7 +89,7 @@ class ProjectsSeeder extends Seeder
             [
                 'title' => 'SecurGate',
                 'category' => 'web',
-                'description' => 'Enterprise security management platform with access control, incident tracking, and real-time monitoring features.',
+                'description' => 'Enterprise-grade security management platform providing granular access control list system, digital incident tracking, and active real-time network monitoring features. Enables centralized security administration with role-based permissions, comprehensive audit logs, and automated threat detection capabilities.',
                 'tech_tags' => ['Laravel', 'SQLite', 'Bootstrap'],
                 'image_1' => '/assets/projects/project-5.jpg',
                 'image_2' => '/assets/projects/project-3.jpg',

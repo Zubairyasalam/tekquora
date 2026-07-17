@@ -13,7 +13,7 @@ class SettingsSeeder extends Seeder
     public function run(): void
     {
         Setting::set('header_logo_text', 'TekQuora');
-        Setting::set('header_logo_path', '/assets/Tekquora_website_logo-resized.png');
+        Setting::set('header_logo_path', '/assets/Tekquora_website_logo_cropped.png');
         
         $defaultLinks = [
             [

@@ -3,20 +3,37 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Contact Inquiry</title>
+    <title>New Client Inquiry - TekQuora</title>
 </head>
-<body style="margin: 0; padding: 0; background-color: #f4f7fe; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #000000;">
-    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color: #f4f7fe; padding: 40px 20px;">
+<body style="margin: 0; padding: 0; background-color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #334155; -webkit-font-smoothing: antialiased;">
+    @php
+        $logoPath = \App\Models\Setting::get('header_logo_path');
+        $logoText = \App\Models\Setting::get('header_logo_text', 'TekQuora');
+    @endphp
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color: #f8fafc; padding: 48px 24px;">
         <tr>
             <td align="center">
                 <!-- Main Card Container -->
-                <table width="600" border="0" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); max-width: 600px; width: 100%; border: 1px solid #e2e8f0;">
+                <table width="600" border="0" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03); max-width: 600px; width: 100%; border: 1px solid #e2e8f0;">
                     
-                    <!-- Header Banner -->
+                    <!-- Gradient Top Bar -->
                     <tr>
-                        <td style="background: linear-gradient(135deg, #1b2559 0%, #0061ff 100%); padding: 32px 40px; text-align: center;">
-                            <h1 style="margin: 0; font-size: 28px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px;">TekQuora</h1>
-                            <p style="margin: 6px 0 0; font-size: 14px; color: #ffffff; font-weight: 600;">New Website Notification</p>
+                        <td height="4" style="background-color: #4f46e5; background: linear-gradient(135deg, #00d2ff 0%, #4a55e8 50%, #8b5cf6 100%); line-height: 4px; font-size: 4px;">&nbsp;</td>
+                    </tr>
+                    
+                    <!-- Header Banner with Logo -->
+                    <tr>
+                        <td style="background-color: #ffffff; padding: 32px 40px; text-align: center; border-bottom: 1px solid #e2e8f0;">
+                            @if($logoPath)
+                                @if(isset($message) && file_exists(public_path(ltrim($logoPath, '/'))))
+                                    <img src="{{ $message->embed(public_path(ltrim($logoPath, '/'))) }}" alt="{{ $logoText }} Logo" style="height: 42px; width: auto; max-width: 220px; display: block; margin: 0 auto;">
+                                @else
+                                    <img src="{{ asset(ltrim($logoPath, '/')) }}" alt="{{ $logoText }} Logo" style="height: 42px; width: auto; max-width: 220px; display: block; margin: 0 auto;">
+                                @endif
+                            @else
+                                <h1 style="margin: 0; font-size: 26px; font-weight: 800; color: #4f46e5; letter-spacing: -0.5px;">{{ $logoText }}</h1>
+                            @endif
+                            <p style="margin: 8px 0 0; font-size: 11px; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">Website Notification</p>
                         </td>
                     </tr>
 
@@ -25,47 +42,47 @@
                         <td style="padding: 40px;">
                             <!-- Status Pill -->
                             <div style="margin-bottom: 24px;">
-                                <span style="background-color: #f1f5f9; color: #000000; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid #cbd5e1;">🚀 NEW CLIENT INQUIRY</span>
+                                <span style="background-color: #e0e7ff; color: #4f46e5; padding: 6px 14px; border-radius: 9999px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block;">New Client Inquiry</span>
                             </div>
 
-                            <h2 style="margin: 0 0 16px; font-size: 22px; font-weight: 800; color: #000000;">You have received a new message!</h2>
-                            <p style="margin: 0 0 28px; font-size: 15px; line-height: 1.6; color: #000000; font-weight: 500;">A visitor has submitted the contact form on your TekQuora website. Here are the project details:</p>
+                            <h2 style="margin: 0 0 12px; font-size: 20px; font-weight: 700; color: #0f172a; line-height: 1.3;">New inquiry received from contact form</h2>
+                            <p style="margin: 0 0 28px; font-size: 15px; line-height: 1.6; color: #475569;">A visitor has submitted a new inquiry through the contact form on the TekQuora website. The submission details are listed below:</p>
 
                             <!-- Client Details Table -->
-                            <table width="100%" border="0" cellpadding="12" cellspacing="0" style="background-color: #f8fafc; border-radius: 12px; border: 1px solid #cbd5e1; margin-bottom: 28px;">
+                            <table width="100%" border="0" cellpadding="14" cellspacing="0" style="background-color: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 28px;">
                                 <tr>
-                                    <td width="35%" style="font-size: 14px; font-weight: 700; color: #000000; border-bottom: 1px solid #cbd5e1;">Full Name:</td>
-                                    <td width="65%" style="font-size: 15px; font-weight: 800; color: #000000; border-bottom: 1px solid #cbd5e1;">{{ $data['name'] }}</td>
+                                    <td width="35%" style="font-size: 14px; font-weight: 600; color: #64748b; border-bottom: 1px solid #e2e8f0;">Full Name</td>
+                                    <td width="65%" style="font-size: 14px; font-weight: 700; color: #0f172a; border-bottom: 1px solid #e2e8f0;">{{ $data['name'] }}</td>
                                 </tr>
                                 <tr>
-                                    <td style="font-size: 14px; font-weight: 700; color: #000000; border-bottom: 1px solid #cbd5e1;">Email Address:</td>
-                                    <td style="font-size: 15px; font-weight: 800; color: #000000; border-bottom: 1px solid #cbd5e1;">
-                                        <a href="mailto:{{ $data['email'] }}" style="color: #000000; font-weight: 800; text-decoration: underline;">{{ $data['email'] }}</a>
+                                    <td style="font-size: 14px; font-weight: 600; color: #64748b; border-bottom: 1px solid #e2e8f0;">Email Address</td>
+                                    <td style="font-size: 14px; font-weight: 700; color: #000000; border-bottom: 1px solid #e2e8f0;">
+                                        <a href="mailto:{{ $data['email'] }}" style="color: #000000; text-decoration: underline; font-weight: 700;">{{ $data['email'] }}</a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="font-size: 14px; font-weight: 700; color: #000000; border-bottom: 1px solid #cbd5e1;">Company:</td>
-                                    <td style="font-size: 15px; font-weight: 800; color: #000000; border-bottom: 1px solid #cbd5e1;">{{ $data['company'] ?? 'N/A' }}</td>
+                                    <td style="font-size: 14px; font-weight: 600; color: #64748b; border-bottom: 1px solid #e2e8f0;">Company</td>
+                                    <td style="font-size: 14px; font-weight: 700; color: #0f172a; border-bottom: 1px solid #e2e8f0;">{{ $data['company'] ?? 'N/A' }}</td>
                                 </tr>
                                 <tr>
-                                    <td style="font-size: 14px; font-weight: 700; color: #000000;">Service Requested:</td>
+                                    <td style="font-size: 14px; font-weight: 600; color: #64748b;">Service</td>
                                     <td>
-                                        <span style="background-color: #000000; color: #ffffff; padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 800; text-transform: uppercase;">{{ $data['service'] }}</span>
+                                        <span style="background-color: #000000; color: #ffffff; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">{{ $data['service'] }}</span>
                                     </td>
                                 </tr>
                             </table>
 
                             <!-- Message Callout Box -->
-                            <div style="margin-bottom: 32px;">
-                                <div style="font-size: 14px; font-weight: 800; color: #000000; margin-bottom: 8px;">Project Details / Message:</div>
-                                <div style="background-color: #ffffff; border-left: 4px solid #000000; padding: 16px 20px; border-radius: 0 8px 8px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid #cbd5e1; font-size: 15px; line-height: 1.6; color: #000000; font-weight: 600; white-space: pre-wrap;">{{ $data['details'] }}</div>
+                            <div style="margin-bottom: 36px;">
+                                <div style="font-size: 14px; font-weight: 700; color: #0f172a; margin-bottom: 10px;">Message / Project Details:</div>
+                                <div style="background-color: #ffffff; border-left: 4px solid #4f46e5; padding: 18px 20px; border-radius: 4px 12px 12px 4px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02); border-top: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; font-size: 14px; line-height: 1.6; color: #334155; white-space: pre-wrap;">{{ $data['details'] }}</div>
                             </div>
 
                             <!-- Action Button -->
                             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                                 <tr>
                                     <td align="center">
-                                        <a href="http://127.0.0.1:8000/admin/inquiries" style="display: inline-block; background-color: #0061ff; color: #ffffff; font-size: 15px; font-weight: 800; text-decoration: none; padding: 14px 32px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 97, 255, 0.3);">View in Admin Dashboard</a>
+                                        <a href="http://127.0.0.1:8000/admin/inquiries" style="display: inline-block; background-color: #4f46e5; color: #ffffff; font-size: 14px; font-weight: 700; text-decoration: none; padding: 14px 36px; border-radius: 10px; box-shadow: 0 4px 14px rgba(79, 70, 229, 0.25); transition: background-color 0.2s ease;">View In Dashboard</a>
                                     </td>
                                 </tr>
                             </table>
@@ -75,9 +92,9 @@
 
                     <!-- Footer -->
                     <tr>
-                        <td style="background-color: #f8fafc; padding: 24px 40px; text-align: center; border-top: 1px solid #cbd5e1;">
-                            <p style="margin: 0; font-size: 13px; color: #000000; font-weight: 600;">You can reply directly to this email to contact the sender.</p>
-                            <p style="margin: 6px 0 0; font-size: 12px; color: #000000; font-weight: 500;">&copy; {{ date('Y') }} TekQuora Automated System. All rights reserved.</p>
+                        <td style="background-color: #f8fafc; padding: 28px 40px; text-align: center; border-top: 1px solid #e2e8f0;">
+                            <p style="margin: 0; font-size: 13px; color: #64748b; font-weight: 500;">You can reply directly to this notification email to contact the client.</p>
+                            <p style="margin: 6px 0 0; font-size: 12px; color: #94a3b8; font-weight: 500;">&copy; {{ date('Y') }} TekQuora. All rights reserved.</p>
                         </td>
                     </tr>
 

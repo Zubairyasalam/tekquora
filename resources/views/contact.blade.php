@@ -4,7 +4,7 @@
 
 @section('content')
 <!-- Contact Hero Section -->
-<section class="contact-hero" style="background-image: linear-gradient(rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.6)), url('{{ asset('assets/hero-bg.jpg') }}');">
+<section class="contact-hero">
     <div class="contact-hero-content">
         <span class="contact-eyebrow-pill">Contact Us</span>
         <h1 class="contact-hero-title">{{ $contactSettings['title'] ?? "Let's Connect" }}</h1>

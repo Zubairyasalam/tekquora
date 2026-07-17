@@ -4,7 +4,7 @@
 
 @section('content')
 <!-- Portfolio Hero Section -->
-<section class="team-hero" style="background-image: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.85)), url('{{ asset('assets/hero-bg.jpg') }}');">
+<section class="team-hero" style="background-image: linear-gradient(135deg, #0f172a, #1e293b);">
     <div class="team-hero-content">
         <h1 class="team-hero-title">Our Projects</h1>
         <p class="team-hero-subtitle">Explore our latest projects showcasing innovation, technical excellence, and transformative digital solutions.</p>
@@ -71,12 +71,16 @@
             
             <!-- Image Slider -->
             <div class="modal-slider">
-                <button class="slider-btn prev" id="sliderPrev">&lt;</button>
+                <button class="slider-btn prev" id="sliderPrev" aria-label="Previous image">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
                 <div class="slider-track">
                     <img id="modalImg1" src="" alt="Screenshot 1" class="modal-slide-img active">
                     <img id="modalImg2" src="" alt="Screenshot 2" class="modal-slide-img">
                 </div>
-                <button class="slider-btn next" id="sliderNext">&gt;</button>
+                <button class="slider-btn next" id="sliderNext" aria-label="Next image">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
             </div>
             
             <p id="modalDesc" class="modal-project-desc">Project description...</p>
