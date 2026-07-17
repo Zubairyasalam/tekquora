@@ -35,6 +35,10 @@ Route::get('/portfolio', function () {
     return view('portfolio');
 });
 
+Route::get('/work-culture', function () {
+    return view('culture');
+});
+
 Route::get('/contact', function () {
     return view('contact');
 });

@@ -49,7 +49,7 @@ class SettingsSeeder extends Seeder
             [
                 'id' => 6,
                 'label' => 'Work Culture',
-                'url' => '/#culture',
+                'url' => '/work-culture',
                 'is_button' => false
             ],
             [
@@ -81,7 +81,7 @@ class SettingsSeeder extends Seeder
         Setting::set('hero_primary_btn_text', 'See Our Team');
         Setting::set('hero_primary_btn_url', '/team');
         Setting::set('hero_secondary_btn_text', 'Explore Work Culture');
-        Setting::set('hero_secondary_btn_url', '/#culture');
+        Setting::set('hero_secondary_btn_url', '/work-culture');
 
         // About section defaults
         Setting::set('about_image', '/assets/logo.png');
