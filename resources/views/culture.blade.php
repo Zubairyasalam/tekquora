@@ -8,10 +8,10 @@
 @endphp
 
 <!-- Hero Section -->
-<section class="team-hero" style="background-image: linear-gradient(135deg, #0f172a, #1e293b); text-align: center; padding: 5rem 1.5rem 2.5rem 1.5rem; color: #ffffff;">
+<section class="team-hero">
     <div class="team-hero-content" style="max-width: 800px; margin: 0 auto;">
-        <h1 class="team-hero-title" style="font-family: var(--font-heading); font-size: 4rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.02em;">Work Culture</h1>
-        <p class="team-hero-subtitle" style="font-size: 1.35rem; font-weight: 400; max-width: 700px; margin: 0 auto; opacity: 0.9;">Explore our workspace, team values, and collaborative environment.</p>
+        <h1 class="team-hero-title">Work Culture</h1>
+        <p class="team-hero-subtitle">Explore our workspace, team values, and collaborative environment.</p>
     </div>
 </section>
 

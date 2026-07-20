@@ -5,27 +5,6 @@
 @section('content')
 
 <style>
-/* Team Hero Section */
-.team-hero {
-    position: relative;
-    padding: 100px 20px;
-    text-align: center;
-    background-image: linear-gradient(135deg, #0f172a, #1e293b);
-    color: white;
-}
-.team-hero-title {
-    font-size: 48px;
-    font-weight: 800;
-    margin-bottom: 15px;
-    font-family: 'Outfit', sans-serif;
-}
-.team-hero-subtitle {
-    font-size: 18px;
-    max-width: 600px;
-    margin: 0 auto;
-    opacity: 0.9;
-}
-
 /* Filter Bar */
 .team-filter-bar {
     display: flex;
