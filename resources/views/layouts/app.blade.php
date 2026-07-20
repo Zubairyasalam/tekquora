@@ -44,7 +44,7 @@
     <nav class="navbar">
         <a href="/" class="navbar-brand" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
             @if(isset($headerSettings['logo_path']) && $headerSettings['logo_path'])
-                <img src="{{ asset($headerSettings['logo_path']) }}" alt="{{ $headerSettings['logo_text'] ?? 'TekQuora' }} Logo" style="height: 32px; width: auto; object-fit: contain;">
+                <img src="{{ asset($headerSettings['logo_path']) }}" alt="{{ $headerSettings['logo_text'] ?? 'TekQuora' }} Logo" style="height: 38px; width: auto; object-fit: contain;">
             @else
                 <span class="navbar-logo-text" style="font-family: 'Outfit', sans-serif; font-size: 24px; font-weight: 700; color: #1f2937;">{{ $headerSettings['logo_text'] ?? 'TekQuora' }}</span>
             @endif
