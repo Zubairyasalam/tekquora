@@ -114,7 +114,6 @@ main {
   align-items: flex-start;
   justify-content: center;
   text-align: center;
-  margin-top: 72px;
   padding: 8.5rem 1.5rem 4rem 1.5rem;
   background-color: #0f172a;
   overflow: hidden;
@@ -3888,7 +3887,6 @@ footer {
   }
 
   .hero-full {
-    margin-top: 60px;
     padding: 7rem 1.5rem 3rem 1.5rem;
     aspect-ratio: auto;
     min-height: 80vh;
