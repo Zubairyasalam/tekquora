@@ -44,6 +44,11 @@ body {
   transition: all 0.3s ease;
 }
 
+main {
+  padding-top: 65px;
+}
+
+
 .navbar.scrolled {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
   padding: 0.6rem 4.5rem;
@@ -56,7 +61,7 @@ body {
 }
 
 .navbar-brand img {
-  height: 40px;
+  height: 32px;
   width: auto;
   object-fit: contain;
 }
