@@ -765,7 +765,10 @@
         font-family: var(--font-heading);
         font-size: 2.6rem;
         font-weight: 900;
-        color: var(--primary, #0061ff);
+        background: linear-gradient(90deg, #0061ff 0%, #8b5cf6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
         line-height: 1.2;
         letter-spacing: -0.02em;
         margin-bottom: 1.25rem;
