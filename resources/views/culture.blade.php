@@ -765,7 +765,7 @@
         font-family: var(--font-heading);
         font-size: 2.6rem;
         font-weight: 900;
-        color: #0f172a;
+        color: var(--primary, #0061ff);
         line-height: 1.2;
         letter-spacing: -0.02em;
         margin-bottom: 1.25rem;
