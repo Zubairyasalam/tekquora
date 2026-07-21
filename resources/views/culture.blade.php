@@ -66,7 +66,7 @@
         font-family: var(--font-heading);
         font-size: 2.6rem;
         font-weight: 800;
-        background: linear-gradient(90deg, #0061ff 0%, #8b5cf6 100%);
+        background: linear-gradient(90deg, #0066ff 0%, #4f46e5 50%, #7c3aed 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -362,7 +362,7 @@
         font-family: var(--font-heading);
         font-size: 2.8rem;
         font-weight: 900;
-        background: linear-gradient(90deg, #0061ff 0%, #8b5cf6 100%);
+        background: linear-gradient(90deg, #0066ff 0%, #4f46e5 50%, #7c3aed 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -771,7 +771,7 @@
         font-family: var(--font-heading);
         font-size: 2.6rem;
         font-weight: 900;
-        background: linear-gradient(90deg, #0061ff 0%, #8b5cf6 100%);
+        background: linear-gradient(90deg, #0066ff 0%, #4f46e5 50%, #7c3aed 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
