@@ -174,8 +174,11 @@ main {
 }
 
 .hero-title-theme {
-  color: var(--primary);
-  display: inline;
+  background: linear-gradient(90deg, #0066ff 0%, #4f46e5 50%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
 }
 
 .hero-full-subtitle {
