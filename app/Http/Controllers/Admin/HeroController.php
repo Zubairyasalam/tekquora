@@ -10,7 +10,7 @@ class HeroController extends Controller
 {
     public function index()
     {
-        $heroImage = Setting::get('hero_background_image', '/assets/hero-bg.jpg');
+        $heroImage = Setting::get('hero_background_image', 'assets/hero-bg-custom.png');
         $heroTitle = Setting::get('hero_title', 'Future-Ready<br>Technology Solutions');
         $heroSubtitle = Setting::get('hero_subtitle', '');
         $heroPrimaryText = Setting::get('hero_primary_btn_text', 'See Our Team');

@@ -33,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
                 $links = $linksJson ? json_decode($linksJson, true) : [];
                 
                 // Hero settings
-                $heroImage = Setting::get('hero_background_image', '/assets/hero-bg.jpg');
+                $heroImage = Setting::get('hero_background_image', 'assets/hero-bg-custom.png');
                 $heroTitle = Setting::get('hero_title', 'Future-Ready<br>Technology Solutions');
                 $heroSubtitle = Setting::get('hero_subtitle', '');
                 $heroPrimaryText = Setting::get('hero_primary_btn_text', 'See Our Team');
@@ -42,7 +42,7 @@ class AppServiceProvider extends ServiceProvider
                 $heroSecondaryUrl = Setting::get('hero_secondary_btn_url', '/#culture');
 
                 // About settings
-                $aboutImage = Setting::get('about_image', '/assets/logo.png');
+                $aboutImage = Setting::get('about_image', 'assets/Tekquora_icon_with_bg_cropped.png');
                 $aboutEyebrow = Setting::get('about_eyebrow', 'ABOUT TEKQUORA');
                 $aboutDesc1 = Setting::get('about_description_1', '');
                 $aboutDesc2 = Setting::get('about_description_2', '');

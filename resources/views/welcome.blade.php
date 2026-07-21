@@ -4,7 +4,7 @@
 
 @section('content')
 <section class="hero-full">
-    <div class="hero-full-bg" style="background-image: url('{{ asset('assets/hero-bg-custom.png') }}');"></div>
+    <div class="hero-full-bg" style="background-image: url('{{ asset($heroSettings['image'] ?? 'assets/hero-bg-custom.png') }}');"></div>
     <div class="hero-overlay"></div>
     
     <div class="hero-full-content">

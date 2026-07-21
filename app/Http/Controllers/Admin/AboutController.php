@@ -10,7 +10,7 @@ class AboutController extends Controller
 {
     public function index()
     {
-        $aboutImage = Setting::get('about_image', '/assets/logo.png');
+        $aboutImage = Setting::get('about_image', 'assets/Tekquora_icon_with_bg_cropped.png');
         $aboutEyebrow = Setting::get('about_eyebrow', 'ABOUT TEKQUORA');
         $aboutDesc1 = Setting::get('about_description_1', '');
         $aboutDesc2 = Setting::get('about_description_2', '');
