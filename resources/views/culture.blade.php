@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Work Culture - TekQuora')
+@section('title', 'Our Service - TekQuora')
 
 @section('content')
 
 <!-- Hero Section -->
 <section class="team-hero">
     <div class="team-hero-content" style="max-width: 800px; margin: 0 auto;">
-        <h1 class="team-hero-title">Our Work Culture</h1>
+        <h1 class="team-hero-title">Our Service</h1>
         <p class="team-hero-subtitle">We believe great products are built by happy, collaborative teams.</p>
     </div>
 </section>
@@ -720,112 +720,154 @@
     }
     
     /* -----------------------------------------------
-       SECTION 3: GLOBAL REACH SECTION (NEW)
+       SECTION 3: GLOBAL PRESENCE SECTION (REDESIGNED)
        ----------------------------------------------- */
     .global-reach-section {
-        padding: 8rem 1.5rem;
-        background-color: #ffffff;
+        padding: 6rem 1.5rem;
+        background: #ffffff;
         position: relative;
         overflow: hidden;
-        border-top: 1px solid rgba(226, 232, 240, 0.6);
     }
-    
+
     .global-reach-container {
         max-width: 1280px;
         margin: 0 auto;
         display: grid;
-        grid-template-columns: 0.8fr 1.6fr;
-        gap: 5rem;
-        align-items: center;
+        grid-template-columns: 1fr;
+        gap: 3rem;
         position: relative;
         z-index: 2;
     }
-    
-    .global-reach-left {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
+
+    /* Top: Centered Header Block */
+    .global-reach-header {
+        text-align: center;
+        max-width: 820px;
+        margin: 0 auto;
     }
-    
+
     .global-reach-eyebrow {
+        display: inline-block;
         color: var(--primary, #0061ff);
         font-family: var(--font-heading);
-        font-size: 0.85rem;
-        font-weight: 700;
+        font-size: 0.75rem;
+        font-weight: 800;
         text-transform: uppercase;
-        letter-spacing: 0.1em;
-        margin-bottom: 0.5rem;
-        display: block;
+        letter-spacing: 0.2em;
+        margin-bottom: 1rem;
+        padding: 6px 18px;
+        border: 1px solid rgba(0, 97, 255, 0.2);
+        border-radius: 100px;
+        background: rgba(0, 97, 255, 0.05);
     }
-    
+
     .global-reach-title {
         font-family: var(--font-heading);
-        font-size: 2.8rem;
+        font-size: 2.6rem;
         font-weight: 900;
         color: #0f172a;
         line-height: 1.2;
         letter-spacing: -0.02em;
         margin-bottom: 1.25rem;
     }
-    
+
     .global-reach-desc {
         font-family: var(--font-body);
         color: #475569;
-        font-size: 1.1rem;
-        line-height: 1.7;
-        margin-bottom: 1.5rem;
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-bottom: 0;
     }
-    
 
-    
-    /* Right Column: Interactive Map Canvas */
-    .global-reach-right {
+    /* Stats Row */
+    .global-reach-stats {
+        display: flex;
+        justify-content: center;
+        gap: 3.5rem;
+        flex-wrap: wrap;
+        padding: 2rem 0 0.5rem;
+    }
+
+    .global-stat-item {
+        text-align: center;
+    }
+
+    .global-stat-value {
+        font-family: var(--font-heading);
+        font-size: 2.4rem;
+        font-weight: 900;
+        color: #0f172a;
+        line-height: 1;
+        margin-bottom: 0.35rem;
+    }
+
+    .global-stat-value span {
+        color: var(--primary, #0061ff);
+    }
+
+    .global-stat-label {
+        font-family: var(--font-body);
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+    }
+
+    /* Divider line between stats */
+    .global-stat-divider {
+        width: 1px;
+        background: rgba(0, 0, 0, 0.1);
+        align-self: stretch;
+    }
+
+    /* Map Canvas */
+    .global-reach-map-area {
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    
+
     .global-map-wrapper {
         position: relative;
         width: 100%;
-        max-width: 800px;
-        aspect-ratio: 4 / 3;
-        background: radial-gradient(circle at center, rgba(0, 97, 255, 0.02) 0%, transparent 70%);
-        border-radius: 24px;
-        padding: 1.5rem;
+        max-width: 960px;
+        margin: 0 auto;
+        aspect-ratio: 2 / 1;
+        padding: 1rem;
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    
+
     .global-map-img {
         width: 100%;
         height: 100%;
         object-fit: contain;
-        opacity: 0.95;
+        opacity: 1;
     }
-    
+
     /* Pulse Animation for Map Hotspots */
     @keyframes mapPulse {
         0% { transform: scale(0.8); opacity: 0.8; }
         50% { transform: scale(2.2); opacity: 0; }
         100% { transform: scale(0.8); opacity: 0; }
     }
-    
+
     .map-hotspot {
         position: absolute;
-        width: 10px;
-        height: 10px;
-        background-color: #00f2fe; /* Glowing cyan/blue dot */
+        width: 12px;
+        height: 12px;
+        background-color: #00f2fe;
         border-radius: 50%;
         transform: translate(-50%, -50%);
-        box-shadow: 0 0 12px #00f2fe;
+        box-shadow: 0 0 10px rgba(0, 242, 254, 0.6), 0 0 25px rgba(0, 242, 254, 0.3);
         z-index: 5;
         cursor: pointer;
         transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    
+
     .map-hotspot::after {
         content: '';
         position: absolute;
@@ -841,10 +883,10 @@
 
     .hotspot-label {
         position: absolute;
-        bottom: 18px; /* Position tooltip above the dot */
+        bottom: 20px;
         left: 50%;
         transform: translateX(-50%) translateY(10px);
-        background: rgba(15, 23, 42, 0.95); /* Sleek slate dark background */
+        background: rgba(15, 23, 42, 0.9);
         color: #ffffff;
         padding: 6px 10px;
         border-radius: 8px;
@@ -853,14 +895,13 @@
         font-weight: 700;
         white-space: nowrap;
         pointer-events: none;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        opacity: 0; /* Hidden by default */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.15);
     }
-    
-    /* Sleek downward pointing arrow for the tooltip */
+
     .hotspot-label::after {
         content: '';
         position: absolute;
@@ -869,73 +910,69 @@
         transform: translateX(-50%);
         border-width: 5px 5px 0;
         border-style: solid;
-        border-color: rgba(15, 23, 42, 0.95) transparent;
+        border-color: rgba(15, 23, 42, 0.9) transparent;
         display: block;
         width: 0;
-        transition: border-color 0.3s ease;
     }
-    
+
     .map-hotspot:hover {
         background-color: #ffffff;
         box-shadow: 0 0 20px #00f2fe, 0 0 35px #00f2fe;
-        transform: translate(-50%, -50%) scale(1.3);
-        z-index: 10; /* Bring hovered hotspot to the top */
+        transform: translate(-50%, -50%) scale(1.4);
+        z-index: 10;
     }
 
     .map-hotspot:hover .hotspot-label {
         opacity: 1;
         visibility: visible;
-        background: #0061ff; /* Accent primary blue */
+        background: #0061ff;
         transform: translateX(-50%) translateY(0);
     }
 
     .map-hotspot:hover .hotspot-label::after {
         border-color: #0061ff transparent;
     }
-    
-    /* Define Hub Locations relative to map-wrapper based on World map coordinates */
-    .spot-1 { left: 73.5%; top: 57.5%; } /* Tamil Nadu */
-    .spot-2 { left: 78.5%; top: 61.5%; } /* Singapore */
-    .spot-3 { left: 62%; top: 45%; } /* Dubai */
-    .spot-4 { left: 12%; top: 37%; } /* San Francisco */
-    .spot-5 { left: 47%; top: 26%; } /* London */
-    .spot-6 { left: 73.2%; top: 55%; } /* Bengaluru */
-    .spot-7 { left: 88.5%; top: 38%; } /* Tokyo */
-    .spot-9 { left: 50.5%; top: 26%; } /* Berlin */
-    .spot-10 { left: 23%; top: 34%; } /* Toronto */
-    .spot-11 { left: 72.5%; top: 59.5%; } /* Kerala */
-    .spot-12 { left: 25%; top: 37%; } /* New York */
-    .spot-13 { left: 48.5%; top: 28%; } /* Paris */
-    .spot-14 { left: 71.5%; top: 52%; } /* Mumbai */
-    .spot-16 { left: 54%; top: 80%; } /* Cape Town */
-    .spot-17 { left: 33%; top: 72%; } /* São Paulo */
-    
 
-    
+    /* Define Hub Locations on the World Map */
+    .spot-1 { left: 73.5%; top: 57.5%; }  /* Tamil Nadu */
+    .spot-2 { left: 78.5%; top: 61.5%; }  /* Singapore */
+    .spot-3 { left: 62%; top: 45%; }       /* Dubai */
+    .spot-4 { left: 12%; top: 37%; }       /* San Francisco */
+    .spot-5 { left: 47%; top: 26%; }       /* London */
+    .spot-6 { left: 73.2%; top: 55%; }     /* Bengaluru */
+    .spot-7 { left: 88.5%; top: 38%; }     /* Tokyo */
+    .spot-9 { left: 50.5%; top: 26%; }     /* Berlin */
+    .spot-10 { left: 23%; top: 34%; }      /* Toronto */
+    .spot-11 { left: 72.5%; top: 59.5%; }  /* Kerala */
+    .spot-12 { left: 25%; top: 37%; }      /* New York */
+    .spot-13 { left: 48.5%; top: 28%; }    /* Paris */
+    .spot-14 { left: 71.5%; top: 52%; }    /* Mumbai */
+    .spot-16 { left: 54%; top: 80%; }      /* Cape Town */
+    .spot-17 { left: 33%; top: 72%; }      /* São Paulo */
+
     /* Responsive overrides for Section 3 */
     @media (max-width: 1024px) {
-        .global-reach-container {
-            grid-template-columns: 1fr;
-            gap: 4rem;
-        }
-        .global-reach-left {
-            text-align: center;
-            align-items: center;
-        }
-
-        .global-map-wrapper {
-            margin: 0 auto;
+        .global-reach-stats {
+            gap: 2rem;
         }
     }
-    
+
     @media (max-width: 768px) {
         .global-reach-section {
-            padding: 5rem 1.5rem;
+            padding: 4rem 1.5rem;
         }
         .global-reach-title {
-            font-size: 2.1rem;
+            font-size: 2rem;
         }
-
+        .global-reach-stats {
+            gap: 1.5rem;
+        }
+        .global-stat-value {
+            font-size: 1.8rem;
+        }
+        .global-stat-divider {
+            display: none;
+        }
     }
 </style>
 
@@ -948,7 +985,7 @@
             <div class="culture-left-content">
                 <div class="culture-sub-title-wrapper">
                     <div class="culture-sub-line"></div>
-                    <span class="culture-sub-text">Work Culture</span>
+                    <span class="culture-sub-text">Our Service</span>
                 </div>
                 
                 <h2 class="culture-main-heading">Building Future-Ready Teams Through Innovation</h2>
@@ -1038,7 +1075,7 @@
         <div class="arc-header fade-up-element" id="arcHeader">
             <div class="arc-subtitle-wrapper">
                 <div class="arc-subtitle-line"></div>
-                <span>Work Culture</span>
+                <span>Our Service</span>
                 <div class="arc-subtitle-line"></div>
             </div>
             <h2 class="arc-title">Building Great Teams, Creating Greater Impact!</h2>
@@ -1122,28 +1159,46 @@
     </div>
 </section>
 
-<!-- SECTION 3: Global Reach Section (matching reference mockup) -->
+<!-- SECTION 3: Global Presence Section (Redesigned) -->
 <section class="global-reach-section">
     <div class="global-reach-container">
         
-        <!-- Left Column: Title and 3 Feature Cards -->
-        <div class="global-reach-left">
-            <div>
-                <span class="global-reach-eyebrow">Global Reach</span>
-                <h2 class="global-reach-title">Connecting Talent and Innovation Globally</h2>
-                <p class="global-reach-desc">
-                    We collaborate across borders to deliver exceptional digital experiences. Our remote-first work culture brings together top product minds and engineering teams from around the world.
-                </p>
-            </div>
-            
-
+        <!-- Centered Header Block -->
+        <div class="global-reach-header">
+            <span class="global-reach-eyebrow">GLOBAL PRESENCE</span>
+            <h2 class="global-reach-title">Connecting Businesses and Innovation Worldwide</h2>
+            <p class="global-reach-desc">
+                TekQuora proudly partners with businesses across multiple countries, delivering innovative digital solutions that drive growth and transformation. From custom software development and web applications to AI-powered solutions, cloud technologies, and enterprise platforms, we help organizations achieve their goals with scalable, secure, and high-performance products.
+            </p>
         </div>
-        
-        <!-- Right Column: Interactive Map and Floating Avatars -->
-        <div class="global-reach-right">
+
+        <!-- Stats Row -->
+        <div class="global-reach-stats">
+            <div class="global-stat-item">
+                <div class="global-stat-value">15<span>+</span></div>
+                <div class="global-stat-label">Countries Served</div>
+            </div>
+            <div class="global-stat-divider"></div>
+            <div class="global-stat-item">
+                <div class="global-stat-value">500<span>+</span></div>
+                <div class="global-stat-label">Projects Delivered</div>
+            </div>
+            <div class="global-stat-divider"></div>
+            <div class="global-stat-item">
+                <div class="global-stat-value">50<span>+</span></div>
+                <div class="global-stat-label">Global Partners</div>
+            </div>
+            <div class="global-stat-divider"></div>
+            <div class="global-stat-item">
+                <div class="global-stat-value">99<span>%</span></div>
+                <div class="global-stat-label">Client Satisfaction</div>
+            </div>
+        </div>
+
+        <!-- Full-Width Interactive Map -->
+        <div class="global-reach-map-area">
             <div class="global-map-wrapper">
-                <!-- Global Reach Map Image Asset -->
-                <img class="global-map-img" src="/assets/world_map_clean.png" alt="Global Reach Map">
+                <img class="global-map-img" src="/assets/world_map_clean.png" alt="Global Presence Map">
                 
                 <div class="map-hotspot spot-1" title="Tamil Nadu, India"><span class="hotspot-label">Tamil Nadu</span></div>
                 <div class="map-hotspot spot-2" title="Singapore"><span class="hotspot-label">Singapore</span></div>
@@ -1160,8 +1215,6 @@
                 <div class="map-hotspot spot-14" title="Mumbai, India"><span class="hotspot-label">Mumbai</span></div>
                 <div class="map-hotspot spot-16" title="Cape Town, South Africa"><span class="hotspot-label">Cape Town</span></div>
                 <div class="map-hotspot spot-17" title="São Paulo, Brazil"><span class="hotspot-label">São Paulo</span></div>
-                
-
             </div>
         </div>
         
