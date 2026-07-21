@@ -28,8 +28,11 @@
         <div class="about-content new-about-layout">
             <!-- Left Column: Illustration Placeholder (new design to be added) -->
             <div class="about-image-column reveal-left">
-                <div class="about-illustration-placeholder">
-                    {{-- New illustration will be placed here --}}
+                <div class="about-illustration-container">
+                    <div class="about-gradient-ring"></div>
+                    <div class="about-white-card">
+                        <img src="{{ asset('assets/Tekquora_icon_with_bg_cropped.png') }}" alt="TekQuora Icon" class="about-center-logo">
+                    </div>
                 </div>
             </div>
             

@@ -1872,8 +1872,9 @@ main {
   width: 100%;
 }
 
-/* About illustration placeholder — reserved for new design */
-.about-illustration-placeholder {
+/* About illustration — modern SaaS icon container */
+.about-illustration-container {
+  position: relative;
   width: 100%;
   max-width: 480px;
   min-height: 400px;
@@ -1881,6 +1882,79 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.about-gradient-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 380px;
+  height: 380px;
+  background: linear-gradient(135deg, #2563EB, #7C3AED);
+  box-shadow: 0 15px 45px rgba(124, 58, 237, 0.25);
+  z-index: 1;
+  animation: blobMorphRotate 10s ease-in-out infinite alternate;
+}
+
+.about-white-card {
+  position: relative;
+  z-index: 2;
+  width: 340px;
+  height: 340px;
+  background-color: #FFFFFF;
+  border-radius: 35% 55% 45% 50% / 50% 45% 55% 45%;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+.about-center-logo {
+  width: 130px;
+  height: auto;
+  border-radius: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  z-index: 3;
+  animation: logoPulse 4s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes blobMorphRotate {
+  0% {
+    transform: translate(-50%, -42%) rotate(-5deg) scale(1);
+    border-radius: 44% 56% 36% 64% / 48% 32% 68% 52%;
+  }
+  33% {
+    transform: translate(-48%, -44%) rotate(5deg) scale(1.03);
+    border-radius: 60% 40% 55% 45% / 35% 65% 35% 65%;
+  }
+  66% {
+    transform: translate(-52%, -40%) rotate(-3deg) scale(0.98);
+    border-radius: 35% 65% 45% 55% / 55% 35% 65% 35%;
+  }
+  100% {
+    transform: translate(-50%, -45%) rotate(8deg) scale(1.04);
+    border-radius: 52% 48% 65% 35% / 40% 60% 40% 60%;
+  }
+}
+
+@keyframes floatCard {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+@keyframes logoPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
 }
 
 .about-text-column {
