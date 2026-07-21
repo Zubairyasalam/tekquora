@@ -66,7 +66,10 @@
         font-family: var(--font-heading);
         font-size: 2.6rem;
         font-weight: 800;
-        color: #0f172a;
+        background: linear-gradient(90deg, #0061ff 0%, #8b5cf6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
         line-height: 1.25;
         letter-spacing: -0.02em;
         margin-bottom: 1.25rem;
@@ -359,7 +362,10 @@
         font-family: var(--font-heading);
         font-size: 2.8rem;
         font-weight: 900;
-        color: #0f172a;
+        background: linear-gradient(90deg, #0061ff 0%, #8b5cf6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
         margin-bottom: 1.25rem;
         letter-spacing: -0.02em;
         line-height: 1.2;
