@@ -1876,8 +1876,8 @@ main {
 .about-illustration-container {
   position: relative;
   width: 100%;
-  max-width: 480px;
-  min-height: 400px;
+  max-width: 580px;
+  min-height: 480px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -1889,34 +1889,34 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -42%) rotate(-5deg);
-  width: 380px;
-  height: 380px;
+  width: 450px;
+  height: 450px;
   /* Fixed organic blob shape matching reference */
   border-radius: 44% 56% 36% 64% / 48% 32% 68% 52%;
   background: linear-gradient(135deg, #2563EB, #7C3AED);
-  box-shadow: 0 15px 45px rgba(124, 58, 237, 0.22);
+  box-shadow: 0 20px 55px rgba(124, 58, 237, 0.25);
   z-index: 1;
 }
 
 .about-white-card {
   position: relative;
   z-index: 2;
-  width: 340px;
-  height: 340px;
+  width: 400px;
+  height: 400px;
   background-color: #FFFFFF;
   /* Fixed soft squircle / blob shape */
   border-radius: 35% 55% 45% 50% / 50% 45% 55% 45%;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.09);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .about-center-logo {
-  width: 130px;
+  width: 155px;
   height: auto;
-  border-radius: 28px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  border-radius: 32px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.07);
   z-index: 3;
 }
 
