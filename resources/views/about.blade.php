@@ -383,7 +383,7 @@
 </section>
 
 <!-- Our Approach & Why Choose Us -->
-<section class="about-approach-section" style="padding: 2rem 2rem 2rem 2rem; background-color: var(--bg-white);">
+<section class="about-approach-section" style="padding: 2rem 2rem 0rem 2rem; background-color: var(--bg-white);">
     <div class="about-approach-grid">
         <div class="about-approach-content">
             <h2 class="services-title" style="font-size: 2.5rem !important; text-align: left;">Our <span class="text-gradient">Approach</span></h2>
@@ -439,7 +439,7 @@
 
 
 <!-- Grow Beyond Borders Section -->
-<section class="global-card-section" style="padding: 6rem 2rem 6rem 2rem; background-color: var(--bg-white);">
+<section class="global-card-section" style="padding: 0.5rem 2rem 6rem 2rem; background-color: var(--bg-white);">
     <div class="global-card-container">
         <!-- The Semicircular Notch Background -->
         <div class="global-card-notch"></div>
