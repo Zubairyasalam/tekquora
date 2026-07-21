@@ -16,7 +16,7 @@
 <style>
     /* SECTION 1: TWO-COLUMN TIMELINE LIST */
     .culture-redesign-section {
-        padding: 6rem 1.5rem;
+        padding: 4rem 1.5rem 1rem 1.5rem;
         background-color: #ffffff;
         position: relative;
         overflow: hidden;
@@ -29,10 +29,8 @@
     }
     
     .culture-grid {
-        display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
-        gap: 4rem;
-        align-items: center;
+        max-width: 850px;
+        margin: 0 auto;
     }
     
     .culture-left-content {
@@ -189,18 +187,17 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 1.5rem;
+        padding: 1.5rem 1rem;
     }
     
     .culture-visual-bg-shape {
         position: absolute;
         top: 0;
         right: 0;
-        width: 85%;
-        height: 90%;
-        background-color: var(--primary, #0061ff);
-        border-radius: 24px;
-        opacity: 0.05;
+        width: 88%;
+        height: 92%;
+        background: linear-gradient(135deg, rgba(0, 97, 255, 0.06) 0%, rgba(124, 58, 237, 0.06) 100%);
+        border-radius: 28px;
         z-index: 1;
         transform: rotate(2deg);
     }
@@ -210,34 +207,92 @@
         width: 100%;
         border-radius: 24px;
         overflow: hidden;
-        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+        box-shadow: 0 24px 60px rgba(0, 97, 255, 0.12), 0 8px 24px rgba(15, 23, 42, 0.08);
         z-index: 2;
         aspect-ratio: 4 / 3;
+    }
+    
+    .culture-image-container::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent 50%, rgba(10, 20, 50, 0.45) 100%);
+        z-index: 1;
+        pointer-events: none;
     }
     
     .culture-team-img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        transition: transform 0.6s ease;
+    }
+    .culture-image-container:hover .culture-team-img {
+        transform: scale(1.04);
     }
     
-    .floating-stats-card {
+    /* Top-right badge card */
+    .floating-badge-card {
         position: absolute;
-        bottom: 10%;
-        left: -5%;
-        background: rgba(255, 255, 255, 0.85);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.6);
-        border-radius: 18px;
-        padding: 1.25rem 1.75rem;
+        top: -16px;
+        right: -12px;
+        background: linear-gradient(135deg, #0061ff, #7c3aed);
+        border-radius: 16px;
+        padding: 1rem 1.4rem;
         display: flex;
         align-items: center;
-        gap: 1.25rem;
-        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
-        z-index: 5;
-        max-width: 280px;
+        gap: 0.85rem;
+        box-shadow: 0 12px 32px rgba(0, 97, 255, 0.35);
+        z-index: 6;
         animation: floatAnimation 4s ease-in-out infinite;
+    }
+
+    .floating-badge-card .badge-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: rgba(255,255,255,0.18);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+    }
+    .floating-badge-card .badge-info {
+        display: flex;
+        flex-direction: column;
+    }
+    .floating-badge-card .badge-number {
+        font-family: var(--font-heading);
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: #fff;
+        line-height: 1.1;
+    }
+    .floating-badge-card .badge-label {
+        font-family: var(--font-body);
+        font-size: 0.78rem;
+        color: rgba(255,255,255,0.8);
+        font-weight: 500;
+    }
+    
+    /* Bottom-left stats card */
+    .floating-stats-card {
+        position: absolute;
+        bottom: 8%;
+        left: -5%;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 18px;
+        padding: 1.1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+        z-index: 5;
+        max-width: 260px;
+        animation: floatAnimation 4.5s ease-in-out infinite 0.5s;
     }
     
     @keyframes floatAnimation {
@@ -246,15 +301,15 @@
     }
     
     .stats-icon-box {
-        width: 48px;
-        height: 48px;
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
         border-radius: 12px;
-        background: var(--gradient, linear-gradient(135deg, #0061ff, #7c3aed));
+        background: linear-gradient(135deg, #0061ff, #7c3aed);
         display: flex;
         align-items: center;
         justify-content: center;
         color: #ffffff;
-        font-size: 1.25rem;
     }
     
     .stats-info {
@@ -264,7 +319,7 @@
     
     .stats-number {
         font-family: var(--font-heading);
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         font-weight: 800;
         color: #0f172a;
         line-height: 1.2;
@@ -272,7 +327,7 @@
     
     .stats-label {
         font-family: var(--font-body);
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         color: #64748b;
         font-weight: 500;
     }
@@ -291,7 +346,7 @@
        SECTION 2: ARC TIMELINE WHEEL (REDESIGNED)
        ----------------------------------------------- */
     .arc-wheel-section {
-        padding: 7rem 1.5rem;
+        padding: 2rem 1.5rem 1rem 1.5rem;
         background: radial-gradient(circle at center, #f8fafc 0%, #ffffff 80%);
         position: relative;
         overflow: hidden;
@@ -729,7 +784,7 @@
        SECTION 3: GLOBAL PRESENCE SECTION (REDESIGNED)
        ----------------------------------------------- */
     .global-reach-section {
-        padding: 6rem 1.5rem;
+        padding: 1.5rem 1.5rem 6rem 1.5rem;
         background: #ffffff;
         position: relative;
         overflow: hidden;
@@ -740,7 +795,7 @@
         margin: 0 auto;
         display: grid;
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 1rem;
         position: relative;
         z-index: 2;
     }
@@ -788,46 +843,96 @@
         margin-bottom: 0;
     }
 
-    /* Stats Row */
+    /* Redesigned Floating Stats Cards Container */
     .global-reach-stats {
-        display: flex;
-        justify-content: center;
-        gap: 3.5rem;
-        flex-wrap: wrap;
-        padding: 2rem 0 0.5rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        max-width: 1100px;
+        margin: 1.5rem auto 0;
+        width: 100%;
     }
 
-    .global-stat-item {
-        text-align: center;
+    .global-stat-card {
+        background: #ffffff;
+        border: 1px solid rgba(226, 232, 240, 0.8);
+        border-radius: 20px;
+        padding: 1.4rem 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .global-stat-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(180deg, #0061ff 0%, #7c3aed 100%);
+        border-radius: 4px 0 0 4px;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+    }
+
+    .global-stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 97, 255, 0.12), 0 4px 12px rgba(15, 23, 42, 0.04);
+        border-color: rgba(0, 97, 255, 0.3);
+    }
+
+    .stat-card-icon {
+        width: 46px;
+        height: 46px;
+        min-width: 46px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, rgba(0, 97, 255, 0.08) 0%, rgba(124, 58, 237, 0.08) 100%);
+        color: #0061ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    .global-stat-card:hover .stat-card-icon {
+        background: linear-gradient(135deg, #0061ff 0%, #7c3aed 100%);
+        color: #ffffff;
+        box-shadow: 0 8px 18px rgba(0, 97, 255, 0.3);
+    }
+
+    .stat-card-content {
+        display: flex;
+        flex-direction: column;
     }
 
     .global-stat-value {
         font-family: var(--font-heading);
-        font-size: 2.4rem;
-        font-weight: 900;
+        font-size: 1.8rem;
+        font-weight: 800;
         color: #0f172a;
-        line-height: 1;
-        margin-bottom: 0.35rem;
+        line-height: 1.1;
+        margin-bottom: 0.2rem;
     }
 
     .global-stat-value span {
-        color: var(--primary, #0061ff);
+        background: linear-gradient(135deg, #0061ff 0%, #7c3aed 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     .global-stat-label {
         font-family: var(--font-body);
-        font-size: 0.8rem;
+        font-size: 0.78rem;
         font-weight: 600;
         color: #64748b;
         text-transform: uppercase;
-        letter-spacing: 0.08em;
-    }
-
-    /* Divider line between stats */
-    .global-stat-divider {
-        width: 1px;
-        background: rgba(0, 0, 0, 0.1);
-        align-self: stretch;
+        letter-spacing: 0.04em;
+        line-height: 1.3;
     }
 
     /* Map Canvas */
@@ -836,18 +941,23 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 0;
+        margin-top: -1rem;
+        overflow: hidden;
     }
 
     .global-map-wrapper {
         position: relative;
         width: 100%;
-        max-width: 960px;
+        max-width: 1200px;
         margin: 0 auto;
         aspect-ratio: 2 / 1;
-        padding: 1rem;
+        padding: 0;
         display: flex;
         align-items: center;
         justify-content: center;
+        transform: scale(1.35);
+        transform-origin: center center;
     }
 
     .global-map-img {
@@ -942,22 +1052,22 @@
         border-color: #0061ff transparent;
     }
 
-    /* Define Hub Locations on the World Map */
-    .spot-1 { left: 73.5%; top: 57.5%; }  /* Tamil Nadu */
-    .spot-2 { left: 78.5%; top: 61.5%; }  /* Singapore */
-    .spot-3 { left: 62%; top: 45%; }       /* Dubai */
-    .spot-4 { left: 12%; top: 37%; }       /* San Francisco */
-    .spot-5 { left: 47%; top: 26%; }       /* London */
-    .spot-6 { left: 73.2%; top: 55%; }     /* Bengaluru */
-    .spot-7 { left: 88.5%; top: 38%; }     /* Tokyo */
-    .spot-9 { left: 50.5%; top: 26%; }     /* Berlin */
-    .spot-10 { left: 23%; top: 34%; }      /* Toronto */
-    .spot-11 { left: 72.5%; top: 59.5%; }  /* Kerala */
-    .spot-12 { left: 25%; top: 37%; }      /* New York */
-    .spot-13 { left: 48.5%; top: 28%; }    /* Paris */
-    .spot-14 { left: 71.5%; top: 52%; }    /* Mumbai */
-    .spot-16 { left: 54%; top: 80%; }      /* Cape Town */
-    .spot-17 { left: 33%; top: 72%; }      /* São Paulo */
+    /* Define Hub Locations on the World Map (Calibrated to landmasses) */
+    .spot-1 { left: 67.5%; top: 50%; }   /* Tamil Nadu */
+    .spot-2 { left: 72.5%; top: 54%; }   /* Singapore */
+    .spot-3 { left: 58.5%; top: 39%; }   /* Dubai */
+    .spot-4 { left: 17%; top: 35%; }     /* San Francisco */
+    .spot-5 { left: 46%; top: 24%; }     /* London */
+    .spot-6 { left: 67%; top: 48%; }     /* Bengaluru */
+    .spot-7 { left: 78%; top: 34%; }     /* Tokyo */
+    .spot-9 { left: 49.5%; top: 24%; }   /* Berlin */
+    .spot-10 { left: 25%; top: 32%; }    /* Toronto */
+    .spot-11 { left: 66.5%; top: 51%; }  /* Kerala */
+    .spot-12 { left: 27%; top: 34%; }    /* New York */
+    .spot-13 { left: 47.5%; top: 26%; }  /* Paris */
+    .spot-14 { left: 66%; top: 45%; }    /* Mumbai */
+    .spot-16 { left: 51.5%; top: 70%; }  /* Cape Town */
+    .spot-17 { left: 33%; top: 68%; }    /* São Paulo */
 
     /* Responsive overrides for Section 3 */
     @media (max-width: 1024px) {
@@ -992,10 +1102,7 @@
             
             <!-- Left Side: Content & Features -->
             <div class="culture-left-content">
-                <div class="culture-sub-title-wrapper">
-                    <div class="culture-sub-line"></div>
-                    <span class="culture-sub-text">Our Service</span>
-                </div>
+
                 
                 <h2 class="culture-main-heading">Building Future-Ready Teams Through Innovation</h2>
                 <p class="culture-paragraph">
@@ -1045,25 +1152,7 @@
                 </div>
             </div>
             
-            <!-- Right Side: Image & Overlapping Stats -->
-            <div class="culture-right-visual">
-                <div class="culture-visual-bg-shape"></div>
-                
-                <div class="culture-image-container">
-                    <img src="{{ asset('assets/about-team-yellow.png') }}" alt="TekQuora Office Workspace" class="culture-team-img">
-                </div>
-                
-                <!-- Floating Glassmorphic Stats Card -->
-                <div class="floating-stats-card">
-                    <div class="stats-icon-box">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-                    </div>
-                    <div class="stats-info">
-                        <span class="stats-number">100+ Members</span>
-                        <span class="stats-label">Building solutions together.</span>
-                    </div>
-                </div>
-            </div>
+
             
         </div>
     </div>
@@ -1082,11 +1171,7 @@
     <div class="arc-wheel-container">
         
         <div class="arc-header fade-up-element" id="arcHeader">
-            <div class="arc-subtitle-wrapper">
-                <div class="arc-subtitle-line"></div>
-                <span>Our Service</span>
-                <div class="arc-subtitle-line"></div>
-            </div>
+
             <h2 class="arc-title">Building Great Teams, Creating Greater Impact!</h2>
             <p class="arc-desc">
                 At TekQuora, we foster a culture of innovation, collaboration, and continuous learning where every individual grows and makes a difference.
@@ -1174,33 +1259,53 @@
         
         <!-- Centered Header Block -->
         <div class="global-reach-header">
-            <span class="global-reach-eyebrow">GLOBAL PRESENCE</span>
+
             <h2 class="global-reach-title">Connecting Businesses and Innovation Worldwide</h2>
             <p class="global-reach-desc">
                 TekQuora proudly partners with businesses across multiple countries, delivering innovative digital solutions that drive growth and transformation. From custom software development and web applications to AI-powered solutions, cloud technologies, and enterprise platforms, we help organizations achieve their goals with scalable, secure, and high-performance products.
             </p>
         </div>
 
-        <!-- Stats Row -->
+        <!-- Stats Row (Redesigned Cards) -->
         <div class="global-reach-stats">
-            <div class="global-stat-item">
-                <div class="global-stat-value">15<span>+</span></div>
-                <div class="global-stat-label">Countries Served</div>
+            <div class="global-stat-card">
+                <div class="stat-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <div class="stat-card-content">
+                    <div class="global-stat-value">15<span>+</span></div>
+                    <div class="global-stat-label">Countries Served</div>
+                </div>
             </div>
-            <div class="global-stat-divider"></div>
-            <div class="global-stat-item">
-                <div class="global-stat-value">500<span>+</span></div>
-                <div class="global-stat-label">Projects Delivered</div>
+
+            <div class="global-stat-card">
+                <div class="stat-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <div class="stat-card-content">
+                    <div class="global-stat-value">500<span>+</span></div>
+                    <div class="global-stat-label">Projects Delivered</div>
+                </div>
             </div>
-            <div class="global-stat-divider"></div>
-            <div class="global-stat-item">
-                <div class="global-stat-value">50<span>+</span></div>
-                <div class="global-stat-label">Global Partners</div>
+
+            <div class="global-stat-card">
+                <div class="stat-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="stat-card-content">
+                    <div class="global-stat-value">50<span>+</span></div>
+                    <div class="global-stat-label">Global Partners</div>
+                </div>
             </div>
-            <div class="global-stat-divider"></div>
-            <div class="global-stat-item">
-                <div class="global-stat-value">99<span>%</span></div>
-                <div class="global-stat-label">Client Satisfaction</div>
+
+            <div class="global-stat-card">
+                <div class="stat-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="stat-card-content">
+                    <div class="global-stat-value">100<span>%</span></div>
+                    <div class="global-stat-label">Client Satisfaction</div>
+                </div>
             </div>
         </div>
 

@@ -43,7 +43,6 @@ class FooterController extends Controller
         $col2Links = $col2LinksJson ? json_decode($col2LinksJson, true) : [
             ['label' => 'About Us', 'url' => '/#about'],
             ['label' => 'Our Team', 'url' => '/team'],
-            ['label' => 'Careers', 'url' => '/#careers'],
             ['label' => 'News & Blog', 'url' => '#'],
             ['label' => 'Case Studies', 'url' => '#'],
             ['label' => 'Contact', 'url' => '/contact']
