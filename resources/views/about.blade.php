@@ -13,7 +13,7 @@
 
 
 <!-- About TekQuora Section -->
-<section class="about-content-section" style="padding-top: 2%; padding-bottom: 1rem;">
+<section class="about-content-section" style="padding-top: 2%; padding-bottom: 0;">
     <div class="about-two-col" style="display: block; max-width: 900px; margin: 0 auto; padding-top: 0;">
         <div class="about-text-content">
             <h2 class="services-title" style="font-size: 3.5rem !important; text-align: center; margin-top: 0; margin-bottom: 3rem;">About <span class="text-gradient">TekQuora</span></h2>
@@ -35,10 +35,10 @@
 </section>
 
 <!-- Our Values Section -->
-<section class="process-section" id="values">
+<section class="process-section" id="values" style="padding-top: 1rem;">
     <div class="process-container">
-        <div class="process-title-wrapper">
-            <h2 class="values-main-title">Our Values</h2>
+        <div class="process-title-wrapper" style="margin-bottom: 1.5rem;">
+            <h2 class="values-main-title" style="margin-bottom: 0.5rem;">Our Values</h2>
             <p class="values-main-subtitle">The principles that guide everything we build and deliver.</p>
         </div>
         
