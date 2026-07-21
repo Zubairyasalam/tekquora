@@ -13,7 +13,7 @@
 
 
 <!-- About TekQuora Section -->
-<section class="about-content-section" style="padding-top: 2%; padding-bottom: 0;">
+<section class="about-content-section" style="padding-top: 2%; padding-bottom: 1rem;">
     <div class="about-two-col" style="display: block; max-width: 900px; margin: 0 auto; padding-top: 0;">
         <div class="about-text-content">
             <h2 class="services-title" style="font-size: 3.5rem !important; text-align: center; margin-top: 0; margin-bottom: 3rem;">About <span class="text-gradient">TekQuora</span></h2>
@@ -35,10 +35,10 @@
 </section>
 
 <!-- Our Values Section -->
-<section class="process-section" id="values" style="padding-top: 1rem;">
+<section class="process-section" id="values">
     <div class="process-container">
-        <div class="process-title-wrapper" style="margin-bottom: 1.5rem;">
-            <h2 class="values-main-title" style="margin-bottom: 0.5rem;">Our Values</h2>
+        <div class="process-title-wrapper">
+            <h2 class="values-main-title">Our Values</h2>
             <p class="values-main-subtitle">The principles that guide everything we build and deliver.</p>
         </div>
         
@@ -383,7 +383,7 @@
 </section>
 
 <!-- Our Approach & Why Choose Us -->
-<section class="about-approach-section" style="padding: 2rem 2rem 0rem 2rem; background-color: var(--bg-white);">
+<section class="about-approach-section" style="padding: 2rem 2rem 2rem 2rem; background-color: var(--bg-white);">
     <div class="about-approach-grid">
         <div class="about-approach-content">
             <h2 class="services-title" style="font-size: 2.5rem !important; text-align: left;">Our <span class="text-gradient">Approach</span></h2>
@@ -439,7 +439,7 @@
 
 
 <!-- Grow Beyond Borders Section -->
-<section class="global-card-section" style="padding: 0 2rem 6rem 2rem; background-color: var(--bg-white);">
+<section class="global-card-section" style="padding: 6rem 2rem 6rem 2rem; background-color: var(--bg-white);">
     <div class="global-card-container">
         <!-- The Semicircular Notch Background -->
         <div class="global-card-notch"></div>
