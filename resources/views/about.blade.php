@@ -439,7 +439,7 @@
 
 
 <!-- Grow Beyond Borders Section -->
-<section class="global-card-section" style="padding: 0.5rem 2rem 6rem 2rem; background-color: var(--bg-white);">
+<section class="global-card-section" style="padding: 0 2rem 6rem 2rem; background-color: var(--bg-white);">
     <div class="global-card-container">
         <!-- The Semicircular Notch Background -->
         <div class="global-card-notch"></div>
