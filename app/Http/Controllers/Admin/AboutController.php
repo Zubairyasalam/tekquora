@@ -19,7 +19,7 @@ class AboutController extends Controller
         $aboutStatValue = Setting::get('about_stat_value', '6,561+');
         $aboutStatLabel = Setting::get('about_stat_label', 'Satisfied Clients');
         $aboutBtnText = Setting::get('about_btn_text', 'Explore More');
-        $aboutBtnUrl = Setting::get('about_btn_url', '/#services');
+        $aboutBtnUrl = Setting::get('about_btn_url', '/about');
 
         return view('admin.about', compact(
             'aboutImage',

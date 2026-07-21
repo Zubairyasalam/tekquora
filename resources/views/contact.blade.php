@@ -18,7 +18,7 @@
         
         <!-- Top: Form Column (Long / Full-Width Card) -->
         <div class="contact-form-card">
-            <h2 style="font-family: var(--font-heading); font-size: 2.2rem; font-weight: 700; color: #0f172a; margin-bottom: 2rem;">Send Us a Message</h2>
+            <h2 style="font-family: var(--font-heading); font-size: 2.4rem; font-weight: 800; background: linear-gradient(135deg, #00c6ff 0%, #0072ff 45%, #7c3aed 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 2rem; display: inline-block;">Send Us a Message</h2>
             
             @if(session('success'))
                 <div style="background-color: #dcfce7; color: #15803d; padding: 16px 24px; border-radius: 12px; font-weight: 500; margin-bottom: 24px; display: flex; align-items: center; gap: 10px;">

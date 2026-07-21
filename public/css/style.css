@@ -1913,10 +1913,10 @@ main {
 }
 
 .about-center-logo {
-  width: 155px;
+  width: 230px;
   height: auto;
-  border-radius: 32px;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.07);
+  border-radius: 42px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
   z-index: 3;
 }
 
