@@ -71,46 +71,7 @@
                     @enderror
                 </div>
 
-                <!-- Buttons Config Grid -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; border-top: 1px solid #f0f3f8; padding-top: 24px;">
-                    
-                    <!-- Primary Button (Yellow styled) -->
-                    <div style="display: flex; flex-direction: column; gap: 16px;">
-                        <h3 style="font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 700; color: #2b3674; margin: 0; display: flex; align-items: center; gap: 6px;">
-                            <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: #fbbf24;"></span>
-                            Primary Action Button
-                        </h3>
-                        
-                        <div>
-                            <label for="hero_primary_btn_text" style="display: block; font-size: 13px; font-weight: 500; color: #a3aed1; margin-bottom: 6px;">Button Label</label>
-                            <input type="text" name="hero_primary_btn_text" id="hero_primary_btn_text" value="{{ $heroPrimaryText }}" placeholder="e.g. See Our Team" style="width: 100%; padding: 10px 14px; border: 1px solid #e0e8ff; border-radius: 8px; font-size: 14px; color: #2b3674; outline: none;">
-                        </div>
 
-                        <div>
-                            <label for="hero_primary_btn_url" style="display: block; font-size: 13px; font-weight: 500; color: #a3aed1; margin-bottom: 6px;">Button Link URL</label>
-                            <input type="text" name="hero_primary_btn_url" id="hero_primary_btn_url" value="{{ $heroPrimaryUrl }}" placeholder="e.g. /team" style="width: 100%; padding: 10px 14px; border: 1px solid #e0e8ff; border-radius: 8px; font-size: 14px; color: #2b3674; outline: none;">
-                        </div>
-                    </div>
-
-                    <!-- Secondary Button (Glass/Border styled) -->
-                    <div style="display: flex; flex-direction: column; gap: 16px;">
-                        <h3 style="font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 700; color: #2b3674; margin: 0; display: flex; align-items: center; gap: 6px;">
-                            <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background-color: #a3aed1;"></span>
-                            Secondary Action Button
-                        </h3>
-                        
-                        <div>
-                            <label for="hero_secondary_btn_text" style="display: block; font-size: 13px; font-weight: 500; color: #a3aed1; margin-bottom: 6px;">Button Label</label>
-                            <input type="text" name="hero_secondary_btn_text" id="hero_secondary_btn_text" value="{{ $heroSecondaryText }}" placeholder="e.g. Explore Work Culture" style="width: 100%; padding: 10px 14px; border: 1px solid #e0e8ff; border-radius: 8px; font-size: 14px; color: #2b3674; outline: none;">
-                        </div>
-
-                        <div>
-                            <label for="hero_secondary_btn_url" style="display: block; font-size: 13px; font-weight: 500; color: #a3aed1; margin-bottom: 6px;">Button Link URL</label>
-                            <input type="text" name="hero_secondary_btn_url" id="hero_secondary_btn_url" value="{{ $heroSecondaryUrl }}" placeholder="e.g. /#culture" style="width: 100%; padding: 10px 14px; border: 1px solid #e0e8ff; border-radius: 8px; font-size: 14px; color: #2b3674; outline: none;">
-                        </div>
-                    </div>
-
-                </div>
 
                 <div style="display: flex; justify-content: flex-end; border-top: 1px solid #f0f3f8; padding-top: 24px;">
                     <button type="submit" class="dash-btn-primary" style="padding: 12px 28px;">
