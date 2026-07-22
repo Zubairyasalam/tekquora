@@ -1191,44 +1191,6 @@
                 </div>
             </div>
 
-            <!-- Right Side: Graphic Visual (Interactive Cards Grid) -->
-            <div class="culture-right-visual">
-                <div class="culture-visual-card item-1 active">
-                    <div class="card-glow"></div>
-                    <div class="card-icon-wrapper purple">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
-                    </div>
-                    <div class="card-text-block">
-                        <span class="card-mini-tag purple">Agile Workflows</span>
-                        <h4 class="card-title-text">Sprint Executions</h4>
-                        <p class="card-desc-text">Iterative design & test feedback loops daily.</p>
-                    </div>
-                </div>
-
-                <div class="culture-visual-card item-2">
-                    <div class="card-glow"></div>
-                    <div class="card-icon-wrapper blue">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <div class="card-text-block">
-                        <span class="card-mini-tag blue">Quality Focus</span>
-                        <h4 class="card-title-text">Zero Defect Policy</h4>
-                        <p class="card-desc-text">Robust automated code pipelines & security scans.</p>
-                    </div>
-                </div>
-
-                <div class="culture-visual-card item-3">
-                    <div class="card-glow"></div>
-                    <div class="card-icon-wrapper emerald">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-                    </div>
-                    <div class="card-text-block">
-                        <span class="card-mini-tag emerald">Fun Culture</span>
-                        <h4 class="card-title-text">Social Events</h4>
-                        <p class="card-desc-text">Gaming sessions, outings & dynamic hackathons.</p>
-                    </div>
-                </div>
-            </div>
 
         </div>
     </div>
