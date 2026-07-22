@@ -35,7 +35,7 @@ Route::get('/portfolio', function () {
     return view('portfolio');
 });
 
-Route::get('/work-culture', function () {
+Route::get('/our-service', function () {
     return view('culture');
 });
 

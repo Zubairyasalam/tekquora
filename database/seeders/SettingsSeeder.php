@@ -48,8 +48,8 @@ class SettingsSeeder extends Seeder
             ],
             [
                 'id' => 6,
-                'label' => 'Work Culture',
-                'url' => '/work-culture',
+                'label' => 'Our Service',
+                'url' => '/our-service',
                 'is_button' => false
             ],
             [
@@ -73,15 +73,15 @@ class SettingsSeeder extends Seeder
         ];
         
         Setting::set('header_navigation_links', json_encode($defaultLinks));
-
+ 
         // Hero section defaults
         Setting::set('hero_background_image', '/assets/hero-bg-custom.png');
         Setting::set('hero_title', 'Future-Ready<br>Technology Solutions');
         Setting::set('hero_subtitle', 'Empowering businesses with cutting-edge innovation, AI-driven solutions, and transformative digital experiences that define tomorrow.');
         Setting::set('hero_primary_btn_text', 'See Our Team');
         Setting::set('hero_primary_btn_url', '/team');
-        Setting::set('hero_secondary_btn_text', 'Explore Work Culture');
-        Setting::set('hero_secondary_btn_url', '/work-culture');
+        Setting::set('hero_secondary_btn_text', 'Explore Our Service');
+        Setting::set('hero_secondary_btn_url', '/our-service');
 
         // About section defaults
         Setting::set('about_image', '/assets/logo.png');

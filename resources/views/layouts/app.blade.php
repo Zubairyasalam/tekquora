@@ -54,7 +54,7 @@
             <li><a href="/" class="{{ Request::is('/') ? 'active' : '' }}">Home</a></li>
             <li><a href="/about" class="{{ Request::is('about*') ? 'active' : '' }}">About</a></li>
             <li><a href="/team" class="{{ Request::is('team*') ? 'active' : '' }}">Our Team</a></li>
-            <li><a href="/work-culture" class="{{ Request::is('work-culture*') ? 'active' : '' }}">Our Service</a></li>
+            <li><a href="/our-service" class="{{ Request::is('our-service*') ? 'active' : '' }}">Our Service</a></li>
             <li><a href="/portfolio" class="{{ Request::is('portfolio*') ? 'active' : '' }}">Projects</a></li>
             <li><a href="/contact" class="btn-nav-contact {{ Request::is('contact*') ? 'active' : '' }}">Contact</a></li>
         </ul>
