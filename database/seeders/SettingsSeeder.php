@@ -75,7 +75,7 @@ class SettingsSeeder extends Seeder
         Setting::set('header_navigation_links', json_encode($defaultLinks));
 
         // Hero section defaults
-        Setting::set('hero_background_image', '/assets/hero-bg.jpg');
+        Setting::set('hero_background_image', '/assets/hero-bg-custom.png');
         Setting::set('hero_title', 'Future-Ready<br>Technology Solutions');
         Setting::set('hero_subtitle', 'Empowering businesses with cutting-edge innovation, AI-driven solutions, and transformative digital experiences that define tomorrow.');
         Setting::set('hero_primary_btn_text', 'See Our Team');
