@@ -81,7 +81,7 @@
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                             </div>
                             <div class="stat-box-content">
-                                <strong>{{ $aboutSettings['stat_value'] ?? '' }}</strong>
+                                <strong class="counter-up">{{ $aboutSettings['stat_value'] ?? '' }}</strong>
                                 <span>{{ $aboutSettings['stat_label'] ?? '' }}</span>
                             </div>
                         </div>
@@ -785,6 +785,49 @@ document.addEventListener('DOMContentLoaded', function() {
 
     modalClose.addEventListener('click', closeModal);
     backdrop.addEventListener('click', closeModal);
+
+    // Counter animation for Satisfied Clients and stats
+    const counters = document.querySelectorAll('.counter-up');
+    if (counters.length > 0) {
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const originalText = el.textContent.trim();
+                    const numericValue = parseInt(originalText.replace(/[^0-9]/g, ''), 10);
+                    const suffix = originalText.replace(/[0-9,]/g, ''); // get non-numeric suffix like +
+                    
+                    if (isNaN(numericValue)) return;
+                    
+                    const duration = 1800; // 1.8 seconds duration
+                    const startTime = performance.now();
+                    
+                    function updateCounter(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        
+                        // Ease out quad formula
+                        const easeProgress = progress * (2 - progress);
+                        const currentVal = Math.floor(easeProgress * numericValue);
+                        
+                        // Format with commas
+                        el.textContent = currentVal.toLocaleString('en-US') + suffix;
+                        
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            el.textContent = originalText; // guarantee exact original text
+                        }
+                    }
+                    
+                    requestAnimationFrame(updateCounter);
+                    observer.unobserve(el);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        counters.forEach(counter => counterObserver.observe(counter));
+    }
 });
 </script>
 @endsection
