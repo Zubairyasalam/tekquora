@@ -234,5 +234,184 @@ class SettingsSeeder extends Seeder
         // Footer defaults
         Setting::set('footer_description', 'Pioneering the future of technology with innovative solutions that transform businesses and empower digital growth across industries worldwide.');
         Setting::set('footer_copyright', 'TekQuora Admin Console. Powered by TekQuora CRM.');
+
+        // Team settings
+        Setting::set('team_title', 'Meet Our Team');
+        Setting::set('team_subtitle', 'The talented individuals who make TekQuora a great place to work');
+        
+        $teamMembers = [
+            [
+                'name' => 'MOHAMED LUKMAN',
+                'role' => 'Director',
+                'type' => 'management',
+                'initials' => 'MO',
+                'gradient' => 'dev-gradient',
+                'image' => '/uploads/member_6a566991ad2e4_1784048017.jpeg',
+                'location' => 'Chennai'
+            ],
+            [
+                'name' => 'Aaaron Isaac Sam M',
+                'role' => 'Operation Manager',
+                'type' => 'hr_operation',
+                'initials' => 'AA',
+                'gradient' => 'dev-gradient',
+                'image' => '/uploads/member_6a566991aea1f_1784048017.PNG',
+                'location' => 'Chennai'
+            ],
+            [
+                'name' => 'Praveen N',
+                'role' => 'Full Stack Developer',
+                'type' => 'employee',
+                'initials' => 'PR',
+                'gradient' => 'dev-gradient',
+                'image' => '/uploads/member_6a566a34db974_1784048180.jpeg',
+                'location' => ''
+            ],
+            [
+                'name' => 'Raghul Prasath J',
+                'role' => 'Full Stack Developer',
+                'type' => 'employee',
+                'initials' => 'RA',
+                'gradient' => 'dev-gradient',
+                'image' => '/uploads/member_6a566a34dd0f5_1784048180.jpeg',
+                'location' => ''
+            ],
+            [
+                'name' => 'Noorul Ameen',
+                'role' => 'Digital Marketing Executive',
+                'type' => 'marketing',
+                'initials' => 'NO',
+                'gradient' => 'dev-gradient',
+                'image' => '/uploads/member_6a566991b1fb1_1784048017.jpeg',
+                'location' => 'Chennai'
+            ],
+            [
+                'name' => 'Mohamed Masurdeen',
+                'role' => 'Digital Marketing Executive',
+                'type' => 'marketing',
+                'initials' => 'MO',
+                'gradient' => 'dev-gradient',
+                'image' => '/uploads/member_6a566991b33d8_1784048017.jpeg',
+                'location' => ''
+            ],
+            [
+                'name' => 'Charles Abraham R',
+                'role' => 'Software Developer',
+                'type' => 'employee',
+                'initials' => 'CH',
+                'gradient' => 'dev-gradient',
+                'image' => '/uploads/member_6a566991afadd_1784048017.jpeg',
+                'location' => 'Chennai'
+            ],
+            [
+                'name' => 'Nancy Narmadha T',
+                'role' => 'Full Stack Developer',
+                'type' => 'employee',
+                'initials' => 'NA',
+                'gradient' => 'dev-gradient',
+                'image' => '/uploads/member_6a566a34de23e_1784048180.jpeg',
+                'location' => ''
+            ],
+            [
+                'name' => 'Zubirya Salam Khan',
+                'role' => 'Full Stack Developer',
+                'type' => 'employee',
+                'initials' => 'ZU',
+                'gradient' => 'dev-gradient',
+                'image' => '/uploads/member_6a57154cc8555_1784091980.png',
+                'location' => ''
+            ],
+            [
+                'name' => 'Sharan Letiza',
+                'role' => 'Client Success Associate',
+                'type' => 'hr_operation',
+                'initials' => 'SH',
+                'gradient' => 'dev-gradient',
+                'image' => '/uploads/member_6a56645098baa_1784046672.jpeg',
+                'location' => 'Chennai'
+            ],
+            [
+                'name' => 'Grace Edison Inigo J',
+                'role' => 'Social Media Executive',
+                'type' => 'marketing',
+                'initials' => 'GR',
+                'gradient' => 'dev-gradient',
+                'image' => '/uploads/member_6a566991b1111_1784048017.jpeg',
+                'location' => ''
+            ],
+            [
+                'name' => 'Pavithra G',
+                'role' => 'Software Developer',
+                'type' => 'hr_operation',
+                'initials' => 'PA',
+                'gradient' => 'dev-gradient',
+                'image' => '/uploads/member_6a566a34d9c51_1784048180.jpeg',
+                'location' => ''
+            ],
+            [
+                'name' => 'Rowena',
+                'role' => 'HR Manager',
+                'type' => 'hr_operation',
+                'initials' => 'RO',
+                'gradient' => 'dev-gradient',
+                'image' => '/uploads/member_6a566991b46d7_1784048017.jpeg',
+                'location' => ''
+            ],
+            [
+                'name' => 'Anto A',
+                'role' => 'Software Developer',
+                'type' => 'intern',
+                'initials' => 'AN',
+                'gradient' => 'dev-gradient',
+                'image' => '/uploads/member_6a566a34e1158_1784048180.jpeg',
+                'location' => 'Chennai'
+            ],
+            [
+                'name' => 'Mohamed Aamir Khan A',
+                'role' => 'Web Pentester',
+                'type' => 'intern',
+                'initials' => 'MO',
+                'gradient' => 'dev-gradient',
+                'image' => '/uploads/member_6a566a34e361a_1784048180.jpeg',
+                'location' => 'Chennai'
+            ],
+            [
+                'name' => 'Yeshwanth Y',
+                'role' => 'Software Developer',
+                'type' => 'intern',
+                'initials' => 'YE',
+                'gradient' => 'dev-gradient',
+                'image' => '/uploads/member_6a566a34e2556_1784048180.jpeg',
+                'location' => 'Chennai'
+            ],
+            [
+                'name' => 'Priyatharshni S',
+                'role' => 'Full Stack Developer',
+                'type' => 'intern',
+                'initials' => 'PR',
+                'gradient' => 'dev-gradient',
+                'image' => '/uploads/member_6a566a34e4a55_1784048180.jpeg',
+                'location' => 'Chennai'
+            ],
+            [
+                'name' => 'Sri Raghav Prasath',
+                'role' => 'Marketing Executive',
+                'type' => 'intern',
+                'initials' => 'SR',
+                'gradient' => 'dev-gradient',
+                'image' => '/uploads/member_6a566991b569e_1784048017.jpeg',
+                'location' => ''
+            ],
+            [
+                'name' => 'Naveen E',
+                'role' => 'Full Stack Developer',
+                'type' => 'intern',
+                'initials' => 'NA',
+                'gradient' => 'dev-gradient',
+                'image' => '/uploads/member_6a566a34e5991_1784048180.jpeg',
+                'location' => 'Chennai'
+            ]
+        ];
+        Setting::set('team_members', json_encode($teamMembers));
     }
 }
