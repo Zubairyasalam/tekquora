@@ -413,5 +413,45 @@ class SettingsSeeder extends Seeder
             ]
         ];
         Setting::set('team_members', json_encode($teamMembers));
+
+        // Our Service page defaults
+        Setting::set('service_hero_title', 'Our Service');
+        Setting::set('service_hero_subtitle', 'We believe great products are built by happy, collaborative teams.');
+
+        Setting::set('service_section1_title', 'Building Future-Ready Teams Through Innovation');
+        Setting::set('service_section1_paragraph', 'At TekQuora, we foster an environment where creativity, learning, and team coordination are valued. We support every team member in reaching their potential, encouraging open collaboration, and building high-performance digital products together.');
+        
+        $serviceFeatures = [
+            ['title' => 'Innovation First', 'description' => 'We encourage creativity, experimentation, and continuous learning.', 'icon' => 'lightbulb'],
+            ['title' => 'Collaborative Environment', 'description' => 'Every project is built through teamwork, communication, and shared success.', 'icon' => 'users'],
+            ['title' => 'Growth & Learning', 'description' => 'Employees receive mentorship, training, and opportunities to grow.', 'icon' => 'graduation-cap']
+        ];
+        Setting::set('service_section1_features', json_encode($serviceFeatures));
+
+        Setting::set('service_section2_title', 'Building Great Teams, Creating Greater Impact!');
+        Setting::set('service_section2_paragraph', 'At TekQuora, we foster a culture of innovation, collaboration, and continuous learning where every individual grows and makes a difference.');
+        Setting::set('service_section2_skyline_image', '');
+
+        $serviceNodes = [
+            ['label' => 'Growth', 'title' => 'Employee Growth', 'description' => 'We believe in nurturing talent and providing clear paths for personal and professional advancement through continuous mentorship.', 'icon' => 'trending-up'],
+            ['label' => 'Collaboration', 'title' => 'Team Collaboration', 'description' => 'We prioritize open communication, active listening, and collective brainstorming to solve complex engineering challenges.', 'icon' => 'users'],
+            ['label' => 'Innovation', 'title' => 'Innovation & Creativity', 'description' => 'We foster an atmosphere of curiosity, encouraging developers to experiment with new technologies and architectures.', 'icon' => 'zap'],
+            ['label' => 'Excellence', 'title' => 'Excellence & Quality', 'description' => 'We strive for top-tier code quality, high performance, and robust security in every line of code we write.', 'icon' => 'award'],
+            ['label' => 'Wellbeing', 'title' => 'Work-Life Balance', 'description' => 'We offer flexible hours, wellness programs, and team-building events to support healthy work-life integration.', 'icon' => 'heart'],
+            ['label' => 'Learning', 'title' => 'Continuous Learning', 'description' => 'We sponsor certificates, training courses, and encourage sharing knowledge through regular technical sessions.', 'icon' => 'book-open']
+        ];
+        Setting::set('service_section2_nodes', json_encode($serviceNodes));
+
+        Setting::set('service_section3_title', 'Connecting Businesses and Innovation Worldwide');
+        Setting::set('service_section3_paragraph', 'TekQuora proudly partners with businesses across multiple countries, delivering innovative digital solutions that drive growth and transformation. From custom software development and web applications to AI-powered solutions, cloud technologies, and enterprise platforms, we help organizations achieve their goals with scalable, secure, and high-performance products.');
+        Setting::set('service_section3_map_image', '/assets/world_map_clean.png');
+
+        $serviceStats = [
+            ['value' => '15+', 'label' => 'Countries Served', 'icon' => 'globe'],
+            ['value' => '500+', 'label' => 'Projects Delivered', 'icon' => 'check-square'],
+            ['value' => '50+', 'label' => 'Global Partners', 'icon' => 'users'],
+            ['value' => '100%', 'label' => 'Client Satisfaction', 'icon' => 'star']
+        ];
+        Setting::set('service_section3_stats', json_encode($serviceStats));
     }
 }
