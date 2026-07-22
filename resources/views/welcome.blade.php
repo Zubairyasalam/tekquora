@@ -53,23 +53,38 @@
                     <ul class="about-checklist">
                         @if(isset($aboutSettings['points']) && is_array($aboutSettings['points']) && count($aboutSettings['points']) > 0)
                             @foreach($aboutSettings['points'] as $point)
+                                @php
+                                    // Bold the numbers or key phrase in each point
+                                    $pointHtml = preg_replace('/^(\d+\+?\s*[a-zA-Z]*\s*[a-zA-Z]*)/', '<strong>$1</strong>', $point);
+                                    if (!preg_match('/^\d+/', $point)) {
+                                        $pointHtml = preg_replace('/^(Global reach)/', '<strong>$1</strong>', $point);
+                                    }
+                                @endphp
                                 <li>
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    {{ $point }}
+                                    <span class="icon-wrapper">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    </span>
+                                    <span>{!! $pointHtml !!}</span>
                                 </li>
                             @endforeach
                         @else
                             <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                10+ years of industry expertise
+                                <span class="icon-wrapper">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </span>
+                                <span><strong>10+ years</strong> of industry expertise</span>
                             </li>
                             <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                500+ successful project deliveries
+                                <span class="icon-wrapper">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </span>
+                                <span><strong>500+</strong> successful project deliveries</span>
                             </li>
                             <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                Global reach across 30+ countries
+                                <span class="icon-wrapper">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </span>
+                                <span><strong>Global reach</strong> across 30+ countries</span>
                             </li>
                         @endif
                     </ul>
