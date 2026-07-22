@@ -97,7 +97,7 @@
                             </div>
                             <div class="stat-box-content">
                                 <strong class="counter-up">{{ $aboutSettings['stat_value'] ?? '' }}</strong>
-                                <span>{{ $aboutSettings['stat_label'] ?? '' }}</span>
+                                <span class="stat-label-text">{{ $aboutSettings['stat_label'] ?? '' }}</span>
                             </div>
                         </div>
                     @endif

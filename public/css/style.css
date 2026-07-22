@@ -438,12 +438,12 @@ main {
   align-items: center;
   gap: 1.5rem;
   background: #ffffff;
-  padding: 1.5rem 2rem;
+  padding: 1.25rem 1.75rem;
   border-radius: 20px;
   box-shadow: 0 15px 35px rgba(15, 23, 42, 0.04), 0 5px 15px rgba(15, 23, 42, 0.01);
   border: 1px solid #f1f5f9;
   flex: 1;
-  min-width: 250px;
+  min-width: 280px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1131,14 +1131,14 @@ main {
 
 /* Scroll Animation */
 .animate-zoom-in {
-  opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 .animate-zoom-in.is-visible {
   opacity: 1;
-  transform: scale(1);
+  transform: none;
 }
 
 /* Portfolio Filter Fade-In Animation */
@@ -2108,12 +2108,12 @@ main {
   align-items: center;
   gap: 1.5rem;
   background: #ffffff;
-  padding: 1.5rem 2rem;
+  padding: 1.25rem 1.75rem;
   border-radius: 20px;
   box-shadow: 0 15px 35px rgba(15, 23, 42, 0.04), 0 5px 15px rgba(15, 23, 42, 0.01);
   border: 1px solid #f1f5f9;
   flex: 1;
-  min-width: 250px;
+  min-width: 280px;
   animation: float 6s ease-in-out infinite;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -4655,4 +4655,35 @@ footer {
 .scroll-to-top-btn:hover {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
   transform: translateY(-3px);
+}
+
+/* Stat Box Growth Badge Utilities */
+.stat-number-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-trend-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background-color: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.15);
+  color: #16a34a;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  align-self: center;
+}
+
+.stat-trend-pill svg {
+  stroke: #16a34a;
+  stroke-width: 3.5;
+  width: 10px;
+  height: 10px;
 }
