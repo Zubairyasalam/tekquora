@@ -141,6 +141,65 @@
     border-top: 1px solid #f1f5f9;
 }
 
+/* Sidebar Submenu Accordion */
+.admin-nav-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+}
+
+.admin-nav-dropdown-toggle .chevron-icon {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.25s ease;
+}
+
+.admin-nav-dropdown-toggle.open .chevron-icon {
+    transform: rotate(180deg);
+}
+
+.admin-submenu-container {
+    display: none;
+    flex-direction: column;
+    gap: 2px;
+    padding-left: 36px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+}
+
+.admin-submenu-container.open {
+    display: flex;
+}
+
+.admin-submenu-link {
+    display: flex;
+    align-items: center;
+    padding: 9px 14px;
+    color: #a3aed0;
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.admin-submenu-link:hover {
+    color: #1b2559;
+    background-color: #f4f7fe;
+}
+
+.admin-submenu-link.active {
+    color: #0061ff !important;
+    background-color: #e6f0ff !important;
+    font-weight: 700;
+}
+
 
 /* ============================================
    MAIN CONTENT AREA
