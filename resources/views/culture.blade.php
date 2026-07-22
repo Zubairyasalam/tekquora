@@ -1184,10 +1184,6 @@
                         @endforeach
                     </div>
 
-                    <!-- Left Progress bar tracker -->
-                    <div class="features-progress-bar">
-                        <div class="features-progress-fill"></div>
-                    </div>
                 </div>
             </div>
 
