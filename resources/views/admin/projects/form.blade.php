@@ -88,32 +88,18 @@
             </div>
 
             <!-- Images Row -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px;">
+            <div style="max-width: 500px; margin: 0 auto 32px auto;">
                 
                 <!-- Image 1: Main Thumbnail -->
                 <div style="background-color: #f8faff; border: 1px solid #e0e8ff; border-radius: 14px; padding: 20px;">
                     <label style="display: block; font-size: 14px; font-weight: 600; color: #2b3674; margin-bottom: 12px;">Main Project Image (Thumbnail)</label>
                     
-                    <div style="background-color: white; border: 2px dashed #e0e8ff; border-radius: 10px; padding: 16px; display: flex; align-items: center; justify-content: center; min-height: 120px; margin-bottom: 16px;">
-                        <img id="image_1_preview" src="{{ $project->image_1 ? asset($project->image_1) : 'https://placehold.co/300x200?text=No+Thumbnail+Image' }}" alt="Thumbnail Preview" style="max-height: 100px; max-width: 100%; object-fit: contain;">
+                    <div style="background-color: white; border: 2px dashed #e0e8ff; border-radius: 10px; padding: 16px; display: flex; align-items: center; justify-content: center; min-height: 160px; margin-bottom: 16px;">
+                        <img id="image_1_preview" src="{{ $project->image_1 ? asset($project->image_1) : 'https://placehold.co/300x200?text=No+Thumbnail+Image' }}" alt="Thumbnail Preview" style="max-height: 140px; max-width: 100%; object-fit: contain;">
                     </div>
 
                     <input type="file" name="image_1" id="image_1" accept="image/*" onchange="previewImage(this, 'image_1_preview')" {{ $project->exists ? '' : 'required' }} style="display: block; width: 100%; font-size: 13px; color: #a3aed1; file-selector-button-background: #4318ff; file-selector-button-color: white; file-selector-button-border: none; file-selector-button-padding: 6px 12px; file-selector-button-border-radius: 6px; file-selector-button-cursor: pointer;">
                     @error('image_1')
-                        <p style="color: #dc2626; font-size: 13px; margin-top: 6px;">{{ $message }}</p>
-                    @enderror
-                </div>
-
-                <!-- Image 2: Modal Detail Image -->
-                <div style="background-color: #f8faff; border: 1px solid #e0e8ff; border-radius: 14px; padding: 20px;">
-                    <label style="display: block; font-size: 14px; font-weight: 600; color: #2b3674; margin-bottom: 12px;">Secondary Image (Detail View / Modal)</label>
-                    
-                    <div style="background-color: white; border: 2px dashed #e0e8ff; border-radius: 10px; padding: 16px; display: flex; align-items: center; justify-content: center; min-height: 120px; margin-bottom: 16px;">
-                        <img id="image_2_preview" src="{{ $project->image_2 ? asset($project->image_2) : 'https://placehold.co/300x200?text=No+Secondary+Image' }}" alt="Secondary Preview" style="max-height: 100px; max-width: 100%; object-fit: contain;">
-                    </div>
-
-                    <input type="file" name="image_2" id="image_2" accept="image/*" onchange="previewImage(this, 'image_2_preview')" style="display: block; width: 100%; font-size: 13px; color: #a3aed1; file-selector-button-background: #4318ff; file-selector-button-color: white; file-selector-button-border: none; file-selector-button-padding: 6px 12px; file-selector-button-border-radius: 6px; file-selector-button-cursor: pointer;">
-                    @error('image_2')
                         <p style="color: #dc2626; font-size: 13px; margin-top: 6px;">{{ $message }}</p>
                     @enderror
                 </div>
