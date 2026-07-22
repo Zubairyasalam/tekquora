@@ -69,6 +69,9 @@ Route::prefix('admin')->group(function () {
         Route::get('/about-page', [\App\Http\Controllers\Admin\AboutPageController::class, 'index'])->name('admin.about-page');
         Route::post('/about-page', [\App\Http\Controllers\Admin\AboutPageController::class, 'save'])->name('admin.about-page.save');
 
+        Route::get('/our-service-page', [\App\Http\Controllers\Admin\OurServicePageController::class, 'index'])->name('admin.our-service-page');
+        Route::post('/our-service-page', [\App\Http\Controllers\Admin\OurServicePageController::class, 'save'])->name('admin.our-service-page.save');
+
         Route::get('/services', [ServicesController::class, 'index'])->name('admin.services');
         Route::post('/services', [ServicesController::class, 'saveSection'])->name('admin.services.save');
         Route::post('/services/list', [ServicesController::class, 'saveList'])->name('admin.services.list.save');

@@ -4,11 +4,71 @@
 
 @section('content')
 
+@php
+    $heroTitle = \AppModelsSetting::get('service_hero_title', 'Our Service');
+    $heroSubtitle = \AppModelsSetting::get('service_hero_subtitle', 'We believe great products are built by happy, collaborative teams.');
+
+    $section1Title = \AppModelsSetting::get('service_section1_title', 'Building Future-Ready Teams Through Innovation');
+    $section1Paragraph = \AppModelsSetting::get('service_section1_paragraph', 'At TekQuora, we foster an environment where creativity, learning, and team coordination are valued. We support every team member in reaching their potential, encouraging open collaboration, and building high-performance digital products together.');
+    $featuresJson = \AppModelsSetting::get('service_section1_features');
+    $features = $featuresJson ? json_decode($featuresJson, true) : [
+        ['title' => 'Innovation First', 'description' => 'We encourage creativity, experimentation, and continuous learning.', 'icon' => 'lightbulb'],
+        ['title' => 'Collaborative Environment', 'description' => 'Every project is built through teamwork, communication, and shared success.', 'icon' => 'users'],
+        ['title' => 'Growth & Learning', 'description' => 'Employees receive mentorship, training, and opportunities to grow.', 'icon' => 'graduation-cap']
+    ];
+
+    $section2Title = \AppModelsSetting::get('service_section2_title', 'Building Great Teams, Creating Greater Impact!');
+    $section2Paragraph = \AppModelsSetting::get('service_section2_paragraph', 'At TekQuora, we foster a culture of innovation, collaboration, and continuous learning where every individual grows and makes a difference.');
+    $section2SkylineImage = \AppModelsSetting::get('service_section2_skyline_image', '');
+
+    $nodesJson = \AppModelsSetting::get('service_section2_nodes');
+    $nodes = $nodesJson ? json_decode($nodesJson, true) : [
+        ['label' => 'Growth', 'title' => 'Employee Growth', 'description' => 'We believe in nurturing talent and providing clear paths for personal and professional advancement through continuous mentorship.', 'icon' => 'trending-up'],
+        ['label' => 'Collaboration', 'title' => 'Team Collaboration', 'description' => 'We prioritize open communication, active listening, and collective brainstorming to solve complex engineering challenges.', 'icon' => 'users'],
+        ['label' => 'Innovation', 'title' => 'Innovation & Creativity', 'description' => 'We foster an atmosphere of curiosity, encouraging developers to experiment with new technologies and architectures.', 'icon' => 'zap'],
+        ['label' => 'Excellence', 'title' => 'Excellence & Quality', 'description' => 'We strive for top-tier code quality, high performance, and robust security in every line of code we write.', 'icon' => 'award'],
+        ['label' => 'Wellbeing', 'title' => 'Work-Life Balance', 'description' => 'We offer flexible hours, wellness programs, and team-building events to support healthy work-life integration.', 'icon' => 'heart'],
+        ['label' => 'Learning', 'title' => 'Continuous Learning', 'description' => 'We sponsor certificates, training courses, and encourage sharing knowledge through regular technical sessions.', 'icon' => 'book-open']
+    ];
+
+    $section3Title = \AppModelsSetting::get('service_section3_title', 'Connecting Businesses and Innovation Worldwide');
+    $section3Paragraph = \AppModelsSetting::get('service_section3_paragraph', 'TekQuora proudly partners with businesses across multiple countries, delivering innovative digital solutions that drive growth and transformation. From custom software development and web applications to AI-powered solutions, cloud technologies, and enterprise platforms, we help organizations achieve their goals with scalable, secure, and high-performance products.');
+    $section3MapImage = \AppModelsSetting::get('service_section3_map_image', '/assets/world_map_clean.png');
+
+    $statsJson = \AppModelsSetting::get('service_section3_stats');
+    $stats = $statsJson ? json_decode($statsJson, true) : [
+        ['value' => '15+', 'label' => 'Countries Served', 'icon' => 'globe'],
+        ['value' => '500+', 'label' => 'Projects Delivered', 'icon' => 'check-square'],
+        ['value' => '50+', 'label' => 'Global Partners', 'icon' => 'users'],
+        ['value' => '100%', 'label' => 'Client Satisfaction', 'icon' => 'star']
+    ];
+
+    if (!function_exists('getLucideSvg')) {
+        function getLucideSvg($iconName, $size = 22, $strokeWidth = 2) {
+            $svgs = [
+                'lightbulb' => '<svg xmlns="http://www.w3.org/2000/svg" width="%size%" height="%size%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="%stroke%" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1 .3 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>',
+                'users' => '<svg xmlns="http://www.w3.org/2000/svg" width="%size%" height="%size%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="%stroke%" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+                'graduation-cap' => '<svg xmlns="http://www.w3.org/2000/svg" width="%size%" height="%size%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="%stroke%" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>',
+                'globe' => '<svg xmlns="http://www.w3.org/2000/svg" width="%size%" height="%size%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="%stroke%" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+                'zap' => '<svg xmlns="http://www.w3.org/2000/svg" width="%size%" height="%size%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="%stroke%" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>',
+                'award' => '<svg xmlns="http://www.w3.org/2000/svg" width="%size%" height="%size%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="%stroke%" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>',
+                'heart' => '<svg xmlns="http://www.w3.org/2000/svg" width="%size%" height="%size%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="%stroke%" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>',
+                'book-open' => '<svg xmlns="http://www.w3.org/2000/svg" width="%size%" height="%size%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="%stroke%" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>',
+                'trending-up' => '<svg xmlns="http://www.w3.org/2000/svg" width="%size%" height="%size%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="%stroke%" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>',
+                'check-square' => '<svg xmlns="http://www.w3.org/2000/svg" width="%size%" height="%size%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="%stroke%" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
+                'star' => '<svg xmlns="http://www.w3.org/2000/svg" width="%size%" height="%size%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="%stroke%" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>'
+            ];
+            $svg = $svgs[$iconName] ?? $svgs['lightbulb'];
+            return str_replace(['%size%', '%stroke%'], [$size, $strokeWidth], $svg);
+        }
+    }
+@endphp
+
 <!-- Hero Section -->
 <section class="team-hero">
     <div class="team-hero-content" style="max-width: 800px; margin: 0 auto;">
-        <h1 class="team-hero-title">Our Service</h1>
-        <p class="team-hero-subtitle">We believe great products are built by happy, collaborative teams.</p>
+        <h1 class="team-hero-title">{!! $heroTitle !!}</h1>
+        <p class="team-hero-subtitle">{{ $heroSubtitle }}</p>
     </div>
 </section>
 
@@ -1096,85 +1156,105 @@
 </style>
 
 <!-- SECTION 1: Work Culture Redesign Section (From step 1) -->
+
+<!-- SECTION 1: TWO-COLUMN TIMELINE LIST -->
 <section class="culture-redesign-section">
     <div class="culture-redesign-container">
         <div class="culture-grid fade-up-element" id="cultureGrid">
-            
+
             <!-- Left Side: Content & Features -->
             <div class="culture-left-content">
-
-                
-                <h2 class="culture-main-heading">Building Future-Ready Teams Through Innovation</h2>
+                <h2 class="culture-main-heading">{{ $section1Title }}</h2>
                 <p class="culture-paragraph">
-                    At TekQuora, we foster an environment where creativity, learning, and team coordination are valued. We support every team member in reaching their potential, encouraging open collaboration, and building high-performance digital products together.
+                    {{ $section1Paragraph }}
                 </p>
-                
+
                 <div class="culture-features-wrapper">
                     <div class="culture-features-list">
-                        <!-- Feature 1: Innovation First -->
-                        <div class="culture-feature-item active" data-index="0">
+                        @foreach($features as $index => $feature)
+                        <div class="culture-feature-item {{ $index === 0 ? 'active' : '' }}" data-index="{{ $index }}">
                             <div class="feature-icon-box">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1 .3 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+                                {!! getLucideSvg($feature['icon'], 22, 2) !!}
                             </div>
                             <div class="feature-info">
-                                <h3 class="feature-title">Innovation First</h3>
-                                <p class="feature-desc">We encourage creativity, experimentation, and continuous learning.</p>
+                                <h3 class="feature-title">{{ $feature['title'] }}</h3>
+                                <p class="feature-desc">{{ $feature['description'] }}</p>
                             </div>
                         </div>
-                        
-                        <!-- Feature 2: Collaborative Environment -->
-                        <div class="culture-feature-item" data-index="1">
-                            <div class="feature-icon-box">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                            </div>
-                            <div class="feature-info">
-                                <h3 class="feature-title">Collaborative Environment</h3>
-                                <p class="feature-desc">Every project is built through teamwork, communication, and shared success.</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Feature 3: Growth & Learning -->
-                        <div class="culture-feature-item" data-index="2">
-                            <div class="feature-icon-box">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
-                            </div>
-                            <div class="feature-info">
-                                <h3 class="feature-title">Growth & Learning</h3>
-                                <p class="feature-desc">Employees receive mentorship, training, and opportunities to grow.</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
-                    
-                    <!-- Unified vertical progress indicator track -->
-                    <div class="features-progress-track">
+
+                    <!-- Left Progress bar tracker -->
+                    <div class="features-progress-bar">
                         <div class="features-progress-fill"></div>
                     </div>
                 </div>
             </div>
-            
 
-            
+            <!-- Right Side: Graphic Visual (Interactive Cards Grid) -->
+            <div class="culture-right-visual">
+                <div class="culture-visual-card item-1 active">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-wrapper purple">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
+                    <div class="card-text-block">
+                        <span class="card-mini-tag purple">Agile Workflows</span>
+                        <h4 class="card-title-text">Sprint Executions</h4>
+                        <p class="card-desc-text">Iterative design & test feedback loops daily.</p>
+                    </div>
+                </div>
+
+                <div class="culture-visual-card item-2">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-wrapper blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div class="card-text-block">
+                        <span class="card-mini-tag blue">Quality Focus</span>
+                        <h4 class="card-title-text">Zero Defect Policy</h4>
+                        <p class="card-desc-text">Robust automated code pipelines & security scans.</p>
+                    </div>
+                </div>
+
+                <div class="culture-visual-card item-3">
+                    <div class="card-glow"></div>
+                    <div class="card-icon-wrapper emerald">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                    </div>
+                    <div class="card-text-block">
+                        <span class="card-mini-tag emerald">Fun Culture</span>
+                        <h4 class="card-title-text">Social Events</h4>
+                        <p class="card-desc-text">Gaming sessions, outings & dynamic hackathons.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
 
-<!-- SECTION 2: Premium Arc Timeline Wheel Section (Redesigned) -->
+<!-- SECTION 2: Interactive Arc timeline Wheel Section -->
 <section class="arc-wheel-section">
     <!-- Dotted corners decorations matching Image 1 -->
     <div class="culture-dots culture-dots-left"></div>
     <div class="culture-dots culture-dots-right"></div>
 
     <!-- Skyline Background Silhouettes -->
-    <div class="culture-skyline culture-skyline-left"></div>
-    <div class="culture-skyline culture-skyline-right"></div>
+    @if($section2SkylineImage)
+        <div class="culture-skyline culture-skyline-left" style="background-image: url('{{ $section2SkylineImage }}')"></div>
+        <div class="culture-skyline culture-skyline-right" style="background-image: url('{{ $section2SkylineImage }}')"></div>
+    @else
+        <div class="culture-skyline culture-skyline-left"></div>
+        <div class="culture-skyline culture-skyline-right"></div>
+    @endif
 
     <div class="arc-wheel-container">
-        
-        <div class="arc-header fade-up-element" id="arcHeader">
 
-            <h2 class="arc-title">Building Great Teams, Creating Greater Impact!</h2>
+        <div class="arc-header fade-up-element" id="arcHeader">
+            <h2 class="arc-title">{{ $section2Title }}</h2>
             <p class="arc-desc">
-                At TekQuora, we foster a culture of innovation, collaboration, and continuous learning where every individual grows and makes a difference.
+                {{ $section2Paragraph }}
             </p>
         </div>
 
@@ -1186,65 +1266,31 @@
                 <!-- Main light gray path -->
                 <path d="M 101.5 380 A 400 400 0 0 1 898.5 380" fill="none" stroke="#f1f5f9" stroke-width="12" stroke-linecap="round" />
             </svg>
-                
-
 
             <!-- Mobile Only Tabs list wrapper -->
             <div class="arc-mobile-tabs">
-                <div class="arc-mobile-tab-btn active" data-mobile-index="1">Growth</div>
-                <div class="arc-mobile-tab-btn" data-mobile-index="2">Collaboration</div>
-                <div class="arc-mobile-tab-btn" data-mobile-index="3">Innovation</div>
-                <div class="arc-mobile-tab-btn" data-mobile-index="4">Excellence</div>
-                <div class="arc-mobile-tab-btn" data-mobile-index="5">Wellbeing</div>
-                <div class="arc-mobile-tab-btn" data-mobile-index="6">Learning</div>
+                @foreach($nodes as $index => $node)
+                <div class="arc-mobile-tab-btn {{ $index === 0 ? 'active' : '' }}" data-mobile-index="{{ $index + 1 }}">{{ $node['label'] }}</div>
+                @endforeach
             </div>
 
-            <!-- Arc Node 1: Employee Growth (Highlighted Active by Default) -->
-            <div class="arc-timeline-node arc-node-index-1 active float-1" data-node="1" data-label="Growth">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                <span class="arc-node-label">Growth</span>
+            @foreach($nodes as $index => $node)
+            <div class="arc-timeline-node arc-node-index-{{ $index + 1 }} {{ $index === 0 ? 'active' : '' }} float-{{ ($index % 3) + 1 }}" data-node="{{ $index + 1 }}" data-label="{{ $node['label'] }}">
+                {!! getLucideSvg($node['icon'], 24, 2) !!}
+                <span class="arc-node-label">{{ $node['label'] }}</span>
             </div>
-
-            <!-- Arc Node 2: Team Collaboration -->
-            <div class="arc-timeline-node arc-node-index-2 float-2" data-node="2" data-label="Collaboration">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                <span class="arc-node-label">Collaboration</span>
-            </div>
-
-            <!-- Arc Node 3: Innovation -->
-            <div class="arc-timeline-node arc-node-index-3 float-3" data-node="3" data-label="Innovation">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1 .3 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
-                <span class="arc-node-label">Innovation</span>
-            </div>
-
-            <!-- Arc Node 4: Recognition & Rewards -->
-            <div class="arc-timeline-node arc-node-index-4 float-1" data-node="4" data-label="Excellence">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-                <span class="arc-node-label">Excellence</span>
-            </div>
-
-            <!-- Arc Node 5: Work-Life Balance -->
-            <div class="arc-timeline-node arc-node-index-5 float-2" data-node="5" data-label="Wellbeing">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                <span class="arc-node-label">Wellbeing</span>
-            </div>
-
-            <!-- Arc Node 6: Continuous Learning -->
-            <div class="arc-timeline-node arc-node-index-6 float-3" data-node="6" data-label="Learning">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
-                <span class="arc-node-label">Learning</span>
-            </div>
+            @endforeach
 
             <!-- Central Content Display (Borderless & Transparent matching Image 1) -->
             <div class="arc-center-content-wrapper" id="arcCenterCard">
                 <div class="arc-center-icon-box" id="centerIcon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    <!-- Loaded dynamically via JS -->
                 </div>
-                <h3 class="arc-center-title" id="centerTitle">Employee Growth</h3>
+                <h3 class="arc-center-title" id="centerTitle"><!-- Loaded dynamically via JS --></h3>
                 <!-- Underline element matching mockup -->
                 <div class="center-title-line"></div>
                 <p class="arc-center-desc" id="centerDesc">
-                    We believe in nurturing talent and providing clear paths for personal and professional advancement through continuous mentorship.
+                    <!-- Loaded dynamically via JS -->
                 </p>
             </div>
 
@@ -1259,173 +1305,111 @@
         
         <!-- Centered Header Block -->
         <div class="global-reach-header">
-
-            <h2 class="global-reach-title">Connecting Businesses and Innovation Worldwide</h2>
+            <h2 class="global-reach-title">{{ $section3Title }}</h2>
             <p class="global-reach-desc">
-                TekQuora proudly partners with businesses across multiple countries, delivering innovative digital solutions that drive growth and transformation. From custom software development and web applications to AI-powered solutions, cloud technologies, and enterprise platforms, we help organizations achieve their goals with scalable, secure, and high-performance products.
+                {{ $section3Paragraph }}
             </p>
         </div>
 
         <!-- Stats Row (Redesigned Cards) -->
         <div class="global-reach-stats">
+            @foreach($stats as $stat)
             <div class="global-stat-card">
                 <div class="stat-card-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    {!! getLucideSvg($stat['icon'], 22, 2.2) !!}
                 </div>
                 <div class="stat-card-content">
-                    <div class="global-stat-value">15<span>+</span></div>
-                    <div class="global-stat-label">Countries Served</div>
+                    <div class="global-stat-value">{{ $stat['value'] }}</div>
+                    <div class="global-stat-label">{{ $stat['label'] }}</div>
                 </div>
             </div>
-
-            <div class="global-stat-card">
-                <div class="stat-card-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                </div>
-                <div class="stat-card-content">
-                    <div class="global-stat-value">500<span>+</span></div>
-                    <div class="global-stat-label">Projects Delivered</div>
-                </div>
-            </div>
-
-            <div class="global-stat-card">
-                <div class="stat-card-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </div>
-                <div class="stat-card-content">
-                    <div class="global-stat-value">50<span>+</span></div>
-                    <div class="global-stat-label">Global Partners</div>
-                </div>
-            </div>
-
-            <div class="global-stat-card">
-                <div class="stat-card-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                </div>
-                <div class="stat-card-content">
-                    <div class="global-stat-value">100<span>%</span></div>
-                    <div class="global-stat-label">Client Satisfaction</div>
-                </div>
-            </div>
+            @endforeach
         </div>
 
         <!-- Full-Width Interactive Map -->
         <div class="global-reach-map-area">
             <div class="global-map-wrapper">
-                <img class="global-map-img" src="/assets/world_map_clean.png" alt="Global Presence Map">
+                <img class="global-map-img" src="{{ $section3MapImage }}" alt="Global Presence Map">
                 
                 <div class="map-hotspot spot-1" title="Tamil Nadu, India"><span class="hotspot-label">Tamil Nadu</span></div>
                 <div class="map-hotspot spot-2" title="Singapore"><span class="hotspot-label">Singapore</span></div>
                 <div class="map-hotspot spot-3" title="Dubai, UAE"><span class="hotspot-label">Dubai</span></div>
                 <div class="map-hotspot spot-4" title="San Francisco, USA"><span class="hotspot-label">San Francisco</span></div>
                 <div class="map-hotspot spot-5" title="London, UK"><span class="hotspot-label">London</span></div>
-                <div class="map-hotspot spot-6" title="Bengaluru, India"><span class="hotspot-label">Bengaluru</span></div>
+                <div class="map-hotspot spot-6" title="Sydney, Australia"><span class="hotspot-label">Sydney</span></div>
                 <div class="map-hotspot spot-7" title="Tokyo, Japan"><span class="hotspot-label">Tokyo</span></div>
+                <div class="map-hotspot spot-8" title="Toronto, Canada"><span class="hotspot-label">Toronto</span></div>
                 <div class="map-hotspot spot-9" title="Berlin, Germany"><span class="hotspot-label">Berlin</span></div>
-                <div class="map-hotspot spot-10" title="Toronto, Canada"><span class="hotspot-label">Toronto</span></div>
-                <div class="map-hotspot spot-11" title="Kerala, India"><span class="hotspot-label">Kerala</span></div>
-                <div class="map-hotspot spot-12" title="New York, USA"><span class="hotspot-label">New York</span></div>
-                <div class="map-hotspot spot-13" title="Paris, France"><span class="hotspot-label">Paris</span></div>
-                <div class="map-hotspot spot-14" title="Mumbai, India"><span class="hotspot-label">Mumbai</span></div>
-                <div class="map-hotspot spot-16" title="Cape Town, South Africa"><span class="hotspot-label">Cape Town</span></div>
-                <div class="map-hotspot spot-17" title="São Paulo, Brazil"><span class="hotspot-label">São Paulo</span></div>
+                <div class="map-hotspot spot-10" title="Paris, France"><span class="hotspot-label">Paris</span></div>
+                <div class="map-hotspot spot-11" title="Cape Town, South Africa"><span class="hotspot-label">Cape Town</span></div>
+                <div class="map-hotspot spot-12" title="Sao Paulo, Brazil"><span class="hotspot-label">Sao Paulo</span></div>
+                <div class="map-hotspot spot-13" title="Auckland, New Zealand"><span class="hotspot-label">Auckland</span></div>
+                <div class="map-hotspot spot-14" title="Nairobi, Kenya"><span class="hotspot-label">Nairobi</span></div>
+                <div class="map-hotspot spot-15" title="Mumbai, India"><span class="hotspot-label">Mumbai</span></div>
             </div>
         </div>
-        
+
     </div>
 </section>
 
-<!-- Script for interactive elements -->
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Intersection Observer Script for Fade-Up animation
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15
-        };
-        
-        const observer = new IntersectionObserver((entries, observer) => {
+    document.addEventListener('DOMContentLoaded', function () {
+        // Animation IntersectionObserver
+        const fadeElements = document.querySelectorAll('.fade-up-element');
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('in-view');
-                    observer.unobserve(entry.target);
+                    entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
-        
-        const animElement = document.getElementById('cultureGrid');
-        if (animElement) {
-            observer.observe(animElement);
-        }
-        
-        const arcHeaderAnim = document.getElementById('arcHeader');
-        if (arcHeaderAnim) {
-            observer.observe(arcHeaderAnim);
-        }
+        }, { threshold: 0.1 });
+        fadeElements.forEach(el => observer.observe(el));
 
-        // Timeline Scroll indicator controller (Section 1)
-        const items = document.querySelectorAll('.culture-feature-item');
-        const fill = document.querySelector('.features-progress-fill');
-        
-        items.forEach((item, index) => {
+        // Right Visual Cards Hover/Focus cycle
+        const visualCards = document.querySelectorAll('.culture-visual-card');
+        const featureItems = document.querySelectorAll('.culture-feature-item');
+        const fillBar = document.querySelector('.features-progress-fill');
+
+        featureItems.forEach((item, index) => {
             item.addEventListener('mouseenter', () => {
-                items.forEach(i => i.classList.remove('active'));
+                featureItems.forEach(i => i.classList.remove('active'));
                 item.classList.add('active');
                 
-                // Move indicator
-                const percent = (index / items.length) * 100;
-                fill.style.top = `${percent}%`;
+                visualCards.forEach(card => card.classList.remove('active'));
+                if (visualCards[index]) {
+                    visualCards[index].classList.add('active');
+                }
+
+                const percent = (index / featureItems.length) * 100;
+                if (fillBar) fillBar.style.top = `${percent}%`;
             });
         });
 
         // -------------------------------------------------------------
         // ARC TIMELINE CONTROLLER (SECTION 2)
         // -------------------------------------------------------------
-        const nodesData = {
-            1: {
-                title: "Employee Growth",
-                desc: "We believe in nurturing talent and providing clear paths for personal and professional advancement through continuous mentorship.",
+        const rawNodes = @json($nodes);
+        const nodesData = {};
+        
+        rawNodes.forEach((node, idx) => {
+            let svgString = '';
+            if (node.icon === 'trending-up') svgString = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"></polyline></svg>`;
+            else if (node.icon === 'users') svgString = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"></polyline></svg>`;
+            else if (node.icon === 'zap') svgString = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`;
+            else if (node.icon === 'award') svgString = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>`;
+            else if (node.icon === 'heart') svgString = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>`;
+            else if (node.icon === 'book-open') svgString = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>`;
+            else if (node.icon === 'lightbulb') svgString = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1 .3 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"></path></svg>`;
+            else svgString = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>`;
+            
+            nodesData[idx + 1] = {
+                title: node.title,
+                desc: node.description,
                 btnText: "Explore Careers",
                 btnUrl: "/#careers",
-                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`
-            },
-            2: {
-                title: "Team Collaboration",
-                desc: "Every project is built through teamwork, open communication, and shared success. We support each other to build impactful digital solutions.",
-                btnText: "Explore Careers",
-                btnUrl: "/#careers",
-                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`
-            },
-            3: {
-                title: "Innovation First",
-                desc: "We encourage creativity, experimentation, and challenging the status quo to discover better, faster ways to build state-of-the-art software.",
-                btnText: "Explore Careers",
-                btnUrl: "/#careers",
-                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1 .3 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>`
-            },
-            4: {
-                title: "Excellence & Performance",
-                desc: "We celebrate milestones, performance excellence, and support peer-to-peer recognition programs to appreciate extra efforts.",
-                btnText: "Explore Careers",
-                btnUrl: "/#careers",
-                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>`
-            },
-            5: {
-                title: "Wellbeing & Flexibility",
-                desc: "We support a hybrid-friendly setup, flexible work hours, and dedicated mental health wellbeing days to keep our teams creative and fresh.",
-                btnText: "Explore Careers",
-                btnUrl: "/#careers",
-                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.5 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`
-            },
-            6: {
-                title: "Continuous Learning",
-                desc: "We run weekly study groups, internal tech presentations, and provide personal education budgets for professional growth.",
-                btnText: "Explore Careers",
-                btnUrl: "/#careers",
-                icon: `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>`
-            }
-        };
+                icon: svgString
+            };
+        });
 
         const arcNodes = document.querySelectorAll('.arc-timeline-node');
         const mobileTabBtns = document.querySelectorAll('.arc-mobile-tab-btn');
@@ -1435,17 +1419,16 @@
         const centerCard = document.getElementById('arcCenterCard');
 
         function updateArcCenterContent(index) {
-            // Trigger quick text fade-in animation
+            if (!nodesData[index]) return;
+            
             centerCard.style.animation = 'none';
-            centerCard.offsetHeight; // trigger reflow
+            centerCard.offsetHeight; 
             centerCard.style.animation = 'textAppear-centered 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
 
-            // Update content details
             centerTitle.textContent = nodesData[index].title;
             centerDesc.textContent = nodesData[index].desc;
             centerIcon.innerHTML = nodesData[index].icon;
             
-            // Loop through all nodes and reset their active classes
             arcNodes.forEach(node => {
                 const nodeIdx = node.getAttribute('data-node');
                 if (nodeIdx === index) {
@@ -1456,12 +1439,9 @@
             });
         }
 
-        // Desktop node click event
         arcNodes.forEach(node => {
             node.addEventListener('click', function() {
                 const nodeIndex = this.getAttribute('data-node');
-                
-                // Toggle active classes on mobile tabs
                 mobileTabBtns.forEach(b => {
                     if (b.getAttribute('data-mobile-index') === nodeIndex) {
                         b.classList.add('active');
@@ -1469,25 +1449,19 @@
                         b.classList.remove('active');
                     }
                 });
-
                 updateArcCenterContent(nodeIndex);
             });
         });
 
-        // Mobile tab click event
         mobileTabBtns.forEach(btn => {
             btn.addEventListener('click', function() {
                 const mobileIndex = this.getAttribute('data-mobile-index');
-                
-                // Toggle active classes on mobile tabs
                 mobileTabBtns.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
-
                 updateArcCenterContent(mobileIndex);
             });
         });
         
-        // Initial setup for the first node icon color
         updateArcCenterContent('1');
     });
 </script>
