@@ -48,13 +48,18 @@
 
                     <div class="form-group">
                         <label for="service">Project Type / Service *</label>
-                        <select id="service" name="service" class="form-control" style="appearance: auto; background-color: white; color: #0f172a;" required>
+                        <select id="service" name="service" class="form-control service-select-dropdown" style="appearance: auto; background-color: white; color: #0f172a;" required>
                             <option value="" disabled {{ old('service') ? '' : 'selected' }}>Select a service</option>
                             <option value="web" {{ old('service') == 'web' ? 'selected' : '' }}>Web Development</option>
                             <option value="mobile" {{ old('service') == 'mobile' ? 'selected' : '' }}>Mobile App</option>
                             <option value="ai" {{ old('service') == 'ai' ? 'selected' : '' }}>AI Solution</option>
                             <option value="other" {{ old('service') == 'other' ? 'selected' : '' }}>Other</option>
                         </select>
+                    </div>
+
+                    <div class="form-group other-service-input-group" style="display: {{ old('service') == 'other' ? 'block' : 'none' }}; grid-column: span 2;">
+                        <label for="other_service">Specify Service / Requirement *</label>
+                        <input type="text" id="other_service" name="other_service" class="form-control" placeholder="e.g. Cybersecurity, Cloud Migration, etc." value="{{ old('other_service') }}" {{ old('service') == 'other' ? 'required' : '' }}>
                     </div>
                 </div>
 

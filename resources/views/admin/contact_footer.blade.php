@@ -85,14 +85,6 @@
                     <input type="text" name="contact_location" id="contact_location" value="{{ $contactLocation }}" style="width: 100%; padding: 10px 14px; border: 1px solid #e0e8ff; border-radius: 8px; font-size: 14px; background: white;" required>
                 </div>
 
-                <!-- Working Hours -->
-                <div style="background: #f8faff; border: 1px solid #e0e8ff; border-radius: 12px; padding: 18px;">
-                    <label for="contact_working_hours" style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #2b3674; margin-bottom: 8px;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4318ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                        Working Days & Hours
-                    </label>
-                    <input type="text" name="contact_working_hours" id="contact_working_hours" value="{{ $contactWorkingHours }}" style="width: 100%; padding: 10px 14px; border: 1px solid #e0e8ff; border-radius: 8px; font-size: 14px; background: white;" required>
-                </div>
             </div>
 
             <div style="background: #f8faff; border: 1px solid #e0e8ff; border-radius: 12px; padding: 18px;">
@@ -101,35 +93,6 @@
                     Google Map Embed URL (iframe src)
                 </label>
                 <input type="text" name="contact_map_url" id="contact_map_url" value="{{ $contactMapUrl ?? '' }}" placeholder="https://www.google.com/maps/embed?..." style="width: 100%; padding: 10px 14px; border: 1px solid #e0e8ff; border-radius: 8px; font-size: 13px; background: white;">
-            </div>
-        </div>
-
-        <!-- 3. CTA Card Settings -->
-        <div class="dash-table-card" style="padding: 28px; margin-bottom: 24px; background: linear-gradient(135deg, #4318ff 0%, #868cff 100%); color: white;">
-            <h3 style="font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 700; color: white; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                Contact Call-to-Action (CTA) Box
-            </h3>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
-                <div>
-                    <label for="cta_title" style="display: block; font-size: 14px; font-weight: 600; color: white; margin-bottom: 8px;">CTA Heading</label>
-                    <input type="text" name="cta_title" id="cta_title" value="{{ $contactCta['title'] ?? '' }}" style="width: 100%; padding: 12px 16px; border: 1px solid rgba(255,255,255,0.3); border-radius: 10px; font-size: 14px; background: rgba(255,255,255,0.15); color: white; outline: none;" required>
-                </div>
-                <div>
-                    <label for="cta_description" style="display: block; font-size: 14px; font-weight: 600; color: white; margin-bottom: 8px;">CTA Description</label>
-                    <input type="text" name="cta_description" id="cta_description" value="{{ $contactCta['description'] ?? '' }}" style="width: 100%; padding: 12px 16px; border: 1px solid rgba(255,255,255,0.3); border-radius: 10px; font-size: 14px; background: rgba(255,255,255,0.15); color: white; outline: none;" required>
-                </div>
-            </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                <div>
-                    <label for="cta_btn_text" style="display: block; font-size: 14px; font-weight: 600; color: white; margin-bottom: 8px;">CTA Button Label</label>
-                    <input type="text" name="cta_btn_text" id="cta_btn_text" value="{{ $contactCta['btn_text'] ?? '' }}" style="width: 100%; padding: 12px 16px; border: 1px solid rgba(255,255,255,0.3); border-radius: 10px; font-size: 14px; background: rgba(255,255,255,0.15); color: white; outline: none;" required>
-                </div>
-                <div>
-                    <label for="cta_btn_url" style="display: block; font-size: 14px; font-weight: 600; color: white; margin-bottom: 8px;">CTA Button Target URL</label>
-                    <input type="text" name="cta_btn_url" id="cta_btn_url" value="{{ $contactCta['btn_url'] ?? '' }}" style="width: 100%; padding: 12px 16px; border: 1px solid rgba(255,255,255,0.3); border-radius: 10px; font-size: 14px; background: rgba(255,255,255,0.15); color: white; outline: none;" required>
-                </div>
             </div>
         </div>
 

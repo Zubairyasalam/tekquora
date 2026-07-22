@@ -40,13 +40,13 @@ class ContactFooterController extends Controller
             'contact_email' => 'required|email|max:255',
             'contact_phone' => 'required|string|max:100',
             'contact_location' => 'required|string|max:255',
-            'contact_working_hours' => 'required|string|max:255',
+            'contact_working_hours' => 'nullable|string|max:255',
             'contact_map_url' => 'nullable|string',
             
-            'cta_title' => 'required|string|max:255',
-            'cta_description' => 'required|string|max:500',
-            'cta_btn_text' => 'required|string|max:100',
-            'cta_btn_url' => 'required|string|max:255',
+            'cta_title' => 'nullable|string|max:255',
+            'cta_description' => 'nullable|string|max:500',
+            'cta_btn_text' => 'nullable|string|max:100',
+            'cta_btn_url' => 'nullable|string|max:255',
         ]);
 
         Setting::set('contact_title', $request->contact_title);
@@ -54,16 +54,22 @@ class ContactFooterController extends Controller
         Setting::set('contact_email', $request->contact_email);
         Setting::set('contact_phone', $request->contact_phone);
         Setting::set('contact_location', $request->contact_location);
-        Setting::set('contact_working_hours', $request->contact_working_hours);
-        Setting::set('contact_map_url', $request->contact_map_url);
+        if ($request->filled('contact_working_hours')) {
+            Setting::set('contact_working_hours', $request->contact_working_hours);
+        }
+        if ($request->has('contact_map_url')) {
+            Setting::set('contact_map_url', $request->contact_map_url);
+        }
 
-        $contactCta = [
-            'title' => $request->cta_title,
-            'description' => $request->cta_description,
-            'btn_text' => $request->cta_btn_text,
-            'btn_url' => $request->cta_btn_url,
-        ];
-        Setting::set('contact_cta', json_encode($contactCta));
+        if ($request->filled('cta_title')) {
+            $contactCta = [
+                'title' => $request->cta_title,
+                'description' => $request->cta_description,
+                'btn_text' => $request->cta_btn_text,
+                'btn_url' => $request->cta_btn_url,
+            ];
+            Setting::set('contact_cta', json_encode($contactCta));
+        }
 
         return redirect()->back()->with('success', 'Contact Us Page settings updated successfully!');
     }
