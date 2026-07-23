@@ -242,15 +242,15 @@
             justify-content: center;
             background: linear-gradient(135deg, #19A8FF, #6C4DFF);
             border: 4px solid #ffffff;
-            box-shadow: 0 8px 24px rgba(108, 77, 255, 0.25), 0 0 0 1px rgba(108, 77, 255, 0.05);
+            box-shadow: 0 0 0 5px rgba(25, 168, 255, 0.22), 0 12px 28px rgba(108, 77, 255, 0.35);
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         
         /* Hover scale and translation */
         .timeline-step:hover .service-icon-wrap {
-            transform: translateY(-6px) scale(1.08);
-            box-shadow: 0 16px 32px rgba(108, 77, 255, 0.45), 0 0 0 2px rgba(25, 168, 255, 0.3);
+            transform: translateY(-6px) scale(1.1);
+            box-shadow: 0 0 0 8px rgba(25, 168, 255, 0.35), 0 18px 36px rgba(108, 77, 255, 0.5);
         }
         
         .step-text-top, .step-text-bottom {
@@ -325,8 +325,22 @@
                 display: flex;
                 flex-direction: column;
                 height: auto;
-                gap: 2.5rem;
+                gap: 1.75rem;
                 align-items: center;
+                position: relative;
+            }
+            .timeline-nodes::before {
+                content: '';
+                position: absolute;
+                top: 32px;
+                bottom: 32px;
+                left: 50%;
+                width: 3px;
+                transform: translateX(-50%);
+                background: linear-gradient(180deg, #19A8FF 0%, #4a55e8 50%, #6C4DFF 100%);
+                border-radius: 3px;
+                z-index: 1;
+                opacity: 0.35;
             }
             .timeline-step {
                 position: relative !important;
@@ -334,11 +348,17 @@
                 left: auto !important;
                 top: auto !important;
                 width: 100% !important;
-                max-width: 450px;
+                max-width: 420px;
                 display: flex !important;
                 flex-direction: column !important;
                 align-items: center !important;
                 text-align: center !important;
+                background: #ffffff;
+                padding: 1.75rem 1.25rem !important;
+                border-radius: 20px;
+                border: 1.5px solid rgba(226, 232, 240, 0.9);
+                box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+                z-index: 2;
             }
             .step-icon-wrapper {
                 order: 1 !important;
@@ -349,6 +369,7 @@
                 width: 64px !important;
                 height: 64px !important;
                 margin: 0 auto 1rem auto !important;
+                z-index: 3;
             }
             .service-icon-wrap {
                 position: relative !important;
