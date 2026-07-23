@@ -219,7 +219,7 @@ class SettingsSeeder extends Seeder
         Setting::set('contact_title', 'Get In Touch');
         Setting::set('contact_subtitle', "Ready to transform your business with cutting-edge technology? Let's discuss your project and bring your vision to life.");
         Setting::set('contact_email', 'tekquora@gmail.com');
-        Setting::set('contact_phone', '+91 7373306677');
+        Setting::set('contact_phone', '+91 93452 72947');
         Setting::set('contact_location', 'Chennai, Tamil Nadu, India');
         Setting::set('contact_working_hours', 'Mon - Fri: 9:00 AM - 6:00 PM');
         

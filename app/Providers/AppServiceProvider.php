@@ -81,7 +81,7 @@ class AppServiceProvider extends ServiceProvider
                 $contactTitle = Setting::get('contact_title', "Let's Connect");
                 $contactSubtitle = Setting::get('contact_subtitle', "Have questions? Want to join our team? We'd love to hear from you.");
                 $contactEmail = Setting::get('contact_email', 'tekquora@gmail.com');
-                $contactPhone = Setting::get('contact_phone', '+91 7373306677');
+                $contactPhone = Setting::get('contact_phone', '+91 93452 72947');
                 $contactLocation = Setting::get('contact_location', 'Chennai, Tamil Nadu, India');
                 $contactWorkingHours = Setting::get('contact_working_hours', 'Mon - Fri: 9:00 AM - 6:00 PM');
                 $contactMapUrl = Setting::get('contact_map_url', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.003584852924!2d80.2422709!3d12.965429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525d61081515ef%3A0xc346617fcbd8ad94!2sKandancavadi%2520Perungudi!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin');
@@ -93,7 +93,7 @@ class AppServiceProvider extends ServiceProvider
                 $footerCopyright = Setting::get('footer_copyright', 'TekQuora Admin Console. Powered by TekQuora CRM.');
                 $footerSocialsJson = Setting::get('footer_socials');
                 $footerSocials = $footerSocialsJson ? json_decode($footerSocialsJson, true) : [
-                    'facebook' => '#', 'twitter' => '#', 'linkedin' => '#', 'instagram' => '#', 'whatsapp' => '#'
+                    'facebook' => 'https://www.facebook.com/profile.php?id=61585230471650', 'twitter' => '#', 'linkedin' => '#', 'instagram' => 'https://www.instagram.com/tekquora2025/?hl=en', 'whatsapp' => 'https://wa.me/919345272947'
                 ];
                 $footerCol1Title = Setting::get('footer_col1_title', 'Services');
                 $footerCol1LinksJson = Setting::get('footer_col1_links');
