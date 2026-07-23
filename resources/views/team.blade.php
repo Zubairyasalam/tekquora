@@ -217,37 +217,25 @@
             @foreach($members as $member)
                 @php
                     // Map type/role to one of: leadership, hr_operation, employee, marketing, intern
-                    $memberType = strtolower($member['type'] ?? 'employee');
-                    $memberRole = strtolower($member['role'] ?? '');
-                    $memberName = strtolower($member['name'] ?? '');
+                    $memberType = strtolower(trim($member['type'] ?? 'employee'));
+                    $memberRole = strtolower(trim($member['role'] ?? ''));
 
-                    // Explicitly restrict Employee to only these 5 names
-                    $isEmployeeName = str_contains($memberName, 'praveen') || 
-                                      str_contains($memberName, 'raghul') || 
-                                      str_contains($memberName, 'nancy') || 
-                                      str_contains($memberName, 'zubirya') || 
-                                      str_contains($memberName, 'zubairya') || 
-                                      str_contains($memberName, 'charles');
-
-                    if ($isEmployeeName) {
-                        $deptFilter = 'employee';
-                        $displayType = 'Employee';
-                    } elseif ($memberType === 'management' || str_contains($memberRole, 'director') || str_contains($memberRole, 'officer')) {
+                    if ($memberType === 'management' || str_contains($memberRole, 'director') || str_contains($memberRole, 'officer')) {
                         $deptFilter = 'leadership';
                         $displayType = 'Leadership';
                     } elseif ($memberType === 'hr_operation' || str_contains($memberRole, 'hr') || str_contains($memberRole, 'human resource')) {
                         $deptFilter = 'hr_operation';
                         $displayType = 'HR & Operation';
+                    } elseif ($memberType === 'marketing' || str_contains($memberRole, 'marketing') || str_contains($memberRole, 'social media') || str_contains($memberRole, 'seo')) {
+                        $deptFilter = 'marketing';
+                        $displayType = 'Digital Marketing';
                     } elseif ($memberType === 'intern' || str_contains($memberRole, 'intern')) {
                         $deptFilter = 'intern';
                         $displayType = 'Intern';
-                    } elseif (str_contains($memberRole, 'marketing') || str_contains($memberRole, 'social media') || str_contains($memberRole, 'seo') || $memberType === 'marketing' || $memberType === 'seo') {
-                        $deptFilter = 'marketing';
-                        $displayType = 'Digital Marketing';
                     } else {
-                        // Fallback category if not matching the 5 employee names
-                        $deptFilter = 'intern';
-                        $displayType = 'Intern';
+                        // Default fallback for employee or any unmatched type
+                        $deptFilter = 'employee';
+                        $displayType = 'Employee';
                     }
                 @endphp
                 <div class="team-card" data-department="{{ $deptFilter }}">
