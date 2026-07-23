@@ -4973,19 +4973,59 @@ footer {
     width: 100% !important;
   }
 
+  /* Work Culture Mobile Carousel Styling */
+  .culture-section {
+    padding: 2.5rem 1rem 3.5rem 1rem !important;
+  }
+
   .culture-title {
-    font-size: 2.2rem !important;
-    line-height: 1.2 !important;
-    margin-bottom: 1rem !important;
+    font-size: 2rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.75rem !important;
   }
 
   .culture-subtitle {
-    font-size: 1rem !important;
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
     padding: 0 0.5rem !important;
+    max-width: 100% !important;
+  }
+
+  .culture-carousel {
+    margin-top: 1.5rem !important;
+  }
+
+  .culture-cards {
+    gap: 1.25rem !important;
+    padding: 1rem 0.5rem 2rem 0.5rem !important;
+    scroll-snap-type: x mandatory !important;
   }
 
   .culture-card {
     flex: 0 0 85% !important;
-    min-height: 320px !important;
+    min-width: 85% !important;
+    max-width: 85% !important;
+    flex-shrink: 0 !important;
+    scroll-snap-align: center !important;
+    min-height: 350px !important;
+    height: auto !important;
+  }
+
+  .card-img-wrapper {
+    height: 180px !important;
+  }
+
+  .card-content {
+    padding: 1.25rem !important;
+  }
+
+  .card-content h3 {
+    font-size: 1.2rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .card-content p {
+    font-size: 0.9rem !important;
+    line-height: 1.55 !important;
   }
 }
