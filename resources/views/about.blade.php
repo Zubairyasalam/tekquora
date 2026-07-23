@@ -18,7 +18,7 @@
         <div class="about-text-content">
             <h2 class="services-title" style="font-size: 3.5rem !important; text-align: center; margin-top: 0; margin-bottom: 3rem;">About <span class="text-gradient">TekQuora</span></h2>
             
-            <div style="background: #ffffff; padding: 4rem; border-radius: 24px; box-shadow: 0 20px 40px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02); border: 1px solid rgba(226, 232, 240, 0.8); position: relative; overflow: hidden;">
+            <div class="about-main-card">
                 <!-- Decorative gradient line -->
                 <div style="position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: var(--gradient);"></div>
                 
