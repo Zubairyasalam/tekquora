@@ -1138,19 +1138,53 @@
 
     @media (max-width: 768px) {
         .global-reach-section {
-            padding: 4rem 1.5rem;
+            padding: 2.5rem 1rem 3.5rem 1rem !important;
         }
         .global-reach-title {
-            font-size: 2rem;
+            font-size: 1.95rem !important;
+            line-height: 1.25 !important;
+            margin-bottom: 0.75rem !important;
+        }
+        .global-reach-desc {
+            font-size: 0.95rem !important;
+            line-height: 1.6 !important;
+            padding: 0 0.5rem !important;
         }
         .global-reach-stats {
-            gap: 1.5rem;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 0.65rem !important;
+            margin-top: 1.25rem !important;
+            padding: 0 0.25rem !important;
+        }
+        .global-stat-card {
+            padding: 0.75rem 0.6rem !important;
+            gap: 0.5rem !important;
+            border-radius: 14px !important;
+            min-height: 64px !important;
+        }
+        .stat-card-icon {
+            width: 36px !important;
+            height: 36px !important;
+            min-width: 36px !important;
+            border-radius: 10px !important;
+        }
+        .stat-card-icon svg {
+            width: 18px !important;
+            height: 18px !important;
         }
         .global-stat-value {
-            font-size: 1.8rem;
+            font-size: 1.15rem !important;
+            margin-bottom: 0 !important;
         }
-        .global-stat-divider {
-            display: none;
+        .global-stat-label {
+            font-size: 0.68rem !important;
+            letter-spacing: 0.02em !important;
+            line-height: 1.2 !important;
+        }
+        .global-map-wrapper {
+            transform: none !important;
+            aspect-ratio: 16 / 9 !important;
+            margin-top: 1rem !important;
         }
     }
 </style>
