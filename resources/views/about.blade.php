@@ -23,11 +23,11 @@
                 <div style="position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: var(--gradient);"></div>
                 
                 <p style="text-align: left; color: #0f172a; font-size: 1.3rem; line-height: 1.8; margin-bottom: 2rem; font-weight: 500; font-family: 'Outfit', sans-serif;">
-                    TekQuora is a technology-driven company focused on building innovative digital solutions that help businesses grow, streamline operations, and stay ahead in a fast-changing digital world. We specialize in transforming ideas into practical, scalable, and user-friendly software products that solve real business challenges.
+                    {{ !empty($aboutSettings['description_1']) ? $aboutSettings['description_1'] : 'TekQuora is a technology-driven company focused on building innovative digital solutions that help businesses grow, streamline operations, and stay ahead in a fast-changing digital world. We specialize in transforming ideas into practical, scalable, and user-friendly software products that solve real business challenges.' }}
                 </p>
                 <div style="width: 60px; height: 3px; background-color: #e2e8f0; margin-bottom: 2rem;"></div>
                 <p style="text-align: left; color: #64748b; font-size: 1.1rem; line-height: 1.8; margin-bottom: 0;">
-                    Founded with a vision to combine technology, creativity, and business strategy, TekQuora works with startups, enterprises, and organizations to deliver high-quality web applications, mobile apps, business platforms, and custom digital solutions. Our team is passionate about creating products that are not only visually modern but also technically strong, reliable, and performance-focused.
+                    {{ !empty($aboutSettings['description_2']) ? $aboutSettings['description_2'] : 'Founded with a vision to combine technology, creativity, and business strategy, TekQuora works with startups, enterprises, and organizations to deliver high-quality web applications, mobile apps, business platforms, and custom digital solutions. Our team is passionate about creating products that are not only visually modern but also technically strong, reliable, and performance-focused.' }}
                 </p>
             </div>
         </div>
