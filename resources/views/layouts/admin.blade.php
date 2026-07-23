@@ -25,9 +25,9 @@
             <div class="admin-sidebar-header">
                 <a href="/admin" style="display: flex; align-items: center; text-decoration: none; padding-left: 4px;">
                     @if(isset($headerSettings['logo_path']) && $headerSettings['logo_path'])
-                        <img src="{{ asset($headerSettings['logo_path']) }}" alt="TekQuora Logo" style="height: 64px; max-width: 210px; object-fit: contain; transform: scale(1.15); transform-origin: left center;">
+                        <img src="{{ asset($headerSettings['logo_path']) }}" alt="TekQuora Logo" style="height: 42px; max-width: 190px; object-fit: contain;">
                     @else
-                        <img src="{{ asset('assets/admin-logo.png') }}" alt="TekQuora Logo" style="height: 64px; max-width: 210px; object-fit: contain; transform: scale(1.15); transform-origin: left center;" onerror="this.onerror=null; this.src='{{ asset('assets/logo.png') }}';">
+                        <img src="{{ asset('assets/admin-logo.png') }}" alt="TekQuora Logo" style="height: 42px; max-width: 190px; object-fit: contain;" onerror="this.onerror=null; this.src='{{ asset('assets/logo.png') }}';">
                     @endif
                 </a>
                 <button class="sidebar-toggle-btn" style="color: #a3aed0;">
