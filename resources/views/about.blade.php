@@ -220,14 +220,14 @@
             z-index: 3;
         }
         
-        /* Valley icon center is 270px */
+        /* Valley icon centered on wave trough */
         .valley-icon {
-            top: 270px;
+            top: 242px;
         }
         
-        /* Peak icon center is 150px */
+        /* Peak icon centered on wave peak */
         .peak-icon {
-            top: 150px;
+            top: 178px;
         }
         
         .service-icon-wrap {
@@ -262,7 +262,7 @@
         
         /* Text for valley icons sits above the wave */
         .step-text-top {
-            bottom: 252px;
+            bottom: 278px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -271,7 +271,7 @@
         
         /* Text for peak icons sits below the wave */
         .step-text-bottom {
-            top: 212px;
+            top: 238px;
             display: flex;
             flex-direction: column;
             align-items: center;
