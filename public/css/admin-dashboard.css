@@ -631,7 +631,7 @@ footer.admin-dashboard-footer,
     }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 767px) {
     /* Slide-in sidebar style on mobile */
     .admin-sidebar {
         position: fixed;
@@ -695,9 +695,7 @@ footer.admin-dashboard-footer,
         opacity: 1;
         pointer-events: auto;
     }
-}
 
-@media (max-width: 768px) {
     .dash-stats-row {
         grid-template-columns: 1fr !important;
         gap: 16px !important;

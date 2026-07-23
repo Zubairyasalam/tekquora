@@ -223,7 +223,7 @@
             // Close sidebar on link click (helpful on mobile navigation)
             document.querySelectorAll('.admin-nav-link, .admin-submenu-link').forEach(link => {
                 link.addEventListener('click', function() {
-                    if (window.innerWidth <= 991) {
+                    if (window.innerWidth <= 767) {
                         closeSidebar();
                     }
                 });
