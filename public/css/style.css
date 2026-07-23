@@ -4688,3 +4688,53 @@ footer {
   width: 10px;
   height: 10px;
 }
+
+/* ============================================
+   FRONTEND NAVBAR MOBILE RESPONSIVENESS
+   ============================================ */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 0.75rem 1rem !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.6rem !important;
+  }
+
+  .navbar.scrolled {
+    padding: 0.6rem 1rem !important;
+  }
+
+  .navbar-brand {
+    margin: 0 auto;
+  }
+
+  .nav-links {
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 0.35rem !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 4px 2px !important;
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-links li {
+    flex-shrink: 0 !important;
+    display: inline-block !important;
+  }
+
+  .nav-links a {
+    white-space: nowrap !important;
+    font-size: 0.85rem !important;
+    padding: 0.4rem 0.85rem !important;
+    display: inline-block !important;
+  }
+}
