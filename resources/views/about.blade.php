@@ -303,6 +303,18 @@
         }
         
         @media (max-width: 900px) {
+            .values-main-title {
+                font-size: 2.2rem !important;
+                line-height: 1.2 !important;
+                margin-bottom: 0.75rem !important;
+            }
+
+            .values-main-subtitle {
+                font-size: 0.98rem !important;
+                line-height: 1.5 !important;
+                padding: 0 0.5rem !important;
+            }
+
             .timeline-line {
                 display: none;
             }
@@ -313,41 +325,60 @@
                 display: flex;
                 flex-direction: column;
                 height: auto;
-                gap: 4rem;
+                gap: 2.5rem;
                 align-items: center;
             }
             .timeline-step {
-                position: static !important;
+                position: relative !important;
                 transform: none !important;
+                left: auto !important;
+                top: auto !important;
                 width: 100% !important;
                 max-width: 450px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
             }
             .step-icon-wrapper {
-                position: static !important;
+                order: 1 !important;
+                position: relative !important;
                 transform: none !important;
-                margin-bottom: 1.5rem;
+                left: auto !important;
+                top: auto !important;
+                width: 64px !important;
+                height: 64px !important;
+                margin: 0 auto 1rem auto !important;
             }
             .service-icon-wrap {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
                 opacity: 1 !important;
                 transform: none !important;
                 animation: none !important;
             }
             .step-text-top, .step-text-bottom {
-                position: static !important;
+                order: 2 !important;
+                position: relative !important;
+                top: auto !important;
+                bottom: auto !important;
                 opacity: 1 !important;
                 transform: none !important;
                 animation: none !important;
                 padding: 0 !important;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            .timeline-step h3 {
+                font-size: 1.5rem !important;
+                margin-bottom: 0.5rem !important;
             }
             .timeline-step p {
-                max-width: 100%;
+                max-width: 100% !important;
+                font-size: 0.95rem !important;
+                line-height: 1.6 !important;
             }
         }
     </style>
