@@ -41,17 +41,31 @@ class AppServiceProvider extends ServiceProvider
                 $heroSecondaryText = Setting::get('hero_secondary_btn_text', 'Explore Work Culture');
                 $heroSecondaryUrl = Setting::get('hero_secondary_btn_url', '/#culture');
 
-                // About settings
-                $aboutImage = Setting::get('about_image', 'assets/Tekquora_icon_with_bg_cropped.png');
-                $aboutEyebrow = Setting::get('about_eyebrow', 'ABOUT TEKQUORA');
-                $aboutDesc1 = Setting::get('about_description_1', '');
-                $aboutDesc2 = Setting::get('about_description_2', '');
-                $aboutPointsJson = Setting::get('about_points');
-                $aboutPoints = $aboutPointsJson ? json_decode($aboutPointsJson, true) : [];
-                $aboutStatValue = Setting::get('about_stat_value', '6,561+');
-                $aboutStatLabel = Setting::get('about_stat_label', 'Satisfied Clients');
-                $aboutBtnText = Setting::get('about_btn_text', 'Explore More');
-                $aboutBtnUrl = Setting::get('about_btn_url', '/about');
+                // About Page Dedicated Settings
+                $aboutHeroTitle = Setting::get('about_hero_title', 'About Us');
+                $aboutHeroSubtitle = Setting::get('about_hero_subtitle', 'Pioneering technology solutions and empowering digital growth since 2016.');
+
+                $aboutTekquoraTitle = Setting::get('about_tekquora_title', 'About TekQuora');
+                $aboutTekquoraP1 = Setting::get('about_tekquora_p1') ?: Setting::get('about_description_1', 'TekQuora is a technology-driven company focused on building innovative digital solutions that help businesses grow, streamline operations, and stay ahead in a fast-changing digital world. We specialize in transforming ideas into practical, scalable, and user-friendly software products that solve real business challenges.');
+                $aboutTekquoraP2 = Setting::get('about_tekquora_p2') ?: Setting::get('about_description_2', 'Founded with a vision to combine technology, creativity, and business strategy, TekQuora works with startups, enterprises, and organizations to deliver high-quality web applications, mobile apps, business platforms, and custom digital solutions. Our team is passionate about creating products that are not only visually modern but also technically strong, reliable, and performance-focused.');
+
+                $ourValuesTitle = Setting::get('about_values_title', 'Our Values');
+                $ourValuesSubtitle = Setting::get('about_values_subtitle', 'The principles that guide everything we build and deliver.');
+                $ourValuesJson = Setting::get('about_values_items');
+                $ourValuesItems = $ourValuesJson ? json_decode($ourValuesJson, true) : [];
+
+                $ourApproachTitle = Setting::get('about_approach_title', 'Our Approach');
+                $ourApproachP1 = Setting::get('about_approach_p1', 'At TekQuora, every project begins with understanding the client’s vision, goals, and challenges. We follow a practical and collaborative approach where planning, design, development, testing, and deployment are all handled with attention to quality and performance.');
+                $ourApproachP2 = Setting::get('about_approach_p2', 'We don’t just develop software — we build digital experiences that support long-term business success. Our team works closely with clients to ensure transparency, adaptability, and timely delivery throughout the project lifecycle.');
+
+                $whyChooseTitle = Setting::get('about_why_choose_title', 'Why Choose TekQuora');
+                $whyChoosePointsJson = Setting::get('about_why_choose_points');
+                $whyChoosePoints = $whyChoosePointsJson ? json_decode($whyChoosePointsJson, true) : [];
+
+                $growTitle = Setting::get('about_grow_title', 'GROW BEYOND BORDERS WITH TEKQUORA');
+                $growSubtitle = Setting::get('about_grow_subtitle', "Whether you're paying a freelancer or a full team overseas, TekQuora makes it simple, fast, secure, and with no sacrifice for every detail.");
+                $growBtnText = Setting::get('about_grow_btn_text', 'Explore More');
+                $growBtnUrl = Setting::get('about_grow_btn_url', '/contact');
 
                 // Services settings
                 $servicesTitle = Setting::get('services_title', 'Our Services');
@@ -163,16 +177,35 @@ class AppServiceProvider extends ServiceProvider
                         'secondary_btn_text' => $heroSecondaryText,
                         'secondary_btn_url' => $heroSecondaryUrl,
                     ],
+                    'aboutPageSettings' => [
+                        'hero_title' => $aboutHeroTitle,
+                        'hero_subtitle' => $aboutHeroSubtitle,
+                        'tekquora_title' => $aboutTekquoraTitle,
+                        'tekquora_p1' => $aboutTekquoraP1,
+                        'tekquora_p2' => $aboutTekquoraP2,
+                        'values_title' => $ourValuesTitle,
+                        'values_subtitle' => $ourValuesSubtitle,
+                        'values_items' => $ourValuesItems,
+                        'approach_title' => $ourApproachTitle,
+                        'approach_p1' => $ourApproachP1,
+                        'approach_p2' => $ourApproachP2,
+                        'why_choose_title' => $whyChooseTitle,
+                        'why_choose_points' => $whyChoosePoints,
+                        'grow_title' => $growTitle,
+                        'grow_subtitle' => $growSubtitle,
+                        'grow_btn_text' => $growBtnText,
+                        'grow_btn_url' => $growBtnUrl,
+                    ],
                     'aboutSettings' => [
-                        'image' => $aboutImage,
-                        'eyebrow' => $aboutEyebrow,
-                        'description_1' => $aboutDesc1,
-                        'description_2' => $aboutDesc2,
-                        'points' => $aboutPoints,
-                        'stat_value' => $aboutStatValue,
-                        'stat_label' => $aboutStatLabel,
-                        'btn_text' => $aboutBtnText,
-                        'btn_url' => $aboutBtnUrl,
+                        'image' => $aboutImage ?? 'assets/Tekquora_icon_with_bg_cropped.png',
+                        'eyebrow' => $aboutEyebrow ?? 'ABOUT TEKQUORA',
+                        'description_1' => $aboutTekquoraP1,
+                        'description_2' => $aboutTekquoraP2,
+                        'points' => $aboutPoints ?? [],
+                        'stat_value' => $aboutStatValue ?? '6,561+',
+                        'stat_label' => $aboutStatLabel ?? 'Satisfied Clients',
+                        'btn_text' => $aboutBtnText ?? 'Explore More',
+                        'btn_url' => $aboutBtnUrl ?? '/about',
                     ],
                     'servicesSettings' => [
                         'title' => $servicesTitle,

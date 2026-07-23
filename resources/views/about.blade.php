@@ -6,8 +6,8 @@
 <!-- About Hero Section -->
 <section class="about-page-hero">
     <div class="about-hero-content">
-        <h1 style="font-family: var(--font-heading); font-size: 3.5rem; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 0.75rem;">About Us</h1>
-        <p style="font-family: var(--font-body); font-size: 1.25rem; opacity: 0.9; max-width: 600px; margin: 0 auto;">Pioneering technology solutions and empowering digital growth since 2016.</p>
+        <h1 style="font-family: var(--font-heading); font-size: 3.5rem; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 0.75rem;">{!! $aboutPageSettings['hero_title'] ?? 'About Us' !!}</h1>
+        <p style="font-family: var(--font-body); font-size: 1.25rem; opacity: 0.9; max-width: 600px; margin: 0 auto;">{{ $aboutPageSettings['hero_subtitle'] ?? 'Pioneering technology solutions and empowering digital growth since 2016.' }}</p>
     </div>
 </section>
 
@@ -16,18 +16,18 @@
 <section class="about-content-section" style="padding-top: 2%; padding-bottom: 1rem;">
     <div class="about-two-col" style="display: block; max-width: 900px; margin: 0 auto; padding-top: 0;">
         <div class="about-text-content">
-            <h2 class="services-title" style="font-size: 3.5rem !important; text-align: center; margin-top: 0; margin-bottom: 3rem;">About <span class="text-gradient">TekQuora</span></h2>
+            <h2 class="services-title" style="font-size: 3.5rem !important; text-align: center; margin-top: 0; margin-bottom: 3rem;">{!! $aboutPageSettings['tekquora_title'] ?? 'About <span class="text-gradient">TekQuora</span>' !!}</h2>
             
             <div class="about-main-card">
                 <!-- Decorative gradient line -->
                 <div style="position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: var(--gradient);"></div>
                 
                 <p style="text-align: left; color: #0f172a; font-size: 1.3rem; line-height: 1.8; margin-bottom: 2rem; font-weight: 500; font-family: 'Outfit', sans-serif;">
-                    {{ !empty($aboutSettings['description_1']) ? $aboutSettings['description_1'] : 'TekQuora is a technology-driven company focused on building innovative digital solutions that help businesses grow, streamline operations, and stay ahead in a fast-changing digital world. We specialize in transforming ideas into practical, scalable, and user-friendly software products that solve real business challenges.' }}
+                    {{ !empty($aboutPageSettings['tekquora_p1']) ? $aboutPageSettings['tekquora_p1'] : ($aboutSettings['description_1'] ?? 'TekQuora is a technology-driven company focused on building innovative digital solutions that help businesses grow, streamline operations, and stay ahead in a fast-changing digital world. We specialize in transforming ideas into practical, scalable, and user-friendly software products that solve real business challenges.') }}
                 </p>
                 <div style="width: 60px; height: 3px; background-color: #e2e8f0; margin-bottom: 2rem;"></div>
                 <p style="text-align: left; color: #64748b; font-size: 1.1rem; line-height: 1.8; margin-bottom: 0;">
-                    {{ !empty($aboutSettings['description_2']) ? $aboutSettings['description_2'] : 'Founded with a vision to combine technology, creativity, and business strategy, TekQuora works with startups, enterprises, and organizations to deliver high-quality web applications, mobile apps, business platforms, and custom digital solutions. Our team is passionate about creating products that are not only visually modern but also technically strong, reliable, and performance-focused.' }}
+                    {{ !empty($aboutPageSettings['tekquora_p2']) ? $aboutPageSettings['tekquora_p2'] : ($aboutSettings['description_2'] ?? 'Founded with a vision to combine technology, creativity, and business strategy, TekQuora works with startups, enterprises, and organizations to deliver high-quality web applications, mobile apps, business platforms, and custom digital solutions. Our team is passionate about creating products that are not only visually modern but also technically strong, reliable, and performance-focused.') }}
                 </p>
             </div>
         </div>
@@ -38,8 +38,8 @@
 <section class="process-section" id="values">
     <div class="process-container">
         <div class="process-title-wrapper">
-            <h2 class="values-main-title">Our Values</h2>
-            <p class="values-main-subtitle">The principles that guide everything we build and deliver.</p>
+            <h2 class="values-main-title">{{ $aboutPageSettings['values_title'] ?? 'Our Values' }}</h2>
+            <p class="values-main-subtitle">{{ $aboutPageSettings['values_subtitle'] ?? 'The principles that guide everything we build and deliver.' }}</p>
         </div>
         
         <div class="timeline-wrapper">
@@ -57,72 +57,52 @@
             </div>
 
             <div class="timeline-nodes">
-                <!-- Value 1 (Valley - Innovation) -->
-                <div class="timeline-step">
-                    <div class="step-text-top">
-                        <h3>Innovation</h3>
-                        <p>We explore new ideas, tools, and technologies to create smart and future-ready digital solutions.</p>
-                    </div>
-                    <div class="step-icon-wrapper valley-icon">
-                        <div class="service-icon-wrap">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1 .3 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/>
-                                <path d="M9 18h6"/>
-                                <path d="M10 22h4"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Value 2 (Peak - Excellence) -->
-                <div class="timeline-step">
-                    <div class="step-icon-wrapper peak-icon">
-                        <div class="service-icon-wrap">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="step-text-bottom">
-                        <h3>Excellence</h3>
-                        <p>We aim to deliver high-quality work in every project, with attention to detail, performance, and user experience.</p>
-                    </div>
-                </div>
+                @php
+                    $valuesList = !empty($aboutPageSettings['values_items']) ? $aboutPageSettings['values_items'] : [
+                        ['title' => 'Innovation', 'description' => 'We explore new ideas, tools, and technologies to create smart and future-ready digital solutions.'],
+                        ['title' => 'Excellence', 'description' => 'We aim to deliver high-quality work in every project, with attention to detail, performance, and user experience.'],
+                        ['title' => 'Collaboration', 'description' => 'We work closely with clients and teams, believing that the best solutions come from strong communication and shared vision.'],
+                        ['title' => 'Results', 'description' => 'We focus on building solutions that create measurable value, improve workflows, and support business growth.']
+                    ];
+                    $valueIcons = [
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1 .3 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>',
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>'
+                    ];
+                @endphp
 
-                <!-- Value 3 (Valley - Collaboration) -->
-                <div class="timeline-step">
-                    <div class="step-text-top">
-                        <h3>Collaboration</h3>
-                        <p>We work closely with clients and teams, believing that the best solutions come from strong communication and shared vision.</p>
+                @foreach($valuesList as $index => $val)
+                    @php
+                        $isValley = ($index % 2 === 0);
+                        $iconClass = $isValley ? 'valley-icon' : 'peak-icon';
+                        $textClass = $isValley ? 'step-text-top' : 'step-text-bottom';
+                        $svgIcon = $valueIcons[$index % 4];
+                    @endphp
+                    <div class="timeline-step">
+                        @if($isValley)
+                            <div class="{{ $textClass }}">
+                                <h3>{{ $val['title'] ?? '' }}</h3>
+                                <p>{{ $val['description'] ?? '' }}</p>
+                            </div>
+                            <div class="step-icon-wrapper {{ $iconClass }}">
+                                <div class="service-icon-wrap">
+                                    {!! $svgIcon !!}
+                                </div>
+                            </div>
+                        @else
+                            <div class="step-icon-wrapper {{ $iconClass }}">
+                                <div class="service-icon-wrap">
+                                    {!! $svgIcon !!}
+                                </div>
+                            </div>
+                            <div class="{{ $textClass }}">
+                                <h3>{{ $val['title'] ?? '' }}</h3>
+                                <p>{{ $val['description'] ?? '' }}</p>
+                            </div>
+                        @endif
                     </div>
-                    <div class="step-icon-wrapper valley-icon">
-                        <div class="service-icon-wrap">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-                                <circle cx="9" cy="7" r="4"/>
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Value 4 (Peak - Results) -->
-                <div class="timeline-step">
-                    <div class="step-icon-wrapper peak-icon">
-                        <div class="service-icon-wrap">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"/>
-                                <circle cx="12" cy="12" r="6"/>
-                                <circle cx="12" cy="12" r="2"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="step-text-bottom">
-                        <h3>Results</h3>
-                        <p>We focus on building solutions that create measurable value, improve workflows, and support business growth.</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -332,6 +312,18 @@
         .timeline-step:nth-child(4) .step-text-bottom { transform: translateY(-20px); animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.6s forwards; }
         
         @media (max-width: 900px) {
+            .values-main-title {
+                font-size: 2.2rem !important;
+                line-height: 1.2 !important;
+                margin-bottom: 0.75rem !important;
+            }
+
+            .values-main-subtitle {
+                font-size: 0.98rem !important;
+                line-height: 1.5 !important;
+                padding: 0 0.5rem !important;
+            }
+
             .timeline-line {
                 display: none;
             }
@@ -342,41 +334,60 @@
                 display: flex;
                 flex-direction: column;
                 height: auto;
-                gap: 4rem;
+                gap: 2.5rem;
                 align-items: center;
             }
             .timeline-step {
-                position: static !important;
+                position: relative !important;
                 transform: none !important;
+                left: auto !important;
+                top: auto !important;
                 width: 100% !important;
                 max-width: 450px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
             }
             .step-icon-wrapper {
-                position: static !important;
+                order: 1 !important;
+                position: relative !important;
                 transform: none !important;
-                margin-bottom: 1.5rem;
+                left: auto !important;
+                top: auto !important;
+                width: 64px !important;
+                height: 64px !important;
+                margin: 0 auto 1rem auto !important;
             }
             .service-icon-wrap {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
                 opacity: 1 !important;
                 transform: none !important;
                 animation: none !important;
             }
             .step-text-top, .step-text-bottom {
-                position: static !important;
+                order: 2 !important;
+                position: relative !important;
+                top: auto !important;
+                bottom: auto !important;
                 opacity: 1 !important;
                 transform: none !important;
                 animation: none !important;
                 padding: 0 !important;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            .timeline-step h3 {
+                font-size: 1.5rem !important;
+                margin-bottom: 0.5rem !important;
             }
             .timeline-step p {
-                max-width: 100%;
+                max-width: 100% !important;
+                font-size: 0.95rem !important;
+                line-height: 1.6 !important;
             }
         }
     </style>
@@ -386,50 +397,32 @@
 <section class="about-approach-section" style="padding: 2rem 2rem 2rem 2rem; background-color: var(--bg-white);">
     <div class="about-approach-grid">
         <div class="about-approach-content">
-            <h2 class="services-title" style="font-size: 2.5rem !important; text-align: left;">Our <span class="text-gradient">Approach</span></h2>
-            <p>At TekQuora, every project begins with understanding the client’s vision, goals, and challenges. We follow a practical and collaborative approach where planning, design, development, testing, and deployment are all handled with attention to quality and performance.</p>
-            <p>We don’t just develop software — we build digital experiences that support long-term business success. Our team works closely with clients to ensure transparency, adaptability, and timely delivery throughout the project lifecycle.</p>
+            <h2 class="services-title" style="font-size: 2.5rem !important; text-align: left;">{!! $aboutPageSettings['approach_title'] ?? 'Our <span class="text-gradient">Approach</span>' !!}</h2>
+            <p>{{ $aboutPageSettings['approach_p1'] ?? 'At TekQuora, every project begins with understanding the client’s vision, goals, and challenges. We follow a practical and collaborative approach where planning, design, development, testing, and deployment are all handled with attention to quality and performance.' }}</p>
+            <p>{{ $aboutPageSettings['approach_p2'] ?? 'We don’t just develop software — we build digital experiences that support long-term business success. Our team works closely with clients to ensure transparency, adaptability, and timely delivery throughout the project lifecycle.' }}</p>
         </div>
         
         <div class="about-choose-content">
-            <h2 class="services-title" style="font-size: 2.5rem !important; text-align: left;">Why Choose <span class="text-gradient">TekQuora</span></h2>
+            <h2 class="services-title" style="font-size: 2.5rem !important; text-align: left;">{!! $aboutPageSettings['why_choose_title'] ?? 'Why Choose <span class="text-gradient">TekQuora</span>' !!}</h2>
             <ul class="about-choose-list">
+                @php
+                    $whyPoints = !empty($aboutPageSettings['why_choose_points']) ? $aboutPageSettings['why_choose_points'] : [
+                        'Strong focus on quality, performance, and usability',
+                        'Expertise in modern web and software technologies',
+                        'Business-oriented solutions tailored to real-world needs',
+                        'Clean and responsive UI with scalable architecture',
+                        'Dedicated team support from idea to deployment',
+                        'Commitment to innovation, reliability, and client satisfaction'
+                    ];
+                @endphp
+                @foreach($whyPoints as $point)
                 <li class="about-choose-item">
                     <div class="about-choose-icon" style="background-color: rgba(74, 85, 232, 0.1); color: #4a55e8;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                     </div>
-                    <span class="about-choose-text">Strong focus on quality, performance, and usability</span>
+                    <span class="about-choose-text">{{ is_array($point) ? ($point['text'] ?? implode(' ', $point)) : $point }}</span>
                 </li>
-                <li class="about-choose-item">
-                    <div class="about-choose-icon" style="background-color: rgba(74, 85, 232, 0.1); color: #4a55e8;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                    </div>
-                    <span class="about-choose-text">Expertise in modern web and software technologies</span>
-                </li>
-                <li class="about-choose-item">
-                    <div class="about-choose-icon" style="background-color: rgba(74, 85, 232, 0.1); color: #4a55e8;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                    </div>
-                    <span class="about-choose-text">Business-oriented solutions tailored to real-world needs</span>
-                </li>
-                <li class="about-choose-item">
-                    <div class="about-choose-icon" style="background-color: rgba(74, 85, 232, 0.1); color: #4a55e8;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                    </div>
-                    <span class="about-choose-text">Clean and responsive UI with scalable architecture</span>
-                </li>
-                <li class="about-choose-item">
-                    <div class="about-choose-icon" style="background-color: rgba(74, 85, 232, 0.1); color: #4a55e8;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                    </div>
-                    <span class="about-choose-text">Dedicated team support from idea to deployment</span>
-                </li>
-                <li class="about-choose-item">
-                    <div class="about-choose-icon" style="background-color: rgba(74, 85, 232, 0.1); color: #4a55e8;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                    </div>
-                    <span class="about-choose-text">Commitment to innovation, reliability, and client satisfaction</span>
-                </li>
+                @endforeach
             </ul>
         </div>
     </div>
@@ -451,10 +444,10 @@
         
         <!-- The Dark Blue Card Content -->
         <div class="global-card">
-            <h2 class="global-card-title">GROW BEYOND<br>BORDERS WITH <span class="text-gradient">TEKQUORA</span></h2>
-            <p class="global-card-subtitle">Whether you're paying a freelancer or a full team overseas, <span class="text-gradient" style="font-weight: 700;">TekQuora</span> makes it simple, fast, secure, and with no sacrifice for every detail.</p>
-            <a href="/contact" class="global-card-btn-yellow" style="text-decoration: none;">
-                <span>Explore More</span>
+            <h2 class="global-card-title">{!! $aboutPageSettings['grow_title'] ?? 'GROW BEYOND<br>BORDERS WITH <span class="text-gradient">TEKQUORA</span>' !!}</h2>
+            <p class="global-card-subtitle">{!! $aboutPageSettings['grow_subtitle'] ?? 'Whether you\'re paying a freelancer or a full team overseas, <span class="text-gradient" style="font-weight: 700;">TekQuora</span> makes it simple, fast, secure, and with no sacrifice for every detail.' !!}</p>
+            <a href="{{ $aboutPageSettings['grow_btn_url'] ?? '/contact' }}" class="global-card-btn-yellow" style="text-decoration: none;">
+                <span>{{ $aboutPageSettings['grow_btn_text'] ?? 'Explore More' }}</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
         </div>

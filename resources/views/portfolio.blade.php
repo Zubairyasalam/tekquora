@@ -6,8 +6,8 @@
 <!-- Portfolio Hero Section -->
 <section class="team-hero" style="background-image: linear-gradient(135deg, #0f172a, #1e293b);">
     <div class="team-hero-content">
-        <h1 class="team-hero-title">Our Projects</h1>
-        <p class="team-hero-subtitle">Explore our latest projects showcasing innovation, technical excellence, and transformative digital solutions.</p>
+        <h1 class="team-hero-title">{{ $projectsSettings['title'] ?? 'Our Projects' }}</h1>
+        <p class="team-hero-subtitle">{{ $projectsSettings['subtitle'] ?? 'Explore our latest projects showcasing innovation, technical excellence, and transformative digital solutions.' }}</p>
     </div>
 </section>
 
