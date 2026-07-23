@@ -74,8 +74,8 @@
                     <input type="text" name="socials[instagram]" value="{{ $socials['instagram'] ?? '#' }}" style="width: 100%; padding: 10px 14px; border: 1px solid #e0e8ff; border-radius: 8px; font-size: 14px;">
                 </div>
                 <div style="grid-column: span 2;">
-                    <label style="display: block; font-size: 14px; font-weight: 600; color: #2b3674; margin-bottom: 8px;">GitHub URL</label>
-                    <input type="text" name="socials[github]" value="{{ $socials['github'] ?? '#' }}" style="width: 100%; padding: 10px 14px; border: 1px solid #e0e8ff; border-radius: 8px; font-size: 14px;">
+                    <label style="display: block; font-size: 14px; font-weight: 600; color: #2b3674; margin-bottom: 8px;">WhatsApp URL / Link</label>
+                    <input type="text" name="socials[whatsapp]" value="{{ $socials['whatsapp'] ?? '#' }}" style="width: 100%; padding: 10px 14px; border: 1px solid #e0e8ff; border-radius: 8px; font-size: 14px;">
                 </div>
             </div>
         </div>

@@ -20,8 +20,11 @@ class FooterController extends Controller
             'twitter' => '#',
             'linkedin' => '#',
             'instagram' => '#',
-            'github' => '#'
+            'whatsapp' => '#'
         ];
+        if (!isset($socials['whatsapp'])) {
+            $socials['whatsapp'] = '#';
+        }
 
         // Column Titles
         $col1Title = Setting::get('footer_col1_title', 'Services');
@@ -90,7 +93,7 @@ class FooterController extends Controller
             'twitter' => $request->input('socials.twitter', '#'),
             'linkedin' => $request->input('socials.linkedin', '#'),
             'instagram' => $request->input('socials.instagram', '#'),
-            'github' => $request->input('socials.github', '#')
+            'whatsapp' => $request->input('socials.whatsapp', '#')
         ];
         Setting::set('footer_socials', json_encode($socials));
 
