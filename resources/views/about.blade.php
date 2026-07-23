@@ -6,7 +6,7 @@
 <!-- About Hero Section -->
 <section class="about-page-hero">
     <div class="about-hero-content">
-        <h1 style="font-family: var(--font-heading); font-size: 3.5rem; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 1.5rem;">About Us</h1>
+        <h1 style="font-family: var(--font-heading); font-size: 3.5rem; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 0.75rem;">About Us</h1>
         <p style="font-family: var(--font-body); font-size: 1.25rem; opacity: 0.9; max-width: 600px; margin: 0 auto;">Pioneering technology solutions and empowering digital growth since 2016.</p>
     </div>
 </section>
