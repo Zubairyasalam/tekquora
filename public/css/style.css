@@ -5028,4 +5028,44 @@ footer {
     font-size: 0.9rem !important;
     line-height: 1.55 !important;
   }
+
+  /* Portfolio Filters & Grid Mobile Responsiveness */
+  .portfolio-section {
+    padding: 2rem 1rem 4rem 1rem !important;
+  }
+
+  .portfolio-title {
+    font-size: 2.2rem !important;
+  }
+
+  .portfolio-filters {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin-bottom: 1.75rem !important;
+    width: 100% !important;
+  }
+
+  .filter-btn {
+    height: auto !important;
+    min-height: unset !important;
+    max-height: 42px !important;
+    align-self: center !important;
+    white-space: nowrap !important;
+    padding: 0.45rem 1rem !important;
+    border-radius: 2rem !important;
+    font-size: 0.85rem !important;
+    flex: 0 0 auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
 }
