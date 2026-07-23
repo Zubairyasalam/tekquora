@@ -21,13 +21,6 @@ class SystemConfigurationController extends Controller
             'primary_color' => Setting::get('primary_color', '#0061ff'),
             'enable_secondary_theme' => Setting::get('enable_secondary_theme', '0'),
             'secondary_color' => Setting::get('secondary_color', '#7c3aed'),
-            'default_gst_rate' => Setting::get('default_gst_rate', '5.8'),
-            'enable_whatsapp' => Setting::get('enable_whatsapp', '1'),
-            'whatsapp_phone' => Setting::get('whatsapp_phone', '+919345272947'),
-            'whatsapp_provider' => Setting::get('whatsapp_provider', 'Ultramsg (Recommended)'),
-            'whatsapp_sender' => Setting::get('whatsapp_sender', '+919600097807'),
-            'whatsapp_instance_id' => Setting::get('whatsapp_instance_id', 'instance180170'),
-            'whatsapp_api_token' => Setting::get('whatsapp_api_token', '*****************'),
         ];
 
         if ($config['primary_color'] === '#850f0f') {
@@ -44,9 +37,7 @@ class SystemConfigurationController extends Controller
     {
         $fields = [
             'system_email_address', 'mail_password', 'mail_host', 'mail_port',
-            'mail_encryption', 'mail_driver', 'primary_color', 'secondary_color',
-            'default_gst_rate', 'whatsapp_phone', 'whatsapp_provider',
-            'whatsapp_sender', 'whatsapp_instance_id', 'whatsapp_api_token'
+            'mail_encryption', 'mail_driver', 'primary_color', 'secondary_color'
         ];
 
         foreach ($fields as $field) {
@@ -56,7 +47,6 @@ class SystemConfigurationController extends Controller
         }
 
         Setting::set('enable_secondary_theme', $request->has('enable_secondary_theme') ? '1' : '0');
-        Setting::set('enable_whatsapp', $request->has('enable_whatsapp') ? '1' : '0');
 
         // Also update .env file if email or password changed so Laravel mailer uses new credentials
         $this->updateEnv([

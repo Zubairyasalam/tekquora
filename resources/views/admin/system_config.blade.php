@@ -116,54 +116,6 @@
                 </div>
             </div>
 
-            <!-- 3. WhatsApp Notification Integration -->
-            <div style="margin-bottom: 30px;">
-                <h3 style="font-size: 18px; font-weight: 800; color: #1b2559; display: flex; align-items: center; gap: 10px; margin-bottom: 24px; border-bottom: 1px solid #f1f5f9; padding-bottom: 12px;">
-                    <span style="color: #22c55e;">💬</span> WhatsApp Notification Integration
-                </h3>
-
-                <div style="border: 1.5px solid #bbf7d0; border-radius: 14px; padding: 24px; background: #f0fdf4;">
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; border-bottom: 1px solid #dcfce7; padding-bottom: 16px;">
-                        <label style="display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 800; color: #166534; cursor: pointer;">
-                            <input type="checkbox" name="enable_whatsapp" value="1" {{ $config['enable_whatsapp'] == '1' ? 'checked' : '' }} style="width: 18px; height: 18px; accent-color: #22c55e;">
-                            Enable WhatsApp Notifications for Principal
-                        </label>
-                        <span style="background: #22c55e; color: #ffffff; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 6px; letter-spacing: 0.5px;">ACTIVE</span>
-                    </div>
-
-                    <div style="margin-bottom: 20px;">
-                        <label style="display: block; font-size: 13px; font-weight: 700; color: #166534; margin-bottom: 8px;">Principal's WhatsApp Phone Number (with Country Code prefix)</label>
-                        <input type="text" name="whatsapp_phone" value="{{ $config['whatsapp_phone'] }}" style="width: 100%; padding: 12px 16px; border: 1px solid #bbf7d0; border-radius: 8px; font-size: 14px; color: #1b2559; background: #ffffff;">
-                        <span style="display: block; font-size: 12px; color: #15803d; margin-top: 6px;">Include the country code prefix (e.g. +91 for India)</span>
-                    </div>
-
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
-                        <div>
-                            <label style="display: block; font-size: 13px; font-weight: 700; color: #166534; margin-bottom: 8px;">WhatsApp Service Provider</label>
-                            <select name="whatsapp_provider" style="width: 100%; padding: 12px 16px; border: 1px solid #bbf7d0; border-radius: 8px; font-size: 14px; color: #1b2559; background: #ffffff;">
-                                <option value="Ultramsg (Recommended)" {{ $config['whatsapp_provider'] == 'Ultramsg (Recommended)' ? 'selected' : '' }}>Ultramsg (Recommended)</option>
-                                <option value="Twilio" {{ $config['whatsapp_provider'] == 'Twilio' ? 'selected' : '' }}>Twilio</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label style="display: block; font-size: 13px; font-weight: 700; color: #166534; margin-bottom: 8px;">Sender/From Phone Number (Optional)</label>
-                            <input type="text" name="whatsapp_sender" value="{{ $config['whatsapp_sender'] }}" style="width: 100%; padding: 12px 16px; border: 1px solid #bbf7d0; border-radius: 8px; font-size: 14px; color: #1b2559; background: #ffffff;">
-                        </div>
-                    </div>
-
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div>
-                            <label style="display: block; font-size: 13px; font-weight: 700; color: #166534; margin-bottom: 8px;">Instance ID (Ultramsg)</label>
-                            <input type="text" name="whatsapp_instance_id" value="{{ $config['whatsapp_instance_id'] }}" style="width: 100%; padding: 12px 16px; border: 1px solid #bbf7d0; border-radius: 8px; font-size: 14px; color: #1b2559; background: #ffffff;">
-                        </div>
-                        <div>
-                            <label style="display: block; font-size: 13px; font-weight: 700; color: #166534; margin-bottom: 8px;">API Token (Ultramsg)</label>
-                            <input type="password" name="whatsapp_api_token" value="{{ $config['whatsapp_api_token'] }}" style="width: 100%; padding: 12px 16px; border: 1px solid #bbf7d0; border-radius: 8px; font-size: 14px; color: #1b2559; background: #ffffff;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- Submit Button -->
             <div style="padding-top: 10px;">
                 <button type="submit" style="background-color: #0061ff; color: #ffffff; font-size: 15px; font-weight: 800; padding: 14px 36px; border-radius: 10px; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(0, 97, 255, 0.3); transition: background 0.2s;">
@@ -173,21 +125,6 @@
 
         </div>
     </form>
-
-    <!-- Helper Guide Box -->
-    <div style="background-color: #fffbeb; border: 1.5px solid #fde68a; border-radius: 14px; padding: 28px 32px; color: #92400e;">
-        <h4 style="margin: 0 0 16px; font-size: 16px; font-weight: 800; display: flex; align-items: center; gap: 8px;">
-            <span>💡</span> How to generate a Gmail App Password?
-        </h4>
-        <ol style="margin: 0; padding-left: 20px; font-size: 14px; line-height: 2; font-weight: 600;">
-            <li>Go to your <a href="https://myaccount.google.com/" target="_blank" style="color: #d97706; text-decoration: underline;">Google Account</a>.</li>
-            <li>Ensure <strong style="color: #78350f;">2-Step Verification</strong> is ON in the Security tab.</li>
-            <li>Go directly to <a href="https://myaccount.google.com/apppasswords" target="_blank" style="color: #d97706; text-decoration: underline;">App Passwords</a>.</li>
-            <li>Select "Mail" and "Other (Custom name: TekQuora System)".</li>
-            <li>Copy the <strong style="color: #78350f;">16-character code</strong> and paste it above.</li>
-            <li style="font-style: italic; color: #b45309; font-weight: 500;">Note: Do not include spaces when pasting; the system will handle it automatically.</li>
-        </ol>
-    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
