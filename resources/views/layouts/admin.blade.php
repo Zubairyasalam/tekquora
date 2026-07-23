@@ -22,14 +22,20 @@
     <div class="admin-dashboard-wrapper">
         <!-- Sidebar Navigation -->
         <aside class="admin-sidebar">
-            <div class="admin-sidebar-header">
+            <div class="admin-sidebar-header" style="display: flex; align-items: center; justify-content: space-between;">
                 <a href="/admin" style="display: flex; align-items: center; text-decoration: none; padding-left: 4px;">
                     @if(isset($headerSettings['logo_path']) && $headerSettings['logo_path'])
-                        <img src="{{ asset($headerSettings['logo_path']) }}" alt="TekQuora Logo" style="height: 42px; max-width: 190px; object-fit: contain;">
+                        <img src="{{ asset($headerSettings['logo_path']) }}" alt="TekQuora Logo" style="height: 38px; max-width: 170px; object-fit: contain;">
                     @else
-                        <img src="{{ asset('assets/admin-logo.png') }}" alt="TekQuora Logo" style="height: 42px; max-width: 190px; object-fit: contain;" onerror="this.onerror=null; this.src='{{ asset('assets/logo.png') }}';">
+                        <img src="{{ asset('assets/admin-logo.png') }}" alt="TekQuora Logo" style="height: 38px; max-width: 170px; object-fit: contain;" onerror="this.onerror=null; this.src='{{ asset('assets/logo.png') }}';">
                     @endif
                 </a>
+                <button id="admin-sidebar-close" style="background: none; border: none; color: #a3aed0; cursor: pointer; padding: 4px; display: none; align-items: center; justify-content: center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
             </div>
             
             <nav class="admin-sidebar-nav">
@@ -130,12 +136,21 @@
             <!-- Top Header -->
             <header class="admin-top-header">
                 <div class="admin-header-left" style="display: flex; flex-direction: column; gap: 8px;">
-                    <!-- Breadcrumb Pill -->
-                    <div style="display: inline-flex; align-items: center; gap: 8px; background: #ffffff; padding: 6px 14px; border-radius: 20px; border: 1px solid #e2e8f0; width: fit-content; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0061ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                        <span style="font-size: 12px; font-weight: 700; color: #64748b;">Admin Console</span>
-                        <span style="color: #cbd5e1; font-size: 10px;">❯</span>
-                        <span style="font-size: 12px; font-weight: 800; color: #0061ff;">{{ trim($__env->yieldContent('page_title')) ?: (trim($__env->yieldContent('header_title')) ?: 'Dashboard Overview') }}</span>
+                    <!-- Breadcrumb Pill & Mobile Toggle -->
+                    <div style="display: flex; align-items: center;">
+                        <button id="admin-mobile-toggle" style="background: none; border: none; color: #2b3674; cursor: pointer; padding: 4px; display: none; align-items: center; justify-content: center; margin-right: 12px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="3" y1="12" x2="21" y2="12"></line>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <line x1="3" y1="18" x2="21" y2="18"></line>
+                            </svg>
+                        </button>
+                        <div style="display: inline-flex; align-items: center; gap: 8px; background: #ffffff; padding: 6px 14px; border-radius: 20px; border: 1px solid #e2e8f0; width: fit-content; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0061ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                            <span style="font-size: 12px; font-weight: 700; color: #64748b;">Admin Console</span>
+                            <span style="color: #cbd5e1; font-size: 10px;">❯</span>
+                            <span style="font-size: 12px; font-weight: 800; color: #0061ff;">{{ trim($__env->yieldContent('page_title')) ?: (trim($__env->yieldContent('header_title')) ?: 'Dashboard Overview') }}</span>
+                        </div>
                     </div>
 
                     <!-- Title with glowing accent indicator -->
@@ -177,6 +192,43 @@
                 container.classList.toggle('open');
             }
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileToggle = document.getElementById('admin-mobile-toggle');
+            const sidebarClose = document.getElementById('admin-sidebar-close');
+            const sidebar = document.querySelector('.admin-sidebar');
+            
+            // Create overlay element
+            const overlay = document.createElement('div');
+            overlay.className = 'admin-sidebar-overlay';
+            document.querySelector('.admin-dashboard-wrapper').appendChild(overlay);
+
+            if (mobileToggle && sidebar) {
+                mobileToggle.addEventListener('click', function() {
+                    sidebar.classList.add('open');
+                    overlay.classList.add('active');
+                });
+            }
+
+            function closeSidebar() {
+                sidebar.classList.remove('open');
+                overlay.classList.remove('active');
+            }
+
+            if (sidebarClose) {
+                sidebarClose.addEventListener('click', closeSidebar);
+            }
+            overlay.addEventListener('click', closeSidebar);
+            
+            // Close sidebar on link click (helpful on mobile navigation)
+            document.querySelectorAll('.admin-nav-link, .admin-submenu-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 991) {
+                        closeSidebar();
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
