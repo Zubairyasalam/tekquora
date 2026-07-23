@@ -220,14 +220,14 @@
             z-index: 3;
         }
         
-        /* Valley icon centered on wave trough */
+        /* Valley icon center is 270px */
         .valley-icon {
-            top: 242px;
+            top: 270px;
         }
         
-        /* Peak icon centered on wave peak */
+        /* Peak icon center is 150px */
         .peak-icon {
-            top: 178px;
+            top: 150px;
         }
         
         .service-icon-wrap {
@@ -242,15 +242,17 @@
             justify-content: center;
             background: linear-gradient(135deg, #19A8FF, #6C4DFF);
             border: 4px solid #ffffff;
-            box-shadow: 0 0 0 5px rgba(25, 168, 255, 0.22), 0 12px 28px rgba(108, 77, 255, 0.35);
+            box-shadow: 0 8px 24px rgba(108, 77, 255, 0.25), 0 0 0 1px rgba(108, 77, 255, 0.05);
             cursor: pointer;
+            opacity: 0;
+            transform: scale(0.5);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         
         /* Hover scale and translation */
         .timeline-step:hover .service-icon-wrap {
-            transform: translateY(-6px) scale(1.1);
-            box-shadow: 0 0 0 8px rgba(25, 168, 255, 0.35), 0 18px 36px rgba(108, 77, 255, 0.5);
+            transform: translateY(-6px) scale(1.08);
+            box-shadow: 0 16px 32px rgba(108, 77, 255, 0.45), 0 0 0 2px rgba(25, 168, 255, 0.3);
         }
         
         .step-text-top, .step-text-bottom {
@@ -258,11 +260,12 @@
             left: 0;
             right: 0;
             text-align: center;
+            opacity: 0;
         }
         
         /* Text for valley icons sits above the wave */
         .step-text-top {
-            bottom: 278px;
+            bottom: 252px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -271,7 +274,7 @@
         
         /* Text for peak icons sits below the wave */
         .step-text-bottom {
-            top: 238px;
+            top: 212px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -296,25 +299,39 @@
             max-width: 320px;
             text-align: center;
         }
-        
-        /* Static path rendering */
+
+        /* SVG animation */
         .timeline-line path {
             stroke-dasharray: 1200;
+            stroke-dashoffset: 1200;
+            animation: drawPath 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
+
+        /* Staggered entrance animations */
+        @keyframes drawPath {
+            to { stroke-dashoffset: 0; }
+        }
+        @keyframes scaleIn {
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes slideUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideDown {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .timeline-step:nth-child(1) .service-icon-wrap { animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards; }
+        .timeline-step:nth-child(2) .service-icon-wrap { animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s forwards; }
+        .timeline-step:nth-child(3) .service-icon-wrap { animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.0s forwards; }
+        .timeline-step:nth-child(4) .service-icon-wrap { animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.4s forwards; }
+
+        .timeline-step:nth-child(1) .step-text-top { transform: translateY(20px); animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards; }
+        .timeline-step:nth-child(2) .step-text-bottom { transform: translateY(-20px); animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards; }
+        .timeline-step:nth-child(3) .step-text-top { transform: translateY(20px); animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards; }
+        .timeline-step:nth-child(4) .step-text-bottom { transform: translateY(-20px); animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.6s forwards; }
         
         @media (max-width: 900px) {
-            .values-main-title {
-                font-size: 2.2rem !important;
-                line-height: 1.2 !important;
-                margin-bottom: 0.75rem !important;
-            }
-
-            .values-main-subtitle {
-                font-size: 0.98rem !important;
-                line-height: 1.5 !important;
-                padding: 0 0.5rem !important;
-            }
-
             .timeline-line {
                 display: none;
             }
@@ -325,81 +342,41 @@
                 display: flex;
                 flex-direction: column;
                 height: auto;
-                gap: 1.75rem;
+                gap: 4rem;
                 align-items: center;
-                position: relative;
-            }
-            .timeline-nodes::before {
-                content: '';
-                position: absolute;
-                top: 32px;
-                bottom: 32px;
-                left: 50%;
-                width: 3px;
-                transform: translateX(-50%);
-                background: linear-gradient(180deg, #19A8FF 0%, #4a55e8 50%, #6C4DFF 100%);
-                border-radius: 3px;
-                z-index: 1;
-                opacity: 0.35;
             }
             .timeline-step {
-                position: relative !important;
+                position: static !important;
                 transform: none !important;
-                left: auto !important;
-                top: auto !important;
                 width: 100% !important;
-                max-width: 420px;
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                text-align: center !important;
-                background: #ffffff;
-                padding: 1.75rem 1.25rem !important;
-                border-radius: 20px;
-                border: 1.5px solid rgba(226, 232, 240, 0.9);
-                box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
-                z-index: 2;
+                max-width: 450px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
             }
             .step-icon-wrapper {
-                order: 1 !important;
-                position: relative !important;
+                position: static !important;
                 transform: none !important;
-                left: auto !important;
-                top: auto !important;
-                width: 64px !important;
-                height: 64px !important;
-                margin: 0 auto 1rem auto !important;
-                z-index: 3;
+                margin-bottom: 1.5rem;
             }
             .service-icon-wrap {
-                position: relative !important;
-                top: auto !important;
-                left: auto !important;
                 opacity: 1 !important;
                 transform: none !important;
                 animation: none !important;
             }
             .step-text-top, .step-text-bottom {
-                order: 2 !important;
-                position: relative !important;
-                top: auto !important;
-                bottom: auto !important;
+                position: static !important;
                 opacity: 1 !important;
                 transform: none !important;
                 animation: none !important;
                 padding: 0 !important;
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important;
-            }
-            .timeline-step h3 {
-                font-size: 1.5rem !important;
-                margin-bottom: 0.5rem !important;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
             .timeline-step p {
-                max-width: 100% !important;
-                font-size: 0.95rem !important;
-                line-height: 1.6 !important;
+                max-width: 100%;
             }
         }
     </style>
