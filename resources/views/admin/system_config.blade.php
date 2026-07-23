@@ -116,6 +116,40 @@
                 </div>
             </div>
 
+            <!-- 3. Social Media Links -->
+            <div style="margin-bottom: 40px;">
+                <h3 style="font-size: 18px; font-weight: 800; color: #1b2559; display: flex; align-items: center; gap: 10px; margin-bottom: 24px; border-bottom: 1px solid #f1f5f9; padding-bottom: 12px;">
+                    <span style="color: #0061ff;">🌐</span> Social Media Links
+                </h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 700; color: #64748b; margin-bottom: 8px;">Facebook URL</label>
+                        <input type="text" name="socials[facebook]" value="{{ $config['socials']['facebook'] ?? '#' }}" style="width: 100%; padding: 12px 16px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; color: #1b2559; background: #ffffff;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 700; color: #64748b; margin-bottom: 8px;">Instagram URL</label>
+                        <input type="text" name="socials[instagram]" value="{{ $config['socials']['instagram'] ?? '#' }}" style="width: 100%; padding: 12px 16px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; color: #1b2559; background: #ffffff;">
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 700; color: #64748b; margin-bottom: 8px;">Twitter URL</label>
+                        <input type="text" name="socials[twitter]" value="{{ $config['socials']['twitter'] ?? '#' }}" style="width: 100%; padding: 12px 16px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; color: #1b2559; background: #ffffff;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 700; color: #64748b; margin-bottom: 8px;">LinkedIn URL</label>
+                        <input type="text" name="socials[linkedin]" value="{{ $config['socials']['linkedin'] ?? '#' }}" style="width: 100%; padding: 12px 16px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; color: #1b2559; background: #ffffff;">
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px; width: 50%;">
+                    <label style="display: block; font-size: 13px; font-weight: 700; color: #64748b; margin-bottom: 8px;">WhatsApp URL / Number</label>
+                    <input type="text" name="socials[whatsapp]" value="{{ $config['socials']['whatsapp'] ?? '#' }}" style="width: 100%; padding: 12px 16px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; color: #1b2559; background: #ffffff;">
+                </div>
+            </div>
+
             <!-- Submit Button -->
             <div style="padding-top: 10px;">
                 <button type="submit" style="background-color: #0061ff; color: #ffffff; font-size: 15px; font-weight: 800; padding: 14px 36px; border-radius: 10px; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(0, 97, 255, 0.3); transition: background 0.2s;">

@@ -11,6 +11,15 @@ class SystemConfigurationController extends Controller
 {
     public function index()
     {
+        $socialsJson = Setting::get('footer_socials');
+        $socials = $socialsJson ? json_decode($socialsJson, true) : [
+            'facebook' => '#',
+            'twitter' => '#',
+            'linkedin' => '#',
+            'instagram' => '#',
+            'whatsapp' => '#'
+        ];
+
         $config = [
             'system_email_address' => Setting::get('system_email_address', env('MAIL_USERNAME', 'zubairyakhan48@gmail.com')),
             'mail_password' => Setting::get('mail_password', env('MAIL_PASSWORD', 'jrmgtvepotrqhrze')),
@@ -21,6 +30,7 @@ class SystemConfigurationController extends Controller
             'primary_color' => Setting::get('primary_color', '#0061ff'),
             'enable_secondary_theme' => Setting::get('enable_secondary_theme', '0'),
             'secondary_color' => Setting::get('secondary_color', '#7c3aed'),
+            'socials' => $socials,
         ];
 
         if ($config['primary_color'] === '#850f0f') {
@@ -47,6 +57,17 @@ class SystemConfigurationController extends Controller
         }
 
         Setting::set('enable_secondary_theme', $request->has('enable_secondary_theme') ? '1' : '0');
+
+        if ($request->has('socials')) {
+            $socials = [
+                'facebook' => $request->input('socials.facebook', '#'),
+                'twitter' => $request->input('socials.twitter', '#'),
+                'linkedin' => $request->input('socials.linkedin', '#'),
+                'instagram' => $request->input('socials.instagram', '#'),
+                'whatsapp' => $request->input('socials.whatsapp', '#')
+            ];
+            Setting::set('footer_socials', json_encode($socials));
+        }
 
         // Also update .env file if email or password changed so Laravel mailer uses new credentials
         $this->updateEnv([
