@@ -31,7 +31,21 @@
                     </div>
                     <div>
                         <label style="display: block; font-size: 13px; font-weight: 700; color: #64748b; margin-bottom: 8px;">Mail Password / App Password</label>
-                        <input type="password" name="mail_password" value="{{ $config['mail_password'] }}" required style="width: 100%; padding: 12px 16px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; color: #1b2559; background: #ffffff;">
+                        <div style="position: relative;">
+                            <input type="password" id="mail_password" name="mail_password" value="{{ $config['mail_password'] }}" required style="width: 100%; padding: 12px 46px 12px 16px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; color: #1b2559; background: #ffffff;">
+                            <button type="button" id="toggle_password_btn" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #94a3b8; padding: 4px; display: flex; align-items: center; justify-content: center;">
+                                <!-- Eye Icon (visible when type is password) -->
+                                <svg xmlns="http://www.w3.org/2000/svg" id="eye_icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                                <!-- Eye Off Icon (visible when type is text) -->
+                                <svg xmlns="http://www.w3.org/2000/svg" id="eye_off_icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                                </svg>
+                            </button>
+                        </div>
                         <span style="display: block; font-size: 11px; color: #94a3b8; margin-top: 6px;">🔒 This password is encrypted for security.</span>
                     </div>
                 </div>
@@ -174,6 +188,30 @@
             <li style="font-style: italic; color: #b45309; font-weight: 500;">Note: Do not include spaces when pasting; the system will handle it automatically.</li>
         </ol>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggle_password_btn');
+            const passwordInput = document.getElementById('mail_password');
+            const eyeIcon = document.getElementById('eye_icon');
+            const eyeOffIcon = document.getElementById('eye_off_icon');
+
+            if (toggleBtn && passwordInput) {
+                toggleBtn.addEventListener('click', function() {
+                    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordInput.setAttribute('type', type);
+                    
+                    if (type === 'password') {
+                        eyeIcon.style.display = 'block';
+                        eyeOffIcon.style.display = 'none';
+                    } else {
+                        eyeIcon.style.display = 'none';
+                        eyeOffIcon.style.display = 'block';
+                    }
+                });
+            }
+        });
+    </script>
 
 </div>
 @endsection
