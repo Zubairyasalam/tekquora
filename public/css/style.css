@@ -5068,4 +5068,47 @@ footer {
     grid-template-columns: 1fr !important;
     gap: 1.5rem !important;
   }
+
+  /* Glimpses Section Mobile Responsiveness */
+  .glimpses-section {
+    padding: 2.5rem 1rem 3.5rem 1rem !important;
+  }
+
+  .glimpses-title {
+    font-size: 1.95rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.75rem !important;
+    letter-spacing: -0.5px !important;
+  }
+
+  .glimpses-subtitle {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1.5rem !important;
+    padding: 0 0.5rem !important;
+  }
+
+  .glimpses-slider {
+    height: 340px !important;
+  }
+
+  .glimpse-slide {
+    width: 90% !important;
+    height: 320px !important;
+    border-radius: 1.25rem !important;
+  }
+
+  .glimpses-carousel-wrapper .nav-btn {
+    width: 38px !important;
+    height: 38px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .glimpses-carousel-wrapper .prev-btn {
+    left: 8px !important;
+  }
+
+  .glimpses-carousel-wrapper .next-btn {
+    right: 8px !important;
+  }
 }
