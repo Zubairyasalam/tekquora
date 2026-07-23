@@ -736,3 +736,10 @@ footer.admin-dashboard-footer,
         width: 100% !important;
     }
 }
+
+@media (max-width: 480px) {
+    .admin-breadcrumb-prefix,
+    .admin-breadcrumb-separator {
+        display: none !important;
+    }
+}

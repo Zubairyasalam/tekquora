@@ -145,11 +145,11 @@
                                 <line x1="3" y1="18" x2="21" y2="18"></line>
                             </svg>
                         </button>
-                        <div style="display: inline-flex; align-items: center; gap: 8px; background: #ffffff; padding: 6px 14px; border-radius: 20px; border: 1px solid #e2e8f0; width: fit-content; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+                        <div style="display: inline-flex; align-items: center; gap: 8px; background: #ffffff; padding: 6px 14px; border-radius: 20px; border: 1px solid #e2e8f0; width: fit-content; box-shadow: 0 2px 8px rgba(0,0,0,0.02); white-space: nowrap; flex-wrap: nowrap;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0061ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                            <span style="font-size: 12px; font-weight: 700; color: #64748b;">Admin Console</span>
-                            <span style="color: #cbd5e1; font-size: 10px;">❯</span>
-                            <span style="font-size: 12px; font-weight: 800; color: #0061ff;">{{ trim($__env->yieldContent('page_title')) ?: (trim($__env->yieldContent('header_title')) ?: 'Dashboard Overview') }}</span>
+                            <span class="admin-breadcrumb-prefix" style="font-size: 12px; font-weight: 700; color: #64748b; white-space: nowrap;">Admin Console</span>
+                            <span class="admin-breadcrumb-separator" style="color: #cbd5e1; font-size: 10px; white-space: nowrap;">❯</span>
+                            <span style="font-size: 12px; font-weight: 800; color: #0061ff; white-space: nowrap;">{{ trim($__env->yieldContent('page_title')) ?: (trim($__env->yieldContent('header_title')) ?: 'Dashboard Overview') }}</span>
                         </div>
                     </div>
 
