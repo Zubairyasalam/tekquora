@@ -4738,3 +4738,73 @@ footer {
     display: inline-block !important;
   }
 }
+
+/* ============================================
+   ABOUT SECTION MOBILE RESPONSIVENESS ONLY
+   ============================================ */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 2.5rem 1.25rem !important;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .about-image-column {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .about-blob-container,
+  .about-illustration-container {
+    width: 100% !important;
+    max-width: 210px !important;
+    height: auto !important;
+    aspect-ratio: 1 !important;
+    margin: 0 auto !important;
+  }
+
+  .about-image-wrapper {
+    max-width: 210px !important;
+    max-height: 210px !important;
+  }
+
+  .about-swoosh {
+    max-width: 210px !important;
+    max-height: 210px !important;
+  }
+
+  .about-white-card {
+    padding: 1.25rem !important;
+  }
+
+  .about-center-logo {
+    max-width: 130px !important;
+    height: auto !important;
+  }
+
+  .about-text-column {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .about-description p {
+    text-align: center !important;
+    font-size: 0.95rem !important;
+  }
+
+  .about-checklist {
+    width: 100% !important;
+  }
+
+  .about-checklist li {
+    text-align: left !important;
+    font-size: 0.9rem !important;
+    padding: 0.75rem 1rem !important;
+  }
+}
