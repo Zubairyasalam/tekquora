@@ -159,14 +159,14 @@
                         <h1 class="admin-page-title" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 30px; font-weight: 800; color: #1b2559; margin: 0; letter-spacing: -0.5px;">{{ trim($__env->yieldContent('page_title')) ?: (trim($__env->yieldContent('header_title')) ?: 'Dashboard Overview') }}</h1>
                     </div>
                 </div>
-                <div class="admin-header-right">
-                    <div class="admin-user-profile">
-                        <img src="https://ui-avatars.com/api/?name=Admin+User&background=4318FF&color=fff&size=40" alt="Admin" class="admin-user-avatar">
-                        <span class="admin-user-name">Admin User</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                <div class="admin-header-right" style="display: flex; align-items: center; gap: 14px;">
+                    <div class="admin-user-profile" style="background: #ffffff; padding: 6px 14px 6px 8px; border-radius: 30px; border: 1px solid #e2e8f0; box-shadow: 0 2px 8px rgba(0,0,0,0.03); display: flex; align-items: center; gap: 10px; transition: all 0.2s ease;">
+                        <img src="https://ui-avatars.com/api/?name=Admin+User&background=0061ff&color=fff&size=36&bold=true" alt="Admin" class="admin-user-avatar" style="width: 32px; height: 32px; border-radius: 50%;">
+                        <span class="admin-user-name" style="font-size: 13px; font-weight: 700; color: #0f172a;">Admin User</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                     </div>
-                    <a href="/admin/logout" class="admin-logout-btn" title="Logout">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                    <a href="/admin/logout" class="admin-logout-btn" title="Logout" style="width: 38px; height: 38px; border-radius: 12px; background: #ffffff; border: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: center; color: #64748b; box-shadow: 0 2px 8px rgba(0,0,0,0.03); transition: all 0.2s ease;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
                     </a>
                 </div>
             </header>
