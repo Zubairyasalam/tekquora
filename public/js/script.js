@@ -1,15 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Sticky Navbar shadow effect on scroll
+  // Sticky Navbar shadow effect on scroll with requestAnimationFrame throttling
   const navbar = document.querySelector('.navbar');
   
   if (navbar) {
+    let ticking = false;
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 10) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (window.scrollY > 10) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
-    });
+    }, { passive: true });
   }
 
   // Smooth Scrolling for section links
@@ -75,13 +82,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // Floating back-to-top button logic
   const scrollToTopBtn = document.getElementById('scrollToTopBtn');
   if (scrollToTopBtn) {
+    let btnTicking = false;
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        scrollToTopBtn.classList.add('visible');
-      } else {
-        scrollToTopBtn.classList.remove('visible');
+      if (!btnTicking) {
+        window.requestAnimationFrame(() => {
+          if (window.scrollY > 300) {
+            scrollToTopBtn.classList.add('visible');
+          } else {
+            scrollToTopBtn.classList.remove('visible');
+          }
+          btnTicking = false;
+        });
+        btnTicking = true;
       }
-    });
+    }, { passive: true });
 
     scrollToTopBtn.addEventListener('click', () => {
       window.scrollTo({

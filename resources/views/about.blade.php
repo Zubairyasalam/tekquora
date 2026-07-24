@@ -7,7 +7,7 @@
 <section class="about-page-hero">
     <div class="about-hero-content">
         <h1 style="font-family: var(--font-heading); font-size: 3.5rem; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 0.75rem;">{!! $aboutPageSettings['hero_title'] ?? 'About Us' !!}</h1>
-        <p style="font-family: var(--font-body); font-size: 1.25rem; opacity: 0.9; max-width: 600px; margin: 0 auto;">{{ $aboutPageSettings['hero_subtitle'] ?? 'Pioneering technology solutions and empowering digital growth since 2016.' }}</p>
+        <p style="font-family: var(--font-body); font-size: 1.25rem; opacity: 1; max-width: 600px; margin: 0 auto;">{{ $aboutPageSettings['hero_subtitle'] ?? 'Pioneering technology solutions and empowering digital growth since 2016.' }}</p>
     </div>
 </section>
 
@@ -224,9 +224,9 @@
             border: 4px solid #ffffff;
             box-shadow: 0 8px 24px rgba(108, 77, 255, 0.25), 0 0 0 1px rgba(108, 77, 255, 0.05);
             cursor: pointer;
-            opacity: 0;
-            transform: scale(0.5);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            opacity: 1;
+            transform: scale(0.85);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
         }
         
         /* Hover scale and translation */
@@ -240,7 +240,7 @@
             left: 0;
             right: 0;
             text-align: center;
-            opacity: 0;
+            opacity: 1;
         }
         
         /* Text for valley icons sits above the wave */
@@ -287,29 +287,32 @@
             animation: drawPath 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
 
-        /* Staggered entrance animations */
+        /* Staggered entrance animations - opacity kept at 1, only transform animates */
         @keyframes drawPath {
             to { stroke-dashoffset: 0; }
         }
         @keyframes scaleIn {
+            from { opacity: 1; transform: scale(0.85); }
             to { opacity: 1; transform: scale(1); }
         }
         @keyframes slideUp {
+            from { opacity: 1; transform: translateY(12px); }
             to { opacity: 1; transform: translateY(0); }
         }
         @keyframes slideDown {
+            from { opacity: 1; transform: translateY(-12px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .timeline-step:nth-child(1) .service-icon-wrap { animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards; }
-        .timeline-step:nth-child(2) .service-icon-wrap { animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s forwards; }
-        .timeline-step:nth-child(3) .service-icon-wrap { animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.0s forwards; }
-        .timeline-step:nth-child(4) .service-icon-wrap { animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.4s forwards; }
+        .timeline-step:nth-child(1) .service-icon-wrap { animation: scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s forwards; }
+        .timeline-step:nth-child(2) .service-icon-wrap { animation: scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.25s forwards; }
+        .timeline-step:nth-child(3) .service-icon-wrap { animation: scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s forwards; }
+        .timeline-step:nth-child(4) .service-icon-wrap { animation: scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.55s forwards; }
 
-        .timeline-step:nth-child(1) .step-text-top { transform: translateY(20px); animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards; }
-        .timeline-step:nth-child(2) .step-text-bottom { transform: translateY(-20px); animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards; }
-        .timeline-step:nth-child(3) .step-text-top { transform: translateY(20px); animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards; }
-        .timeline-step:nth-child(4) .step-text-bottom { transform: translateY(-20px); animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.6s forwards; }
+        .timeline-step:nth-child(1) .step-text-top { animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards; }
+        .timeline-step:nth-child(2) .step-text-bottom { animation: slideDown 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards; }
+        .timeline-step:nth-child(3) .step-text-top { animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards; }
+        .timeline-step:nth-child(4) .step-text-bottom { animation: slideDown 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards; }
         
         @media (max-width: 900px) {
             .values-main-title {

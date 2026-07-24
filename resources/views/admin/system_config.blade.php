@@ -150,6 +150,39 @@
                 </div>
             </div>
 
+            <!-- 4. Change Admin Login Credentials -->
+            <div style="margin-bottom: 40px;">
+                <h3 style="font-size: 18px; font-weight: 800; color: #1b2559; display: flex; align-items: center; gap: 10px; margin-bottom: 24px; border-bottom: 1px solid #f1f5f9; padding-bottom: 12px;">
+                    <span style="color: #0061ff;">🔑</span> Admin Login Credentials
+                </h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 700; color: #64748b; margin-bottom: 8px;">Admin Login Email ID</label>
+                        <input type="email" name="admin_login_email" value="{{ $config['admin_login_email'] }}" required style="width: 100%; padding: 12px 16px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; color: #1b2559; background: #ffffff;">
+                        <span style="display: block; font-size: 11px; color: #94a3b8; margin-top: 6px;">Email address used to log into the Admin Console.</span>
+                    </div>
+
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 700; color: #64748b; margin-bottom: 8px;">New Admin Password</label>
+                        <div style="position: relative;">
+                            <input type="password" id="new_admin_password" name="admin_password" placeholder="Enter new admin password" style="width: 100%; padding: 12px 46px 12px 16px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; color: #1b2559; background: #ffffff;">
+                            <button type="button" id="toggle_admin_password_btn" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #94a3b8; padding: 4px; display: flex; align-items: center; justify-content: center;">
+                                <svg xmlns="http://www.w3.org/2000/svg" id="admin_eye_icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" id="admin_eye_off_icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                                </svg>
+                            </button>
+                        </div>
+                        <span style="display: block; font-size: 11px; color: #94a3b8; margin-top: 6px;">Leave blank if you do not wish to change your password.</span>
+                    </div>
+                </div>
+            </div>
+
             <!-- Submit Button -->
             <div style="padding-top: 10px;">
                 <button type="submit" style="background-color: #0061ff; color: #ffffff; font-size: 15px; font-weight: 800; padding: 14px 36px; border-radius: 10px; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(0, 97, 255, 0.3); transition: background 0.2s;">
@@ -178,6 +211,26 @@
                     } else {
                         eyeIcon.style.display = 'none';
                         eyeOffIcon.style.display = 'block';
+                    }
+                });
+            }
+
+            const adminToggleBtn = document.getElementById('toggle_admin_password_btn');
+            const adminPasswordInput = document.getElementById('new_admin_password');
+            const adminEyeIcon = document.getElementById('admin_eye_icon');
+            const adminEyeOffIcon = document.getElementById('admin_eye_off_icon');
+
+            if (adminToggleBtn && adminPasswordInput) {
+                adminToggleBtn.addEventListener('click', function() {
+                    const type = adminPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    adminPasswordInput.setAttribute('type', type);
+                    
+                    if (type === 'password') {
+                        adminEyeIcon.style.display = 'block';
+                        adminEyeOffIcon.style.display = 'none';
+                    } else {
+                        adminEyeIcon.style.display = 'none';
+                        adminEyeOffIcon.style.display = 'block';
                     }
                 });
             }

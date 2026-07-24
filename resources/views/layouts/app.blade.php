@@ -31,7 +31,7 @@
             @endif
         }
         @if(isset($systemConfig['enable_secondary_theme']) && $systemConfig['enable_secondary_theme'] == '1')
-        .navbar, .footer {
+        .footer {
             border-bottom: 3px solid {{ $systemConfig['secondary_color'] ?? '#7c3aed' }} !important;
         }
         @endif

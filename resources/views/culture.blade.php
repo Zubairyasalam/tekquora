@@ -163,8 +163,8 @@
         background: transparent;
         border: none;
         box-shadow: none;
-        opacity: 0.55;
-        transition: opacity 0.3s ease, transform 0.3s ease;
+        opacity: 1;
+        transition: transform 0.3s ease;
         cursor: pointer;
     }
     

@@ -24,12 +24,10 @@ class AdminAuthController extends Controller
             'password' => 'required',
         ]);
 
-        $credentials = [
-            'email' => 'admin@tekquora.com',
-            'password' => 'admin',
-        ];
+        $expectedEmail = \App\Models\Setting::get('admin_login_email', 'admin@tekquora.com');
+        $expectedPassword = \App\Models\Setting::get('admin_password', 'admin');
 
-        if ($request->email === $credentials['email'] && $request->password === $credentials['password']) {
+        if ($request->email === $expectedEmail && $request->password === $expectedPassword) {
             Session::put('admin_logged_in', true);
             Session::put('admin_email', $request->email);
             

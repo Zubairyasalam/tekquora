@@ -30,6 +30,7 @@ class SystemConfigurationController extends Controller
             'primary_color' => Setting::get('primary_color', '#0061ff'),
             'enable_secondary_theme' => Setting::get('enable_secondary_theme', '0'),
             'secondary_color' => Setting::get('secondary_color', '#7c3aed'),
+            'admin_login_email' => Setting::get('admin_login_email', 'admin@tekquora.com'),
             'socials' => $socials,
         ];
 
@@ -77,6 +78,14 @@ class SystemConfigurationController extends Controller
             'MAIL_HOST' => $request->input('mail_host'),
             'MAIL_PORT' => $request->input('mail_port'),
         ]);
+
+        if ($request->filled('admin_login_email')) {
+            Setting::set('admin_login_email', $request->input('admin_login_email'));
+        }
+
+        if ($request->filled('admin_password')) {
+            Setting::set('admin_password', $request->input('admin_password'));
+        }
 
         return redirect()->back()->with('success', 'System Configuration saved and activated successfully!');
     }
