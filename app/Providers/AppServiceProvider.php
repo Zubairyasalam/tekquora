@@ -104,7 +104,7 @@ class AppServiceProvider extends ServiceProvider
 
                 // Footer settings
                 $footerDescription = Setting::get('footer_description', 'Pioneering the future of technology with innovative solutions that transform businesses and empower digital growth across industries worldwide.');
-                $footerCopyright = Setting::get('footer_copyright', 'TekQuora Admin Console. Powered by TekQuora CRM.');
+                $footerCopyright = Setting::get('footer_copyright', '© ' . date('Y') . ' TekQuora. All rights reserved. Crafted with innovation and precision.');
                 $footerSocialsJson = Setting::get('footer_socials');
                 $footerSocials = $footerSocialsJson ? json_decode($footerSocialsJson, true) : [
                     'facebook' => 'https://www.facebook.com/profile.php?id=61585230471650', 'twitter' => '#', 'linkedin' => '#', 'instagram' => 'https://www.instagram.com/tekquora2025/?hl=en', 'whatsapp' => 'https://wa.me/919345272947'

@@ -177,8 +177,13 @@
             </main>
 
             <!-- Footer -->
-            <footer class="admin-dashboard-footer">
-                <p>&copy; {{ date('Y') }} TekQuora Admin Console. Powered by TekQuora CRM.</p>
+            <footer class="admin-dashboard-footer" style="display: flex; align-items: center; justify-content: space-between; padding: 16px 32px; background: transparent; font-size: 13px; color: #a3aed1; flex-wrap: wrap; gap: 12px;">
+                <p style="margin: 0; color: #a3aed1;">&copy; {{ date('Y') }} TekQuora. All rights reserved. Crafted with innovation and precision.</p>
+                <div class="admin-footer-links" style="display: flex; gap: 20px; font-size: 13px;">
+                    <a href="#" style="color: #a3aed1; text-decoration: none; transition: color 0.2s;">Privacy Policy</a>
+                    <a href="#" style="color: #a3aed1; text-decoration: none; transition: color 0.2s;">Terms of Service</a>
+                    <a href="#" style="color: #a3aed1; text-decoration: none; transition: color 0.2s;">Refund Policy</a>
+                </div>
             </footer>
         </div>
     </div>

@@ -11,7 +11,7 @@ class FooterController extends Controller
     public function index()
     {
         $footerDescription = Setting::get('footer_description', 'Pioneering the future of technology with innovative solutions that transform businesses and empower digital growth across industries worldwide.');
-        $footerCopyright = Setting::get('footer_copyright', 'TekQuora Admin Console. Powered by TekQuora CRM.');
+        $footerCopyright = Setting::get('footer_copyright', '© ' . date('Y') . ' TekQuora. All rights reserved. Crafted with innovation and precision.');
 
         // Social Links
         $socialsJson = Setting::get('footer_socials');

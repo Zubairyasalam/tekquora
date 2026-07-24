@@ -162,8 +162,13 @@
             </div>
         </div>
 
-        <div class="footer-bottom">
-            <p>{{ $footerSettings['copyright'] ?? '© ' . date('Y') . ' TekQuora. All rights reserved.' }}</p>
+        <div class="footer-bottom" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; width: 100%; max-width: 1200px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08);">
+            <p style="margin: 0;">{{ $footerSettings['copyright'] ?? '© ' . date('Y') . ' TekQuora. All rights reserved. Crafted with innovation and precision.' }}</p>
+            <div class="footer-bottom-links" style="display: flex; gap: 1.5rem; font-size: 0.9rem;">
+                <a href="#" style="color: inherit; text-decoration: none; opacity: 0.8;">Privacy Policy</a>
+                <a href="#" style="color: inherit; text-decoration: none; opacity: 0.8;">Terms of Service</a>
+                <a href="#" style="color: inherit; text-decoration: none; opacity: 0.8;">Refund Policy</a>
+            </div>
         </div>
     </footer>
     @endif
